@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#nav {
+    height: 65px;
+    width: 100%;
+    background-color: #c4c4c469;
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+}
+
+.navtext img {
+    height: 40px;
+    position: absolute;
+    top: 15px;
+    left: 20px;
+}
+
+.navbtn {
+    height: 40px;
+    width: auto;
+    border: none;
+    background-color: rgb(255, 106, 0);
+    color: #fff;
+    width: 100px;
+    font-size: 13pt;
+    position: absolute;
+    top: 13px;
+    right: 30px;
+    cursor: pointer;
+}
+
+.maincontect {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.gallery {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    display: grid;
+    grid-gap: 15px;
+    width: 90%;
+    margin: 0 auto;
+
+}
+
+.photo {
+    border: 1px solid #4680ff;
+    padding: 10px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.photo .imgdata{
+    width: 100%;
+    height: auto;
+    object-fit: cover; 
+     display: block;
+    border-radius: 10px;
+    
+}
+
+.gallery {
+    column-count: 4; 
+    column-gap: 15px;
+}
+.user{
+    padding: 10px;
+    background-color: rgb(245, 240, 240);
+    height: 50px;
+    margin: 10px;
+    display: flex;
+}
+.userimg{
+    height: 50px;
+    width: 50px;
+    border-radius: 100px;
+   
+}
+.content {
+    padding: 10px;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+@media (max-width: 1024px) {
+    .gallery {
+        column-count: 2; 
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery {
+        column-count: 1; 
+    }
+}
