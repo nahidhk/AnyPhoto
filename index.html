@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style/style.main.css">
     <meta charset="UTF-8">
@@ -10,32 +11,40 @@
 </head>
 
 <body>
+    <div id="account" class="account">
+        <div id="step1" class="step">
+            <label>Name</label><br>
+            <input id="username" title="input Your Name" type="text" placeholder="Input Your Name"><br>
+            <button onclick="loginnext()">Next</button>
+        </div>
+        <div id="step2" class="step vcc">
+            <form action="/php/account.php" method="POST">
+                <label>Upload Profile Photo</label><br>
+                <input oninput="upimg()" type="file" name="phto" id="photo" accept="image/*"><br>
+                <center>
+                    <img id="showprofile" style="height: 100px;width: 100px;border-radius: 100px;" /><br>
+                </center>
+                <button onclick="loginany()">Login</button>
+            </form>
+        </div>
+    </div>
+
     <div id="nav">
         <span class="navtext">
             <img src="img/logo.png" /> </span>
-        <button class="navbtn"><i class="bi bi-upload"></i> Upload</button>
+        <button onclick="uploadphoto()" class="navbtn"><i class="bi bi-upload"></i> Upload</button>
     </div>
     <br><br><br><br>
     <section class="maincontect">
-        <div class="gallery">
-            <div class="photo">
-                <div class="user">
-                    <img src="https://www.responsibletravel.com/images/travel-team-1.jpg" alt="" class="userimg">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<p><strong>The One Name</strong></p>
-                </div>
-                <div class="content">
-                    <p>
-                        
-                    </p>
-                </div>
-                <img class="imgdata" src="https://burst.shopifycdn.com/photos/man-hiking-in-mountains.jpg?width=1000&format=pjpg&exif=0&iptc=0">
-            </div>           
+        <div class="main">
+            <!-- the load js -->
+            <div id="app"></div>
         </div>
-        
+
     </section>
     <br><br>
     <center>
-      code By 🩵 <a href="https://github.com/nahidhk">nahidhk</a>
+        code By 🩵 <a href="https://github.com/nahidhk">nahidhk</a>
     </center>
     <script src="javascript/script.js"></script>
 </body>
