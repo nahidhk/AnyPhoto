@@ -1,6 +1,6 @@
 async function displayData() {
     try {
-        const response = await fetch("/data/user.json");
+        const response = await fetch("/php/user.json");
         const data = await response.json();
         const dataContainer = document.getElementById('app');
 
@@ -8,19 +8,19 @@ async function displayData() {
             throw new Error("Element with id 'data-container' not found.");
         }
 
-        // Loop through the data and display it
+       
         data.forEach(item => {
             const itemElement = document.createElement('div');
             itemElement.innerHTML = `
            <div class="photo">
             <div class="user">
-                <img src="/data/${item.userimg}" alt="${item.username}" class="userimg">
+                <img src="/php/data/${item.userimg}" alt="${item.username}" class="userimg">
                 <p style="font-size: large;">&nbsp;&nbsp;&nbsp;<b><span>${item.username}</span></b></p>
             </div>
             <blockquote>
-               ${item.about}
+               ${item.title}
             </blockquote>
-            <img src="data/${item.photo}" alt="" class="imgdata">
+            <img src="/php/data/${item.img}" alt="${item.username}" class="imgdata">
         </div>
             `;
 
@@ -43,7 +43,6 @@ function loginnext() {
     }
 
 }
-
 
 function upimg() {
     const photo = document.getElementById("photo").files[0];

@@ -18,9 +18,9 @@
             <button onclick="loginnext()">Next</button>
         </div>
         <div id="step2" class="step vcc">
-            <form action="/php/account.php" method="POST">
+            <form action="/php/account.php" method="POST" enctype="multipart/form-data">
                 <label>Upload Profile Photo</label><br>
-                <input oninput="upimg()" type="file" name="phto" id="photo" accept="image/*"><br>
+                <input oninput="upimg()" type="file" name="photo" id="photo" accept="image/*"><br>
                 <center>
                     <img id="showprofile" style="height: 100px;width: 100px;border-radius: 100px;" /><br>
                 </center>

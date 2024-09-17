@@ -14,9 +14,13 @@
     <div id="nav">
         <span class="navtext">
             <img src="/img/logo.png" /> </span>
-        <button onclick="window.location='/'" class="navbtn"><i class="bi bi-upload"></i> Home</button>
+        <button onclick="window.location='/'" class="navbtn"><i class="bi bi-house-door"></i> Home</button>
     </div>
-    <br><br><br><br>
+    <br><br><br>
+    <div >
+        <h1> button box</h1>
+       <button>Botto box</button>
+    </div>
     <blockquote>
         <h1>
             Upload Your Photo
@@ -26,7 +30,7 @@
                 <img src="/upload/appicon.png" alt="" class="userimg">
                 <p><b> &nbsp;&nbsp;&nbsp;<span id="usernameshow"></span></b></p>
             </div>
-            <form action="" method="post">
+            <form action="/php/upload.php" method="post" enctype="multipart/form-data">
                 <label for="username">Account Info</label><br>
                 <div onclick="noteditmass()" class="infobox">
                     <input id="nameuser" type="text" class="acin" name="username"><input id="imguser" type="text"
@@ -36,9 +40,9 @@
                     <label for="title"></label>
                     <textarea class="titlehere" type="text" name="title" placeholder="Title Here..."></textarea>
                     <label for="photo"></label>
-                    <input oninput="showimgfx()" class="inputx" type="file" name="" id="photofa" required accept="image/*">
+                    <input oninput="showimgfx()" class="inputx" type="file" name="photo" id="photofa" required accept="image/*">
                     <img id="myimge" class="imgdata" alt="">
-                    <button class="btn">Upload</button>
+                    <button class="btn"><i class="bi bi-upload"></i> Upload</button>
                 </div>
             </form>
         </div>
