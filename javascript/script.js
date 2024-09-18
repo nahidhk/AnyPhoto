@@ -8,7 +8,7 @@ async function displayData() {
             throw new Error("Element with id 'data-container' not found.");
         }
 
-       
+
         data.forEach(item => {
             const itemElement = document.createElement('div');
             itemElement.innerHTML = `
@@ -53,8 +53,8 @@ function upimg() {
             document.getElementById("showprofile").src = e.target.result;
         };
         reader.readAsDataURL(photo);
-        const filePath = photo.name;  
-        localStorage.setItem("userimg", filePath); 
+        const filePath = photo.name;
+        localStorage.setItem("userimg", filePath);
     } else {
         alert("Please select an image.");
     }
@@ -70,4 +70,29 @@ function loginany() {
 }
 function uploadphoto() {
     window.location.href = "/upload";
+
 }
+function openthephotobox() {
+    document.getElementById("app").style.display = "block";
+    document.getElementById("videoapp").style.display = "none";
+    document.getElementById("photobtn").classList = "systembtn active";
+    document.getElementById("videobtn").classList = "systembtn noactive";
+    localStorage.setItem("butttontype", "photo");
+}
+function openthevideobox() {
+    document.getElementById("app").style.display = "none";
+    document.getElementById("videoapp").style.display = "block";
+    document.getElementById("photobtn").classList = "systembtn noactive";
+    document.getElementById("videobtn").classList = "systembtn active";
+    localStorage.setItem("butttontype", "video");
+}
+function autobuttonset() {
+    const autobtn = localStorage.getItem("butttontype");
+    if (autobtn == "video") {
+        openthevideobox();
+    }
+    if (autobtn == "photo") {
+        openthephotobox();
+    }
+}
+autobuttonset();

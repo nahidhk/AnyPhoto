@@ -8,7 +8,7 @@ body {
     width: 100%;
     background-color: #c4c4c469;
     backdrop-filter: blur(10px);
-    position: fixed;
+    position: sticky;
     top: 0;
 }
 
@@ -150,7 +150,33 @@ body {
     border: none;
     font-family: monospace;
 }
+.button-box{
+    background-color:#dcdcdc;
+    padding: 10px;
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
 
+.systembtn{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    height: auto;
+    border: none;
+    padding: 10px;
+    font-size: large;
+    cursor: pointer;
+    width: 150px;
+    margin-left:13px ;
+}
+.active{
+    background-color: #ff2600;  
+    color: #fff;
+}
+.noactive{
+    background-color: #ed9686;
+    color: #fff;
+}
 
 
 

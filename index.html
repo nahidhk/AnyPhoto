@@ -34,11 +34,15 @@
             <img src="img/logo.png" /> </span>
         <button onclick="uploadphoto()" class="navbtn"><i class="bi bi-upload"></i> Upload</button>
     </div>
-    <br><br><br><br>
+<div class="button-box">
+        <button id="photobtn" onclick="openthephotobox()" class="systembtn active">Photo</button>
+        <button id="videobtn" onclick="openthevideobox()" class="systembtn noactive">Videio</button>
+</div>
     <section class="maincontect">
         <div class="main">
             <!-- the load js -->
             <div id="app"></div>
+            <div id="videoapp"></div>
         </div>
 
     </section>
@@ -47,6 +51,7 @@
         code By 🩵 <a href="https://github.com/nahidhk">nahidhk</a>
     </center>
     <script src="javascript/script.js"></script>
+    <script src="javascript/video.js"></script>
 </body>
 
 </html>
