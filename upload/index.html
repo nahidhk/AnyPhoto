@@ -13,38 +13,64 @@
 <body>
     <div id="nav">
         <span class="navtext">
-            <img src="/img/logo.png" /> </span>
-        <button onclick="window.location='/'" class="navbtn"><i class="bi bi-house-door"></i> Home</button>
-    </div>
-    <div class="button-box">
-        <button id="photobtn" class="systembtn active">Photo</button>
-        <button id="videobtn" onclick="alert('Sorry, the video upload system has not been launched yet. Please wait for next update')" class="systembtn noactive">Videio</button>
-</div>
-    <blockquote>
-        <h1>
-            Upload Your Photo
-        </h1>
-        <div class="photo">
-            <div class="user">
-                <img src="/upload/appicon.png" alt="" class="userimg">
-                <p><b> &nbsp;&nbsp;&nbsp;<span id="usernameshow"></span></b></p>
-            </div>
-            <form action="/php/upload.php" method="post" enctype="multipart/form-data">
-                <label for="username">Account Info</label><br>
-                <div onclick="noteditmass()" class="infobox">
-                    <input id="nameuser" type="text" class="acin" name="username"><input id="imguser" type="text"
-                        class="acin" name="userimg">
-                </div><br><br>
-                <div class="main">
-                    <label for="title"></label>
-                    <textarea class="titlehere" type="text" name="title" placeholder="Title Here..."></textarea>
-                    <label for="photo"></label>
-                    <input oninput="showimgfx()" class="inputx" type="file" name="photo" id="photofa" required accept="image/*">
-                    <img id="myimge" class="imgdata" alt="">
-                    <button class="btn"><i class="bi bi-upload"></i> Upload</button>
-                </div>
-            </form>
+            <img src="/img/icon.png" /> </span>
+        <div class="button-box">
+            <button id="photobtn" class="systembtn active">
+                <span class="mbicon">
+                    <i class="bi bi-images"></i>
+                </span>
+                <span class="mbtext">Photo</span>
+            </button>
+            <button id="videobtn"
+                onclick="alert('Sorry, the video upload system has not been launched yet. Please wait for next update')"
+                class="systembtn noactive">
+                <span class="mbicon">
+                    <i class="bi bi-camera-video"></i></span>
+                <span class="mbtext">Video</span>
+            </button>
+            <button onclick="window.location='/'" class="navbtn systembtn ">
+                <span class="mbicon">
+                    <i class="bi bi-house-door"></i>
+                </span>
+                <span class="mbtext"> <i class="bi bi-house-door"></i> Home</span>
+            </button>
         </div>
+
+    </div>
+
+    <div class="maincontect">
+        <div class="main">
+            <blockquote>
+                <h1>
+                    Upload Your Photo
+                </h1>
+                <div class="photo">
+                    <div class="user">
+                        <img src="/img/usericon.png" alt="" class="userimg">
+                        <p><b> &nbsp;&nbsp;&nbsp;<span id="usernameshow"></span></b></p>
+                    </div>
+                    <form action="/php/upload.php" method="post" enctype="multipart/form-data">
+                        <label for="username">Account Info</label><br>
+                        <div onclick="noteditmass()" class="infobox">
+                            <input id="nameuser" type="text" class="acin" name="username"><input id="imguser"
+                                type="text" class="acin" name="userimg">
+                        </div><br><br>
+                 
+                            <label for="title"></label>
+                            <textarea class="titlehere" type="text" name="title" placeholder="Title Here..."></textarea>
+                            <label for="photo"></label>
+                            <input oninput="showimgfx()" class="inputx" type="file" name="photo" id="photofa" required
+                                accept="image/*">
+                            <img id="myimge" class="imgdata" alt="">
+                            <br>
+                            <center>
+                                <button class="btn systembtn"><i class="bi bi-upload"></i> Upload</button>
+                            </center>
+                        </div>
+                    </form>
+                </div>
+        </div>
+    </div>
     </blockquote>
     <br><br>
     <center>

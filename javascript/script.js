@@ -1,27 +1,33 @@
-async function displayData() {
+async function displayData(searchInput = '') {
     try {
         const response = await fetch("/php/user.json");
         const data = await response.json();
         const dataContainer = document.getElementById('app');
 
         if (!dataContainer) {
-            throw new Error("Element with id 'data-container' not found.");
+            throw new Error("Element with id 'app' not found.");
         }
 
+        dataContainer.innerHTML = '';
 
-        data.forEach(item => {
+        const filteredData = data.filter(item =>
+            item.username.toLowerCase().includes(searchInput.toLowerCase()) ||
+            item.title.toLowerCase().includes(searchInput.toLowerCase())
+        );
+
+        filteredData.forEach(item => {
             const itemElement = document.createElement('div');
             itemElement.innerHTML = `
-           <div class="photo">
-            <div class="user">
-                <img src="/php/data/${item.userimg}" alt="${item.username}" class="userimg">
-                <p style="font-size: large;">&nbsp;&nbsp;&nbsp;<b><span>${item.username}</span></b></p>
-            </div>
-            <blockquote>
-               ${item.title}
-            </blockquote>
-            <img src="/php/data/${item.img}" alt="${item.username}" class="imgdata">
-        </div>
+                <div class="photo">
+                    <div class="user">
+                        <img src="/php/data/${item.userimg}" alt="${item.username}" class="userimg">
+                        <p style="font-size: large;">&nbsp;&nbsp;&nbsp;<b><span>${item.username}</span></b></p>
+                    </div>
+                    <blockquote>
+                       ${item.title}
+                    </blockquote>
+                    <img src="/php/data/${item.img}" alt="${item.username}" class="imgdata">
+                </div>
             `;
 
             dataContainer.appendChild(itemElement);
@@ -30,7 +36,14 @@ async function displayData() {
         console.error('data error', error);
     }
 }
-displayData();
+
+function searchData() {
+    const searchInput = document.getElementById("search").value;
+    displayData(searchInput);
+}
+
+displayData(); 
+
 
 function loginnext() {
     const username = document.getElementById("username").value;
@@ -96,3 +109,11 @@ function autobuttonset() {
     }
 }
 autobuttonset();
+function accessbtn(){
+    alert("You Have Allow The Server Access");
+    window.location.href="https://github.com/nahidhk/anyphoto"
+}
+
+function systemserch(){
+    document.getElementById("search").classList="search animate__bounceIn animate__animated ";
+}
