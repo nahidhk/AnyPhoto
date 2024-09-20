@@ -29,8 +29,25 @@ async function displayData(searchInput = '') {
                     <img src="/php/data/${item.img}" alt="${item.username}" class="imgdata">
                     <div class="sherarsystem">              
     <div class="aptmain">
-        <a class="shearicon"><i class="bi bi-braces-asterisk"></i></a>
+        <a onclick="opencopycodebox()" class="shearicon"><i class="bi bi-braces-asterisk"></i></a>
         <a href="/php/data/${item.img}?photo shear apx nodeJs backend photo only apx javascript markup php Zoom#api jsxpio xapi=Servaer AppOn The FaceApp = Shear:${item.username};" class="shearicon"><i class="bi bi-link-45deg"></i></a>
+    </div>
+      <div id="codecopybox" class="vcc">
+        <textarea id="mycode">  
+     <div id="showimg"></div>
+    <script>
+        const showimg = document.querySelector("#showimg");
+        const apiimgid = document.createElement("img");
+        let webserver = "https://anyface.readyoffercareer.com"
+        let api = "/php/data/";
+        let photoid = "${item.img}";
+        apiimgid.src =webserver+api+photoid;
+        username.appendChild(apiimgid);
+    </script>
+        </textarea>
+        <center><br>
+        <button onclick="copycode()" id="copybtn" class="systembtn">copy</button>
+        </center>
     </div>
                 </div>
             `;
@@ -43,12 +60,15 @@ async function displayData(searchInput = '') {
 }
 
 function searchData() {
-    const searchInput = document.getElementById("search").value;
-    displayData(searchInput);
+    const searchInput1 = document.querySelector("#search1").value;
+    const searchInput2 = document.querySelector("#search2").value;
+    displayData(searchInput1+searchInput2);
 }
 
 displayData();
-
+function opencopycodebox(){
+    document.getElementById("codecopybox").classList="codecopybox";
+}
 
 function loginnext() {
     const username = document.getElementById("username").value;
@@ -120,10 +140,33 @@ function accessbtn() {
 }
 
 function systemserch() {
-    document.getElementById("search").classList = "search animate__bounceIn animate__animated ";
+    document.getElementById("search2").classList = "search animate__bounceIn animate__animated ";
 }
 
 function closepopup() {
     var menuappshowdiv = document.getElementById("myappjstoopenuserlist");
     menuappshowdiv.classList = "vcc";
 }
+function closetop(){
+    document.getElementById("codecopybox").classList="vcc";
+}
+function copycode() {
+    setTimeout(closetop,500);
+    var copyText = document.getElementById("mycode");
+    if (!copyText) {
+        alert("Element not found.");
+        return;
+    }
+    if (copyText.tagName === "INPUT" || copyText.tagName === "TEXTAREA") {
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(copyText.value).then(function() {
+        document.getElementById("copybtn").innerHTML='<i class="bi bi-clipboard-check" style="font-size: large;"></i>'
+        }).catch(function(err) {
+            alert("Failed to copy code: " + err);
+        });
+    } else {
+        alert("This code is not copy");
+    }
+}
+
