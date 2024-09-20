@@ -240,6 +240,25 @@ height: auto;
     height: 500px;
     width: 100%;
 }
+.sherarsystem{
+    background-color: rgb(233, 233, 233);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+.aptmain{
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+}
+.shearicon{
+    background-color: rgb(0, 0, 0);
+    padding: 10px;
+    border-radius: 100px;
+   color: #fff;
+   font-size: large;
+   cursor: pointer;
+}
 @media (max-width: 768px) {
     .search{
         width: 90%;
@@ -265,5 +284,20 @@ height: auto;
     }
     .mbtext{
         display: none;
+    }
+    .mbtopuser{
+        display: block;
+        width: 80%;
+        background-color: #fff;
+        padding: 20px;
+        margin: 20px;
+        height: 80vh;
+        overflow: scroll;
+    }
+    .closebtn{
+        background-color: red;
+        color: #fff;
+        width: 50px;
+       
     }
 }

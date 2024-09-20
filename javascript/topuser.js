@@ -2,37 +2,47 @@ async function topuser() {
     try {
         const response = await fetch("/php/user.json");
         const topuser = await response.json();
-        const dataContainerontopuser = document.getElementById('topuser');
+        const dataContainerontopuser = document.querySelectorAll('.topuser, .topuser2');
 
-        if (!dataContainerontopuser) {
-            throw new Error("Element with id 'topuser' not found.");
+        if (dataContainerontopuser.length === 0) {
+            throw new Error("Elements with classes 'topuser' or 'topuser2' not found.");
         }
 
-        let shownUsers = []; // ইউজারনেম ট্র্যাক করার জন্য অ্যারে
+        let shownUsers = []; 
 
         topuser.forEach(item => {
-            // চেক করা হচ্ছে ইউজারনেমটি আগেই দেখানো হয়েছে কিনা
+          
             if (!shownUsers.includes(item.username)) {
-                shownUsers.push(item.username); // যদি না থাকে, তাহলে অ্যারেতে যোগ করা হচ্ছে
-
+                shownUsers.push(item.username); 
                 const itemElementtopuser = document.createElement('div');
                 itemElementtopuser.innerHTML = `
-                <div class="user">
+                <div class="user" onclick="apicall()">
                     <img src="/php/data/${item.userimg}" alt="${item.username}" class="userimg">
                     <p style="font-size: large;">&nbsp;&nbsp;&nbsp;<b><span>${item.username}</span></b></p>
-                </div>
+                </div>  
                 `;
-
-                dataContainerontopuser.appendChild(itemElementtopuser);
+              
+                dataContainerontopuser.forEach(container => {
+                    container.appendChild(itemElementtopuser.cloneNode(true)); 
+                });
             }
         });
     } catch (error) {
         console.error('data error', error);
     }
+  
 }
 
 topuser();
+function userlistopensystemtop(){
+    var menuappshowdiv = document.getElementById("myappjstoopenuserlist");
+    menuappshowdiv.classList="mbtopuser animate__jackInTheBox animate__animated";
+}
+function colesthemenulist(){
+var menuappshowdiv = document.getElementById("myappjstoopenuserlist");
+    menuappshowdiv.classList="vcc";
+}
 
-
-
-
+function apicall(){
+alert("Please search this name. And see all photos and videos of this profile.")
+}

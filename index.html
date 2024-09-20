@@ -14,7 +14,7 @@
     <title>AnyFace</title>
 </head>
 
-<body>
+<body onscroll="closepopup()">
     <div id="account" class="account">
         <div id="step1" class="step">
             <label>Name</label><br>
@@ -34,8 +34,10 @@
     </div>
 
     <div id="nav">
-        <span class="navtext">
+        <span class="navtext mbtext">
             <img src="img/logo.png" /> </span>
+            <span class="navtext mbicon">
+                <img src="img/icon.png" /> </span>
         <div class="button-box">
             <button id="photobtn" onclick="openthephotobox()" class="systembtn active">
                 <span class="mbicon">
@@ -48,7 +50,7 @@
                     <i class="bi bi-camera-video"></i></span>
                 <span class="mbtext">Video</span>
             </button>
-            <button onclick="systemserch()" class="systembtn noactive mbicon">
+            <button onclick="systemserch()" class="systembtn navbtn mbicon">
                 <span class="mbicon">
                     <i class="bi bi-search"></i>
                 </span>
@@ -58,12 +60,26 @@
                     <i class="bi bi-upload"></i></span>
                 <span class="mbtext"><i class="bi bi-upload"></i> Upload</span>
             </button>
+            <button onclick="userlistopensystemtop()" class="systembtn navbtn mbicon">
+                <span class="mbicon">
+                    <i class="bi bi-menu-button"></i>
+                </span>
+            </button>
         </div>
+    </div>
+    <div id="myappjstoopenuserlist" class="vcc">
+        <center>
+        <button onclick="colesthemenulist()" class="systembtn closebtn">
+          <i class="bi bi-x-circle"></i>
+        </button>
+    </center>
+        <div class="topuser"></div>
     </div>
     <br>
     <center>
         <input oninput="searchData()" type="search" id="search" class="search vcc" placeholder="Search by Your Name">
     </center>
+
     <section class="maincontect">
         <div class="sidemain left">
             <div class="photo"><img src="img/accaces.gif" alt="" class="imgdata"><br>
@@ -75,7 +91,7 @@
                 <h2>Top Post User</h2>
                 <hr>
                 <div class="userlist">
-                    <div id="topuser"></div>
+                    <div class="topuser2"></div>
                 </div>
             </blockquote>
         </div>
@@ -115,3 +131,5 @@
 </body>
 
 </html>
+
+<textarea></textarea>

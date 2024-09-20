@@ -27,6 +27,11 @@ async function displayData(searchInput = '') {
                        ${item.title}
                     </blockquote>
                     <img src="/php/data/${item.img}" alt="${item.username}" class="imgdata">
+                    <div class="sherarsystem">              
+    <div class="aptmain">
+        <a class="shearicon"><i class="bi bi-braces-asterisk"></i></a>
+        <a href="/php/data/${item.img}?photo shear apx nodeJs backend photo only apx javascript markup php Zoom#api jsxpio xapi=Servaer AppOn The FaceApp = Shear:${item.username};" class="shearicon"><i class="bi bi-link-45deg"></i></a>
+    </div>
                 </div>
             `;
 
@@ -42,7 +47,7 @@ function searchData() {
     displayData(searchInput);
 }
 
-displayData(); 
+displayData();
 
 
 function loginnext() {
@@ -109,11 +114,16 @@ function autobuttonset() {
     }
 }
 autobuttonset();
-function accessbtn(){
+function accessbtn() {
     alert("You Have Allow The Server Access");
-    window.location.href="https://github.com/nahidhk/anyphoto"
+    window.location.href = "https://github.com/nahidhk/anyphoto"
 }
 
-function systemserch(){
-    document.getElementById("search").classList="search animate__bounceIn animate__animated ";
+function systemserch() {
+    document.getElementById("search").classList = "search animate__bounceIn animate__animated ";
+}
+
+function closepopup() {
+    var menuappshowdiv = document.getElementById("myappjstoopenuserlist");
+    menuappshowdiv.classList = "vcc";
 }
