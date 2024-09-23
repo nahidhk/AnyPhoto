@@ -5,6 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
     $title = $_POST["title"];
     $username = $_POST["username"];
     $userimg = $_POST["userimg"];
+    $date =$_POST["date"];
     
  
     $maxFileSize = 10 * 1024 * 1024;
@@ -35,6 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
             }
 
             $newData = [
+                "date" => $date,
                 "username" => $username,
                 "userimg" => $userimg,
                 "title" => $title,

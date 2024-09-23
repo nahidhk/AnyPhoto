@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="/style/style.main.css">
@@ -40,7 +42,6 @@
 
     <div class="maincontect">
         <div class="main">
-            <blockquote>
                 <h1>
                     Upload Your Photo
                 </h1>
@@ -50,6 +51,8 @@
                         <p><b> &nbsp;&nbsp;&nbsp;<span id="usernameshow"></span></b></p>
                     </div>
                     <form action="/php/upload.php" method="post" enctype="multipart/form-data">
+                        <label for="date"></label>
+                        <input class="dateshow" name="date" id="dateshowboxUp" type="text"><br>
                         <label for="username">Account Info</label><br>
                         <div onclick="noteditmass()" class="infobox">
                             <input id="nameuser" type="text" class="acin" name="username"><input id="imguser"
@@ -64,14 +67,13 @@
                             <img id="myimge" class="imgdata" alt="">
                             <br>
                             <center>
-                                <button class="btn systembtn"><i class="bi bi-upload"></i> Upload</button>
+                                <button type="submit" id="uploadbtn" class="btn systembtn vcc"><i class="bi bi-upload"></i> Upload</button>
                             </center>
                         </div>
                     </form>
                 </div>
         </div>
     </div>
-    </blockquote>
     <br><br>
     <center>
         code By 🩵 <a href="https://github.com/nahidhk">nahidhk</a>

@@ -22,7 +22,11 @@ async function displayData(searchInput = '') {
                     <div class="user">
                         <img src="/php/data/${item.userimg}" alt="${item.username}" class="userimg">
                         <p style="font-size: large;">&nbsp;&nbsp;&nbsp;<b><span>${item.username}</span></b></p>
+                      
                     </div>
+                     <blockquote>
+                      <span title="This is a Post Time" class="dateshow">${item.date}</span>
+                     </blockquote>
                     <blockquote>
                        ${item.title}
                     </blockquote>
@@ -145,7 +149,7 @@ function systemserch() {
 
 function closepopup() {
     var menuappshowdiv = document.getElementById("myappjstoopenuserlist");
-    menuappshowdiv.classList = "vcc";
+    menuappshowdiv.classList = "animate__backOutUp animate__animated vcc";
 }
 function closetop(){
     document.getElementById("codecopybox").classList="vcc";

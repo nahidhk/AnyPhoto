@@ -40,7 +40,7 @@ function userlistopensystemtop(){
 }
 function colesthemenulist(){
 var menuappshowdiv = document.getElementById("myappjstoopenuserlist");
-    menuappshowdiv.classList="vcc";
+    menuappshowdiv.classList="animate__backOutUp animate__animated vcc";
 }
 
 function apicall(){

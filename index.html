@@ -14,19 +14,24 @@
 <body onscroll="closepopup()">
     <div id="account" class="account">
         <div id="step1" class="step">
+            <center>
             <label>Name</label><br>
+            
             <input id="username" title="input Your Name" type="text" placeholder="Input Your Name"><br>
             <button onclick="loginnext()">Next</button>
+        </center>
         </div>
         <div id="step2" class="step vcc">
+            <center>
             <form action="/php/account.php" method="POST" enctype="multipart/form-data">
                 <label>Upload Profile Photo</label><br>
                 <input oninput="upimg()" type="file" name="photo" id="photo" accept="image/*"><br>
-                <center>
+           
                     <img id="showprofile" style="height: 100px;width: 100px;border-radius: 100px;" /><br>
-                </center>
+             
                 <button onclick="loginany()">Login</button>
             </form>
+        </center>
         </div>
     </div>
 
@@ -117,6 +122,7 @@
             </blockquote>
         </div>
     </section>
+
     <script src="javascript/script.js"></script>
     <script src="javascript/video.js"></script>
     <script src="javascript/topuser.js"></script>
