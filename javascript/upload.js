@@ -4,9 +4,16 @@ function displydatalopmuo(){
     var username = localStorage.getItem("username");
     let nameuser = document.getElementById("nameuser");
     let imguser = document.getElementById("imguser");
+    let nameuser1 = document.getElementById("nameuser1");
+    let imguser1 = document.getElementById("imguser1");
     nameuser.value=username;
     imguser.value=userimg;
+    nameuser1.value=username;
+    imguser1.value=userimg;
+    
+    
    document.getElementById("usernameshow").innerHTML=username;
+
 }
 displydatalopmuo();
 function noteditmass(){
@@ -46,7 +53,19 @@ function datenewappconvartapp() {
   hours = hours ? hours : 12;  
 
   dateshowapps.value = `${day} ${month} ${year} - ${hours}:${minutes}:${seconds} ${ampm}`;
+  document.getElementById("updatemyxpz").value = `${day} ${month} ${year} - ${hours}:${minutes}:${seconds} ${ampm}`
 }
 
 datenewappconvartapp();
 
+
+
+function videpupsystem(){
+ var adminid =  prompt("You can Access for next update! only video upload in Admin , Input the admin id");
+ if (adminid == 516148) {
+  document.getElementById("showupvideo").classList= "maincontect"
+  document.getElementById("showupphoto").classList="vcc"
+ } else {
+  alert("Error Admin ID bro!")
+ }
+}

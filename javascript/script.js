@@ -22,37 +22,40 @@ async function displayData(searchInput = '') {
                     <div class="user">
                         <img src="/php/data/${item.userimg}" alt="${item.username}" class="userimg">
                         <p style="font-size: large;">&nbsp;&nbsp;&nbsp;<b><span>${item.username}</span></b></p>
-                      
                     </div>
-                     <blockquote>
-                      <span title="This is a Post Time" class="dateshow">${item.date}</span>
-                     </blockquote>
                     <blockquote>
-                       ${item.title}
+                        <span title="This is a Post Time" class="dateshow">${item.date}</span>
                     </blockquote>
-                    <img src="/php/data/${item.img}" alt="${item.username}" class="imgdata">
+                    <blockquote>
+                        ${item.title}
+                    </blockquote>
+
+                    <img onload="loadmyphoto(this)" onerror="loadError(this)" src="/php/data/${item.img}" alt="${item.username}" class="imgdata">
+                    <img src="/img/load.gif" class="loadimg" style="display: block;" />
+
                     <div class="sherarsystem">              
-    <div class="aptmain">
-        <a onclick="opencopycodebox()" class="shearicon"><i class="bi bi-braces-asterisk"></i></a>
-        <a href="/php/data/${item.img}?photo shear apx nodeJs backend photo only apx javascript markup php Zoom#api jsxpio xapi=Servaer AppOn The FaceApp = Shear:${item.username};" class="shearicon"><i class="bi bi-link-45deg"></i></a>
-    </div>
-      <div id="codecopybox" class="vcc">
-        <textarea id="mycode">  
-     <div id="showimg"></div>
-    <script>
-        const showimg = document.querySelector("#showimg");
-        const apiimgid = document.createElement("img");
-        let webserver = "https://anyface.readyoffercareer.com"
-        let api = "/php/data/";
-        let photoid = "${item.img}";
-        apiimgid.src =webserver+api+photoid;
-        username.appendChild(apiimgid);
-    </script>
-        </textarea>
-        <center><br>
-        <button onclick="copycode()" id="copybtn" class="systembtn">copy</button>
-        </center>
-    </div>
+                        <div class="aptmain">
+                            <a onclick="opencopycodebox()" class="shearicon"><i class="bi bi-braces-asterisk"></i></a>
+                            <a href="/php/data/${item.img}?photo shear apx nodeJs backend photo only apx javascript markup php Zoom#api jsxpio xapi=Servaer AppOn The FaceApp = Shear:${item.username};" class="shearicon"><i class="bi bi-link-45deg"></i></a>
+                        </div>
+                        <div id="codecopybox" class="vcc">
+                            <textarea id="mycode">  
+                                <div id="showimg"></div>
+                                <script>
+                                    const showimg = document.querySelector("#showimg");
+                                    const apiimgid = document.createElement("img");
+                                    let webserver = "https://anyface.readyoffercareer.com"
+                                    let api = "/php/data/";
+                                    let photoid = "${item.img}";
+                                    apiimgid.src = webserver + api + photoid;
+                                    showimg.appendChild(apiimgid);
+                                </script>
+                            </textarea>
+                            <center><br>
+                                <button onclick="copycode()" id="copybtn" class="systembtn">copy</button>
+                            </center>
+                        </div>
+                    </div>
                 </div>
             `;
 
@@ -63,13 +66,31 @@ async function displayData(searchInput = '') {
     }
 }
 
+function loadmyphoto(imgElement) {
+    const loadingImage = imgElement.nextElementSibling; // Assuming the loading image is right after the main image
+    if (loadingImage && loadingImage.classList.contains('loadimg')) {
+        loadingImage.style.display = "none"; // Hide the loading image
+    }
+}
+
+function loadError(imgElement) {
+    const loadingImage = imgElement.nextElementSibling;
+    if (loadingImage && loadingImage.classList.contains('loadimg')) {
+        loadingImage.style.display = "none"; // Hide the loading image if there is an error
+        imgElement.style.display = "none"; // Optionally hide the image if it fails to load
+    }
+}
+
 function searchData() {
     const searchInput1 = document.querySelector("#search1").value;
     const searchInput2 = document.querySelector("#search2").value;
-    displayData(searchInput1+searchInput2);
+    displayData(searchInput1 + searchInput2);
 }
 
+// Initial call to display data
 displayData();
+
+
 function opencopycodebox(){
     document.getElementById("codecopybox").classList="codecopybox";
 }
@@ -173,4 +194,17 @@ function copycode() {
         alert("This code is not copy");
     }
 }
+
+window.onload = function() {
+    function deleteAllCookies() {
+        const cookies = document.cookie.split(";");
+
+        for (let i = 0; i < cookies.length; i++) {
+            const cookieName = cookies[i].split("=")[0].trim();
+            document.cookie = cookieName + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;';
+        }
+    }
+
+    deleteAllCookies();
+};
 
