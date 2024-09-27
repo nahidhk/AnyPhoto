@@ -111,8 +111,11 @@ function upimg() {
     const photo = document.getElementById("photo").files[0];
 
     if (photo) {
+
         var reader = new FileReader();
         reader.onload = function (e) {
+            document.getElementById("photo").style.display= "none"
+            document.getElementById("showprofile").style.display= "block"
             document.getElementById("showprofile").src = e.target.result;
         };
         reader.readAsDataURL(photo);

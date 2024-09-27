@@ -94,12 +94,13 @@ height: auto;
 .account{
     height: 100vh;
     width: 100%;
- background-image: linear-gradient(280deg,rgba(204, 59, 248, 0.656),rgba(255, 0, 170, 0.805));
+ background-image: linear-gradient(180deg,rgba(255, 157, 0, 0.656),rgba(255, 0, 170, 0.889));
     position: fixed;
     z-index: 100;
     backdrop-filter: blur(10px);
 }
 .step{
+    padding: 20px;
     position: absolute;
     top: 30%;
     left: 50%;
@@ -107,14 +108,7 @@ height: auto;
     background-color: #fff;
     border-radius: 10px;
 }
-.step label{
-    color: #fff;
-    background-color: red;
-    padding: 5px;
-    margin: 15px;
-    border-radius: 100px;
-}
-.step input ,.inputx{
+.step input {
     height: 30px;
    width: 90%;
     background-color: #6f6f6f00;
@@ -123,15 +117,29 @@ height: auto;
     padding: 10px;
     border-radius: 4px;
     transition: all 0.3s;
-  
 }
-.step input:hover{
-    background-color: Black;
-    color: #fff;
+.step input:focus{
+    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+}
+.step input[type="file"]::file-selector-button{
+    border: none;
+    background-color: #fff;
+    content: "upload photo";
+    cursor: pointer;
+}
+.step input[type="file"] , input[type="file"]::file-selector-button{
+    border-radius: 100px;
+    height: 100px;
+    width: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
+    
 }
 .step button{
-    height: 30px;
-    width: 300px;
+    height: 40px;
+    width: 200px;
     margin: 18px;
     cursor: pointer;
     color: #fff;
@@ -155,7 +163,7 @@ height: auto;
 }
 .titlehere{
     border: none;
-    font-size: 25px;
+    font-size: 15pt;
     outline: none;
     width: 100%;
     height: 100px;
@@ -294,6 +302,24 @@ input{
  outline: none;
  outline-color: none;
 }
+
+ .custom-file-upload {
+    display: inline-block;
+    padding:  20px 50px;
+    cursor: pointer;
+    border: 1px dashed ;
+    color: #626262;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  #photofa {
+    display: none;
+  }
+.upicon{
+    font-size: 60px;
+}
+
 @media (max-width: 768px) {
     .search{
         width: 90%;

@@ -2,8 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="/style/style.main.css">
@@ -23,9 +22,7 @@
                 </span>
                 <span class="mbtext">Photo</span>
             </button>
-            <button id="videobtn"
-                onclick="videpupsystem()"
-                class="systembtn noactive">
+            <button id="videobtn" onclick="videpupsystem()" class="systembtn noactive">
                 <span class="mbicon">
                     <i class="bi bi-camera-video"></i></span>
                 <span class="mbtext">Video</span>
@@ -42,74 +39,80 @@
 
     <div id="showupphoto" class="maincontect">
         <div class="main">
-                <h1>
-                    Upload Your Photo
-                </h1>
-                <div class="photo">
-                    <div class="user">
-                        <img src="/img/usericon.png" alt="" class="userimg">
-                        <p><b> &nbsp;&nbsp;&nbsp;<span id="usernameshow"></span></b></p>
-                    </div>
-                    <form action="/php/upload.php" method="post" enctype="multipart/form-data">
-                        <label for="date"></label>
-                        <input class="dateshow" name="date" id="dateshowboxUp" type="text"><br>
-                        <label for="username">Account Info</label><br>
-                        <div onclick="noteditmass()" class="infobox">
-                            <input id="nameuser" type="text" class="acin" name="username"><input id="imguser"
-                                type="text" class="acin" name="userimg">
-                        </div><br><br>
-                 
-                            <label for="title"></label>
-                            <textarea class="titlehere" type="text" name="title" placeholder="Title Here..."></textarea>
-                            <label for="photo"></label>
-                            <input oninput="showimgfx()" class="inputx" type="file" name="photo" id="photofa" required
-                                accept="image/*">
-                            <img id="myimge" class="imgdata" alt="">
-                            <br>
-                            <center>
-                                <button type="submit" id="uploadbtn" class="btn systembtn vcc"><i class="bi bi-upload"></i> Upload</button>
-                            </center>
-                        </div>
-                    </form>
+            <h1>
+                Upload Your Photo
+            </h1>
+            <div class="photo">
+                <div class="user">
+                    <img src="/img/usericon.png" alt="" class="userimg">
+                    <p><b> &nbsp;&nbsp;&nbsp;<span id="usernameshow"></span></b></p>
                 </div>
+                <form action="/php/upload.php" method="post" enctype="multipart/form-data">
+                    <label for="date"></label>
+                    <input class="dateshow" name="date" id="dateshowboxUp" type="text"><br>
+                    <label for="username">Account Info</label><br>
+                    <div onclick="noteditmass()" class="infobox">
+                        <input id="nameuser" type="text" class="acin" name="username"><input id="imguser" type="text"
+                            class="acin" name="userimg">
+                    </div><br><br>
+
+                    <label for="title"></label>
+                    <textarea class="titlehere" type="text" name="title" placeholder="Title Here..."></textarea>
+                    <div id="filesetok">
+                    <center>
+                        
+                    <label class="custom-file-upload" for="photofa"><i class="bi bi-upload upicon"></i><br> Drop & Select Your Photo</label>
+                    <input aria-describedby="upload photo" oninput="showimgfx()" type="file" name="photo" id="photofa"
+                        required accept="image/*">
+                    </center>
+                </div>
+                    <img id="myimge" class="imgdata" alt="">
+                    <br>
+                    <center>
+                        <button type="submit" id="uploadbtn" class="btn systembtn vcc"><i class="bi bi-upload"></i>
+                            Upload</button>
+                    </center>
+            </div>
+            </form>
         </div>
     </div>
-   <!-- =========================================================upload and the video =============== -->
+    </div>
+    <!-- =========================================================upload and the video =============== -->
     <div id="showupvideo" class="maincontect vcc">
         <div class="main">
-                <h1>
-                    admin video upload 
-                </h1>
-                <div class="photo">
-                    <div class="user">
-                        <img src="/img/usericon.png" alt="" class="userimg">
-                        <p><b> &nbsp;&nbsp;&nbsp;<span id="usernameshow"></span></b></p>
-                    </div>
-                    <form action="/php/video.php" method="post" enctype="multipart/form-data">
-                        <label for="date">Date:</label>
-                        <input class="dateshow" name="date" id="updatemyxpz" type="text"><br>
-                        
-                        <label for="username">Account Info:</label><br>
-                        <div onclick="noteditmass()" class="infobox">
-                            <input id="nameuser1" type="text" class="acin" name="username" placeholder="Enter Username">
-                            <input id="imguser1" type="text" class="acin" name="userimg" placeholder="Enter User Image URL">
-                        </div><br><br>
-                        
-                        <label for="title">Title:</label>
-                        <textarea class="titlehere" name="title" placeholder="Title Here - HTML CODE"></textarea><br>
-                        
-                        <label for="video">Upload Video:</label>
-                        <input class="inputx" type="file" name="video" required accept="video/*"><br><br>
-                        
-                        <center>
-                            <button type="submit" id="uploadbtn" class="btn systembtn">
-                                <i class="bi bi-upload"></i> Upload Video
-                            </button>
-                        </center>
-                    </form>
-                    
-                    
+            <h1>
+                admin video upload
+            </h1>
+            <div class="photo">
+                <div class="user">
+                    <img src="/img/usericon.png" alt="" class="userimg">
+                    <p><b> &nbsp;&nbsp;&nbsp;<span id="usernameshow"></span></b></p>
                 </div>
+                <form action="/php/video.php" method="post" enctype="multipart/form-data">
+                    <label for="date">Date:</label>
+                    <input class="dateshow" name="date" id="updatemyxpz" type="text"><br>
+
+                    <label for="username">Account Info:</label><br>
+                    <div onclick="noteditmass()" class="infobox">
+                        <input id="nameuser1" type="text" class="acin" name="username" placeholder="Enter Username">
+                        <input id="imguser1" type="text" class="acin" name="userimg" placeholder="Enter User Image URL">
+                    </div><br><br>
+
+                    <label for="title">Title:</label>
+                    <textarea class="titlehere" name="title" placeholder="Title Here - HTML CODE"></textarea><br>
+
+                    <label for="video">Upload Video:</label>
+                    <input class="inputx" type="file" name="video" required accept="video/*"><br><br>
+
+                    <center>
+                        <button type="submit" id="uploadbtn" class="btn systembtn">
+                            <i class="bi bi-upload"></i> Upload Video
+                        </button>
+                    </center>
+                </form>
+
+
+            </div>
         </div>
     </div>
     <br><br>

@@ -25,6 +25,7 @@ function showimgfx(){
     if (file) {
       var reader = new FileReader();
       reader.onload = function(e) {
+        document.getElementById("filesetok").style.display="none"
         document.getElementById("myimge").src = e.target.result;
         document.getElementById("uploadbtn").classList=" animate__bounceInDown animate__animated btn systembtn";
       };
