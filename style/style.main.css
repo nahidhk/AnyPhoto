@@ -319,7 +319,10 @@ input{
 .upicon{
     font-size: 60px;
 }
-
+.loadimg{
+    height: 100px;
+    width: 100px;
+}
 @media (max-width: 768px) {
     .search{
         width: 90%;

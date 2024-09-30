@@ -10,10 +10,26 @@ async function displayData(searchInput = '') {
 
         dataContainer.innerHTML = '';
 
+      
+        let previousData = JSON.parse(localStorage.getItem('previousData')) || [];
+
+    
+        const newEntries = data.filter(item => 
+            !previousData.some(prevItem => prevItem.username === item.username)
+        );
+
+
+        localStorage.setItem('previousData', JSON.stringify(data));
+
         const filteredData = data.filter(item =>
             item.username.toLowerCase().includes(searchInput.toLowerCase()) ||
             item.title.toLowerCase().includes(searchInput.toLowerCase())
         );
+
+      
+        newEntries.forEach(item => {
+            showNotification(item.username);
+        });
 
         filteredData.forEach(item => {
             const itemElement = document.createElement('div');
@@ -29,10 +45,9 @@ async function displayData(searchInput = '') {
                     <blockquote>
                         ${item.title}
                     </blockquote>
-
+                    
                     <img onload="loadmyphoto(this)" onerror="loadError(this)" src="/php/data/${item.img}" alt="${item.username}" class="imgdata">
-                    <img src="/img/load.gif" class="loadimg" style="display: block;" />
-
+                    <img src="/img/load.gif" class="loadimg"  />
                     <div class="sherarsystem">              
                         <div class="aptmain">
                             <a onclick="opencopycodebox()" class="shearicon"><i class="bi bi-braces-asterisk"></i></a>
@@ -65,19 +80,18 @@ async function displayData(searchInput = '') {
         console.error('data error', error);
     }
 }
-
 function loadmyphoto(imgElement) {
-    const loadingImage = imgElement.nextElementSibling; // Assuming the loading image is right after the main image
+    const loadingImage = imgElement.nextElementSibling;
     if (loadingImage && loadingImage.classList.contains('loadimg')) {
-        loadingImage.style.display = "none"; // Hide the loading image
+        loadingImage.style.display = "none";
     }
 }
 
 function loadError(imgElement) {
     const loadingImage = imgElement.nextElementSibling;
     if (loadingImage && loadingImage.classList.contains('loadimg')) {
-        loadingImage.style.display = "none"; // Hide the loading image if there is an error
-        imgElement.style.display = "none"; // Optionally hide the image if it fails to load
+        loadingImage.style.display = "none";
+        imgElement.style.display = "none";
     }
 }
 
@@ -87,12 +101,33 @@ function searchData() {
     displayData(searchInput1 + searchInput2);
 }
 
-// Initial call to display data
+ function requestNotification() {
+    if (Notification.permission === "granted") {
+        showNotification();
+    } else if (Notification.permission !== "denied") {
+        Notification.requestPermission().then(permission => {
+            if (permission === "granted") {
+                showNotification();
+            }
+        });
+    }
+}
+
+function showNotification(username) {
+    const notification = new Notification("AnyFace", {
+        body: `(${username}) Upload A New Photo!`,
+        icon: "/img/icon.png"
+    });
+
+    notification.onclick = function() {
+        window.open("https://anyface.vercel.app/app.html");
+    };
+}
+
 displayData();
 
-
-function opencopycodebox(){
-    document.getElementById("codecopybox").classList="codecopybox";
+function opencopycodebox() {
+    document.getElementById("codecopybox").classList = "codecopybox";
 }
 
 function loginnext() {
@@ -114,8 +149,8 @@ function upimg() {
 
         var reader = new FileReader();
         reader.onload = function (e) {
-            document.getElementById("photo").style.display= "none"
-            document.getElementById("showprofile").style.display= "block"
+            document.getElementById("photo").style.display = "none"
+            document.getElementById("showprofile").style.display = "block"
             document.getElementById("showprofile").src = e.target.result;
         };
         reader.readAsDataURL(photo);
@@ -175,11 +210,11 @@ function closepopup() {
     var menuappshowdiv = document.getElementById("myappjstoopenuserlist");
     menuappshowdiv.classList = "animate__backOutUp animate__animated vcc";
 }
-function closetop(){
-    document.getElementById("codecopybox").classList="vcc";
+function closetop() {
+    document.getElementById("codecopybox").classList = "vcc";
 }
 function copycode() {
-    setTimeout(closetop,500);
+    setTimeout(closetop, 500);
     var copyText = document.getElementById("mycode");
     if (!copyText) {
         alert("Element not found.");
@@ -188,9 +223,9 @@ function copycode() {
     if (copyText.tagName === "INPUT" || copyText.tagName === "TEXTAREA") {
         copyText.select();
         copyText.setSelectionRange(0, 99999);
-        navigator.clipboard.writeText(copyText.value).then(function() {
-        document.getElementById("copybtn").innerHTML='<i class="bi bi-clipboard-check" style="font-size: large;"></i>'
-        }).catch(function(err) {
+        navigator.clipboard.writeText(copyText.value).then(function () {
+            document.getElementById("copybtn").innerHTML = '<i class="bi bi-clipboard-check" style="font-size: large;"></i>'
+        }).catch(function (err) {
             alert("Failed to copy code: " + err);
         });
     } else {
@@ -198,16 +233,18 @@ function copycode() {
     }
 }
 
-window.onload = function() {
-    function deleteAllCookies() {
-        const cookies = document.cookie.split(";");
 
-        for (let i = 0; i < cookies.length; i++) {
-            const cookieName = cookies[i].split("=")[0].trim();
-            document.cookie = cookieName + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;';
-        }
-    }
 
-    deleteAllCookies();
-};
+//  add the The Live Server 
+function loadCSSJS() {
+    var cssFile = document.createElement('link');
+    cssFile.rel = 'stylesheet';
+    cssFile.href = 'styles.css?v=' + new Date().getTime();  // টাইমস্ট্যাম্প
+    document.head.appendChild(cssFile);
 
+    var jsFile = document.createElement('script');
+    jsFile.src = 'app.js?v=' + new Date().getTime();  // টাইমস্ট্যাম্প
+    document.body.appendChild(jsFile);
+}
+
+loadCSSJS();
