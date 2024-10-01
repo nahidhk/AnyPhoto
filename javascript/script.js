@@ -244,3 +244,7 @@ function loadCSSJS() {
 }
 
 loadCSSJS();
+
+function anydart(){
+  alert("data")
+}
