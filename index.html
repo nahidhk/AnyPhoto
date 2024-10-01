@@ -13,20 +13,20 @@
 
 <body onscroll="closepopup()">
     <div id="account" class="account">
-        <div id="step1" class="step">
+        <div id="step1" class="step vcc">
             <center>
             <input id="username" title="input Your Name" type="text" placeholder="Input Your Name"><br>
             <button onclick="loginnext()">Next <i class="bi bi-arrow-right-circle"></i></button>
         </center>
         </div>
-        <div id="step2" class="step vcc">
+        <div id="step2" class="step">
             <center>
             <form action="/php/account.php" method="POST" enctype="multipart/form-data">
                 <label>Upload Profile Photo</label><br>
-                <input oninput="upimg()" type="file" name="photo" id="photo" accept="image/*"><br>
-           
-                    <img class="vcc" id="showprofile" style="height: 100px;width: 100px;border-radius: 100px;" /><br>
-             
+
+                <img src="img/usericon.png" id="showprofile" style="height: 100px;width: 100px;border-radius: 100px;" />
+                <input  oninput="upimg()" type="file" name="photo" id="photo" accept="image/*"><br>
+                            
                 <button onclick="loginany()">Login</button>
             </form>
         </center>

@@ -70,3 +70,11 @@ function videpupsystem(){
   alert("Error Admin ID bro!")
  }
 }
+
+// show user account img 
+function userimgshow(){
+  const userimg =document.getElementById("userimgshow");
+  var myuserimg = localStorage.getItem("userimg");
+  userimg.src=`/php/data/${myuserimg}`;
+  }
+  userimgshow();

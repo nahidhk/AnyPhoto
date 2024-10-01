@@ -123,19 +123,23 @@ height: auto;
 }
 .step input[type="file"]::file-selector-button{
     border: none;
-    background-color: #fff;
+  background-color: #00000000;
     content: "upload photo";
     cursor: pointer;
+    color: #00000000;
 }
-.step input[type="file"] , input[type="file"]::file-selector-button{
-    border-radius: 100px;
-    height: 100px;
-    width: 100px;
-    -webkit-border-radius: 100px;
-    -moz-border-radius: 100px;
-    -ms-border-radius: 100px;
-    -o-border-radius: 100px;
-    
+.step input[type="file"] , .setup input[type="file"]::file-selector-button{
+ border-radius: 100px;
+ height: 10px;
+ width: 10px;
+ position: absolute;
+ left: 160px;
+ top: 100px;
+ background-color: #626262; 
+ border: 2px solid #fff;
+ background-image: url("/img/pen.svg");
+ background-size: cover;
+ color: #fff;
 }
 .step button{
     height: 40px;

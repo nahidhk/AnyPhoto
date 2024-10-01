@@ -145,7 +145,6 @@ function upimg() {
   if (photo) {
     var reader = new FileReader();
     reader.onload = function (e) {
-      document.getElementById("photo").style.display = "none";
       document.getElementById("showprofile").style.display = "block";
       document.getElementById("showprofile").src = e.target.result;
     };
@@ -244,7 +243,3 @@ function loadCSSJS() {
 }
 
 loadCSSJS();
-
-function anydart(){
-  alert("data")
-}
