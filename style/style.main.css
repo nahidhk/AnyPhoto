@@ -1,372 +1,392 @@
 @font-face {
-    font-family: juthi;
-    src: url("/font/Abel-Regular.ttf");
+  font-family: juthi;
+  src: url("/font/Abel-Regular.ttf");
 }
-
 
 body {
-    margin: 0;
-    background-color: rgb(237, 237, 237);
-    font-family: juthi;
+  margin: 0;
+  background-color: rgb(237, 237, 237);
+  font-family: juthi;
 }
 /* ===== Scrollbar CSS ===== */
-  * {
-    scrollbar-width: none;
-    scrollbar-color: #ffff;
-  }
+* {
+  scrollbar-width: none;
+  scrollbar-color: #ffff;
+}
 
-  *::-webkit-scrollbar {
-    width: 0px;
-  }
+*::-webkit-scrollbar {
+  width: 0px;
+}
 
-  *::-webkit-scrollbar-track {
-    background: #ffffff;
-  }
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+}
 
-  *::-webkit-scrollbar-thumb {
-    background-color: #ffffff;
-    border-radius: 0px;
-    border: 0px none #ffffff;
-  }
+*::-webkit-scrollbar-thumb {
+  background-color: #ffffff;
+  border-radius: 0px;
+  border: 0px none #ffffff;
+}
 
 #nav {
-    height: 65px;
-    width: 100%;
-    background-color: #c4c4c469;
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
+  height: 65px;
+  width: 100%;
+  background-color: #c4c4c469;
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
 }
 
 .navtext img {
-    height: 40px;
-    position: absolute;
-    top: 15px;
-    left: 20px;
+  height: 40px;
+  position: absolute;
+  top: 15px;
+  left: 20px;
 }
 
 .navbtn {
-    background-color: rgb(255, 106, 0);
-    color: #fff;
+  background-color: rgb(255, 106, 0);
+  color: #fff;
 }
 
 .maincontect {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
-.main{
-    width: 40%;
-height: auto;
-    background-color:antiquewhite;
+.main {
+  width: 40%;
+  height: auto;
+  background-color: antiquewhite;
 }
-
 
 .photo {
-    border: 1px solid #8db1ff;
-    padding: 10px;
-    overflow: hidden;
-    border-radius: 10px;
-    margin: 10px;
-    background-color: #fff;
+  border: 1px solid #8db1ff;
+  padding: 10px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin: 10px;
+  background-color: #fff;
 }
 
-.photo .imgdata{
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    
+.photo .imgdata {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
 
-.user{
-    padding: 10px;
-    background-color: rgb(245, 240, 240);
-    height: 50px;
-    margin: 10px;
-    display: flex;
+.user {
+  padding: 10px;
+  background-color: rgb(245, 240, 240);
+  height: 50px;
+  margin: 10px;
+  display: flex;
 }
-.userimg{
-    height: 50px;
-    width: 50px;
-    border-radius: 100px;
-   border: 1px solid #6f6f6f;
+.userimg {
+  height: 50px;
+  width: 50px;
+  border-radius: 100px;
+  border: 1px solid #6f6f6f;
 }
-.account{
-    height: 100vh;
-    width: 100%;
- background-image: linear-gradient(180deg,rgba(255, 157, 0, 0.656),rgba(255, 0, 170, 0.889));
-    position: fixed;
-    z-index: 100;
-    backdrop-filter: blur(10px);
+.account {
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 157, 0, 0.656),
+    rgba(255, 0, 170, 0.889)
+  );
+  position: fixed;
+  z-index: 100;
+  backdrop-filter: blur(10px);
 }
-.step{
-    padding: 20px;
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    background-color: #fff;
-    border-radius: 10px;
+.step {
+  padding: 20px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 10px;
 }
 .step input {
-    height: 30px;
-   width: 90%;
-    background-color: #6f6f6f00;
-    border: 1px solid rgb(4, 159, 255);
-    outline: none;
-    padding: 10px;
-    border-radius: 4px;
-    transition: all 0.3s;
+  height: 30px;
+  width: 90%;
+  background-color: #6f6f6f00;
+  border: 1px solid rgb(4, 159, 255);
+  outline: none;
+  padding: 10px;
+  border-radius: 4px;
+  transition: all 0.3s;
 }
-.step input:focus{
-    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+.step input:focus {
+  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
 }
-.step input[type="file"]::file-selector-button{
-    border: none;
+.step input[type="file"]::file-selector-button {
+  border: none;
   background-color: #00000000;
-    content: "upload photo";
-    cursor: pointer;
-    color: #00000000;
+  content: "upload photo";
+  cursor: pointer;
+  color: #00000000;
 }
-.step input[type="file"] , .setup input[type="file"]::file-selector-button{
+.step input[type="file"],
+.setup input[type="file"]::file-selector-button {
+  border-radius: 100px;
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  background-color: #626262;
+  border: 2px solid #fff;
+  background-image: url("/img/pen.svg");
+  background-size: cover;
+  color: #fff;
+}
+.atom{
+  left: 160px;
+  top: 100px;
+}
+.step button {
+  height: 40px;
+  width: 200px;
+  margin: 18px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #000;
+  border: none;
+}
+.vcc {
+  display: none;
+}
+.acin {
+  border: none;
+  width: 100px;
+  outline: none;
+  cursor: not-allowed;
+}
+.infobox {
+  border: 1px solid #000;
+  padding: 10px;
+  width: 210px;
+  cursor: not-allowed;
+}
+.titlehere {
+  border: none;
+  font-size: 15pt;
+  outline: none;
+  width: 100%;
+  height: 100px;
+}
+.btn {
+  height: 30px;
+  width: 150px;
+  background-color: #4680ff;
+  color: #fff;
+  border: none;
+  font-family: monospace;
+}
+.button-box {
+  position: absolute;
+  padding: 10px;
+  right: 0;
+  display: flex;
+  justify-content: center;
+}
+input {
+  font-family: juthi;
+}
+.systembtn {
+  font-family: juthi;
+  height: auto;
+  border: none;
+  padding: 10px;
+  font-size: large;
+  cursor: pointer;
+  width: 150px;
+  margin-left: 13px;
+}
+.active {
+  background-color: #ff2600;
+  color: #fff;
+}
+.noactive {
+  background-color: #ed9686;
+  color: #fff;
+}
+.left {
+  left: 0;
+}
+.right {
+  right: 0;
+}
+.sidemain {
+  position: fixed;
+  background-color: rgb(255, 255, 255);
+  height: 100vh;
+  width: 30%;
+}
+.mbicon {
+  display: none;
+}
+.mbtext {
+  display: block;
+}
+.userlist {
+  background-color: #ffffff;
+  overflow: scroll;
+  height: 400px;
+}
+.searchbox {
+  margin: 20px;
+  border: 1px solid #000;
+  padding: 10px;
+  width: 90%;
+  border-radius: 10px;
+}
+.search {
+  background-color: rgb(223, 223, 223);
+  border: 1px solid #4680ff;
+  height: 60px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  -o-border-radius: 100px;
+  outline: none;
+  font-size: large;
+}
+
+.sherarsystem {
+  background-color: rgb(233, 233, 233);
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+.aptmain {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+}
+.shearicon {
+  background-color: rgb(0, 0, 0);
+  padding: 10px;
+  border-radius: 100px;
+  color: #fff;
+  font-size: large;
+  cursor: pointer;
+}
+.codecopybox {
+  height: auto;
+  padding: 20px;
+  background-image: linear-gradient(
+    300deg,
+    rgba(159, 49, 175, 0.462),
+    rgba(255, 140, 0, 0.341)
+  );
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+}
+.codecopybox textarea {
+  background-color: #00000042;
+  color: #fff;
+  border: none;
+  outline: none;
+  width: 300px;
+  height: 300px;
+}
+.dateshow {
+  background-color: #d6d6d6;
+  color: #7e7e7e;
+  padding: 5px;
+  border-radius: 100px;
+  cursor: no-drop;
+  border: none;
+  outline: none;
+  outline-color: none;
+}
+
+.custom-file-upload {
+  display: inline-block;
+  padding: 20px 50px;
+  cursor: pointer;
+  border: 1px dashed;
+  color: #626262;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#photofa {
+  display: none;
+}
+.upicon {
+  font-size: 60px;
+}
+.loadimg {
+  height: 100px;
+  width: 100px;
+}
+.accbtn {
+  text-align: left;
+  width: 90%;
+  margin: 4px;
+}
+
+.myimgproo{
+ height: 180px;
+ width: 180px;
+ border: 1px solid #4680ff;
  border-radius: 100px;
- height: 10px;
- width: 10px;
- position: absolute;
- left: 160px;
- top: 100px;
- background-color: #626262; 
- border: 2px solid #fff;
- background-image: url("/img/pen.svg");
- background-size: cover;
- color: #fff;
 }
-.step button{
-    height: 40px;
-    width: 200px;
-    margin: 18px;
-    cursor: pointer;
-    color: #fff;
-    background-color: #000;
-    border: none;
-}
-.vcc{
-    display: none;
-}
-.acin{
-    border: none;
-    width: 100px;
-    outline: none;
-    cursor:not-allowed;
-}
-.infobox{
-    border: 1px solid #000;
-    padding: 10px;
-    width: 210px;
-    cursor:not-allowed;
-}
-.titlehere{
-    border: none;
-    font-size: 15pt;
-    outline: none;
-    width: 100%;
-    height: 100px;
-}
-.btn{
-    height: 30px;
-    width: 150px;
-    background-color: #4680ff;
-    color: #fff;
-    border: none;
-    font-family: monospace;
-}
-.button-box{
-    position: absolute;
-    padding: 10px;
-    right: 0;
-    display: flex;
-    justify-content: center;
-}
-input{
-    font-family: juthi;
-}
-.systembtn{
-    font-family: juthi;
-    height: auto;
-    border: none;
-    padding: 10px;
-    font-size: large;
-    cursor: pointer;
-    width: 150px;
-    margin-left:13px ;
-}
-.active{
-    background-color: #ff2600;  
-    color: #fff;
-}
-.noactive{
-    background-color: #ed9686;
-    color: #fff;
-}
-.left{
-    left: 0;
-}
-.right{
-    right: 0;
-}
-.sidemain{
-    position: fixed;
-   background-color: rgb(255, 255, 255);
-   height: 100vh;
-   width: 30%;
-}
-.mbicon{
-    display: none;
-}
-.mbtext{
-    display: block;
-}
-.mybtn{
-    background-image: linear-gradient(80deg,rgb(89, 0, 255),rgb(37, 52, 255));
-    color: #fff;
-    width: 400px;
-}
-.userlist{
-    background-color: #ffffff;
-    overflow: scroll;
-    height: 400px;
-}
-.searchbox{ margin: 20px; border: 1px solid #000; padding: 10px; width: 90%; border-radius: 10px; 
-
-}
-.search{
-    background-color: rgb(223, 223, 223);
-    border: 1px solid #4680ff;
-    height: 60px;
-    width: 100%;
-    padding: 10px;
-    border-radius: 100px;
-    -webkit-border-radius: 100px;
-    -moz-border-radius: 100px;
-    -ms-border-radius: 100px;
-    -o-border-radius: 100px;
-    outline: none;
-    font-size: large;
-}
-.showli{
-    overflow: scroll;
-    height: 500px;
-    width: 100%;
-}
-.sherarsystem{
-    background-color: rgb(233, 233, 233);
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-}
-.aptmain{
-    width: 80%;
-    display: flex;
-    justify-content: space-around;
-}
-.shearicon{
-    background-color: rgb(0, 0, 0);
-    padding: 10px;
-    border-radius: 100px;
-   color: #fff;
-   font-size: large;
-   cursor: pointer;
-}
-.codecopybox{
-    height: auto;
-    padding: 20px;
-    background-image: linear-gradient(300deg , rgba(159, 49, 175, 0.462) ,rgba(255, 140, 0, 0.341));
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    border-radius: 10px;
-    backdrop-filter: blur(6px); 
-}
-.codecopybox textarea{
-    background-color: #00000042;
-    color: #fff;
-    border: none;
-    outline: none;
-    width: 300px;
-    height: 300px;
-}
-.dateshow{
-    background-color: #d6d6d6;
-    color: #7e7e7e;
-    padding: 5px;
-    border-radius: 100px;
- cursor: no-drop;
- border: none;
- outline: none;
- outline-color: none;
+.myinput{
+ left: 165px;
+ top: 145px;
 }
 
- .custom-file-upload {
-    display: inline-block;
-    padding:  20px 50px;
-    cursor: pointer;
-    border: 1px dashed ;
-    color: #626262;
-    border-radius: 5px;
-    text-align: center;
-  }
-
-  #photofa {
-    display: none;
-  }
-.upicon{
-    font-size: 60px;
-}
-.loadimg{
-    height: 100px;
-    width: 100px;
-}
 @media (max-width: 768px) {
-    .search{
-        width: 90%;
-    }
-    .main{
-        width: 95%;
-    }
-    .sidemain{
-        display: none;
-    }
-    .button-box .systembtn{
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  .search {
+    width: 90%;
+  }
+  .main {
+    width: 95%;
+  }
+  .sidemain {
+    display: none;
+  }
+  .button-box .systembtn {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
     height: auto;
     border: none;
     padding: 10px;
     font-size: larger;
     cursor: pointer;
     width: 50px;
-    margin-left:5px ;
-    }
-    .mbicon{
-        display: block;
-    }
-    .mbtext{
-        display: none;
-    }
-    .mbtopuser{
-        display: block;
-        width: 80%;
-        background-color: #fff;
-        padding: 20px;
-        margin: 20px;
-        height: 80vh;
-        overflow: scroll;
-    }
-    .closebtn{
-        background-color: red;
-        color: #fff;
-        width: 50px;
-       
-    }
-  
+    margin-left: 5px;
+  }
+  .mbicon {
+    display: block;
+  }
+  .mbtext {
+    display: none;
+  }
+  .mbtopuser {
+    display: block;
+    width: 80%;
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    height: 80vh;
+    overflow: scroll;
+  }
+  .closebtn {
+    background-color: red;
+    color: #fff;
+    width: 50px;
+  }
 }

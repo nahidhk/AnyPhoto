@@ -32,7 +32,7 @@ async function displayData(searchInput = "") {
     filteredData.forEach((item) => {
       const itemElement = document.createElement("div");
       itemElement.innerHTML = `
-                <div class="photo">
+                <div class="photo" >
                     <div class="user">
                         <img src="/php/data/${item.userimg}" alt="${item.username}" class="userimg">
                         <p style="font-size: large;">&nbsp;&nbsp;&nbsp;<b><span>${item.username}</span></b></p>
@@ -243,3 +243,12 @@ function loadCSSJS() {
 }
 
 loadCSSJS();
+function accountprofile(){
+  let username = localStorage.getItem("username");
+  let userimg = localStorage.getItem("userimg")
+  window.location.href=`account/?username=${username}&userimg=${userimg}`;
+ 
+}
+function verifay(){
+  window.location.href="account/verifay"
+}
