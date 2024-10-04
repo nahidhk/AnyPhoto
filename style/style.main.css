@@ -137,7 +137,7 @@ body {
   position: absolute;
   background-color: #626262;
   border: 2px solid #fff;
-  background-image: url("/img/pen.svg");
+  background-image: url("/img/pen.png");
   background-size: cover;
   color: #fff;
 }
