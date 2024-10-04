@@ -1,27 +1,42 @@
 <?php
-if (isset($_GET['username']) && isset($_GET['userimg'])) {
-    $username = $_GET['username'];
-    $userimg = $_GET['userimg'];
+if ( isset( $_GET[ 'username' ] ) && isset( $_GET[ 'userimg' ] ) ) {
+    $username = $_GET[ 'username' ];
+    $userimg = $_GET[ 'userimg' ];
 } else {
-    echo "Username or User Image not provided.";
+    echo 'Username or User Image not provided.';
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
+
 <head>
-    <link rel="stylesheet" href="/style/style.main.css">
-    <link rel="shortcut icon" href="/php/data/<?php echo $userimg?>" type="image/x-icon">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css'>
+    <link rel='stylesheet' href='/style/style.main.css'>
+    <link rel='shortcut icon' href="/php/data/<?php echo $userimg?>" type='image/x-icon'>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title><?php echo $username ?></title>
 </head>
+
 <body>
-    <div class="step">
-       <center>
-        <input oninput="editimg()" type="file" class="myinput" name="" id="editprofile">
-            <img class="myimgproo" id="userimg">
+    <div class='step'>
+        <center>
+            <form id="myform" action='/php/account.php' method='POST' enctype='multipart/form-data'>
+                <input oninput='editimg()' type='file' class='myinput' name='photo' id='editprofile' accept="image/*" >
+            </form>
+            <img class='myimgproo' id='userimg'>
+            <h1><span id='showusername'></span>&nbsp;
+             <span id="vicon">   <i onclick='editusername()' id='textediticon' title='Edit Your Name' class='bi bi-pencil-square'></i>
+             <span>
+            </h1>
+           
+            <p><span><b>Email :</b><span id='email'></span></p>
+            <p><span><b>Phone :</b><span id='phone'></span></p>
+            <p><span><b>Bath :</b><span id='bate'> /span></p>
         </center>
-        </div>
-    <script src="/javascript/license.js"></script>
+    </div>
+
+    <script src='/javascript/license.js'></script>
 </body>
+
 </html>

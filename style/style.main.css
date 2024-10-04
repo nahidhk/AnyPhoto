@@ -346,7 +346,16 @@ input {
  left: 165px;
  top: 145px;
 }
-
+.notviy{
+  background-color:#d6d6d6;
+  padding: 2px;
+  padding-left: 6px;
+  padding-right: 6px;
+  border-radius: 100px;
+}
+.v{
+  color: blue;
+}
 @media (max-width: 768px) {
   .search {
     width: 90%;
