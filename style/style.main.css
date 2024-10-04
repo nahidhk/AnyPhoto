@@ -109,7 +109,7 @@ body {
   background-color: #fff;
   border-radius: 10px;
 }
-.step input {
+.step input,.melo input {
   height: 30px;
   width: 90%;
   background-color: #6f6f6f00;
@@ -119,9 +119,10 @@ body {
   border-radius: 4px;
   transition: all 0.3s;
 }
-.step input:focus {
+.step input:focus  , .melo input:focus {
   box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
 }
+
 .step input[type="file"]::file-selector-button {
   border: none;
   background-color: #00000000;
@@ -145,7 +146,7 @@ body {
   left: 160px;
   top: 100px;
 }
-.step button {
+.step button,.melo button {
   height: 40px;
   width: 200px;
   margin: 18px;
@@ -355,6 +356,17 @@ input {
 }
 .v{
   color: blue;
+}
+.melo{
+  width: 340px;
+  background-color: #fff;
+  margin-top: 20px;
+}
+.vtext{
+  background-color: blue;
+  color: #fff;
+  padding: 8px;
+  margin-bottom: 20px;
 }
 @media (max-width: 768px) {
   .search {

@@ -19,23 +19,32 @@ if ( isset( $_GET[ 'username' ] ) && isset( $_GET[ 'userimg' ] ) ) {
 </head>
 
 <body>
-    <div class='step'>
+    <section class="maincontect">
+    <div id="listio" class='step'>
         <center>
             <form id="myform" action='/php/account.php' method='POST' enctype='multipart/form-data'>
                 <input oninput='editimg()' type='file' class='myinput' name='photo' id='editprofile' accept="image/*" >
             </form>
+            <span id="windto" class="vtext vcc">your Account Verifyed
+            </span>
             <img class='myimgproo' id='userimg'>
             <h1><span id='showusername'></span>&nbsp;
              <span id="vicon">   <i onclick='editusername()' id='textediticon' title='Edit Your Name' class='bi bi-pencil-square'></i>
              <span>
             </h1>
            
-            <p><span><b>Email :</b><span id='email'></span></p>
-            <p><span><b>Phone :</b><span id='phone'></span></p>
-            <p><span><b>Bath :</b><span id='bate'> /span></p>
+            <p><span><b>Email : </b><span id='email'></span></p>
+            <p><span><b>Phone : </b><span id='phone'></span></p>
+            <p><span><b>Bath : </b><span id='bate'> </span></p>
+            <div class="vcc" id="normalbox">
+                <h3>UID : <span id="uid"></span> </h3>
+                <span class="notviy">Password in one time View</span>
+                <p><b>Password :</b> <span id="password"></span></p>
+            </div>
         </center>
     </div>
 
+    </section>
     <script src='/javascript/license.js'></script>
 </body>
 

