@@ -35,6 +35,9 @@ function verfiyalradycheck(){
     const verifaycheckitem = localStorage.getItem("verifay");
     if (verifaycheckitem == "true") {
         document.getElementById("mainfrom").style.display="none";
+        document.getElementById("checkontheviy").style.display="block";
+
+    }else{
     }
 }
 verfiyalradycheck();

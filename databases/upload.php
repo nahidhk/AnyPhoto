@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
-    $uploadDir = "php/data/";
+    $uploadDir = "photos/";
     $uploadFile = $uploadDir . basename($_FILES["photo"]["name"]);
     $title = $_POST["title"];
     $username = $_POST["username"];
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
 
 
         if (move_uploaded_file($_FILES["photo"]["tmp_name"], $uploadFile)) {
-            $jsonFile = "/databases/photos.json";
+            $jsonFile = "photos.json";
             if (file_exists($jsonFile)) {
                 $jsonData = json_decode(file_get_contents($jsonFile), true);
                 if (!is_array($jsonData)) {

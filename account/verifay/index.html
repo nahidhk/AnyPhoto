@@ -12,12 +12,12 @@
       <div class="melo">
         <div class="vcc" id="checkontheviy">
           <blockquote>
-            <h2 style="color: #4680ff;">You alrady Verifayed! </h2>
+            <h2 style="color: #4680ff">You alrady Verifayed!</h2>
           </blockquote>
         </div>
         <form
           onsubmit="verifaydata()"
-          action=""
+          action="/account/verifay/server.php"
           method="POST"
           enctype="multipart/form-data"
           id="mainfrom"
@@ -31,7 +31,6 @@
               id="profilename"
               placeholder="load The Server"
               required
-              
             />
             <label for="userimg">Profile ID <n>*</n></label>
             <input

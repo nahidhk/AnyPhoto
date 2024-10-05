@@ -8,10 +8,6 @@ function displydatalopmuo(){
     let imguser1 = document.getElementById("imguser1");
     nameuser.value=username;
     imguser.value=userimg;
-    nameuser1.value=username;
-    imguser1.value=userimg;
-    
-    
    document.getElementById("usernameshow").innerHTML=username;
 
 }
@@ -54,7 +50,6 @@ function datenewappconvartapp() {
   hours = hours ? hours : 12;  
 
   dateshowapps.value = `${day} ${month} ${year} - ${hours}:${minutes}:${seconds} ${ampm}`;
-  document.getElementById("updatemyxpz").value = `${day} ${month} ${year} - ${hours}:${minutes}:${seconds} ${ampm}`
 }
 
 datenewappconvartapp();
@@ -75,6 +70,6 @@ function videpupsystem(){
 function userimgshow(){
   const userimg =document.getElementById("userimgshow");
   var myuserimg = localStorage.getItem("userimg");
-  userimg.src=`//databases/photos//${myuserimg}`;
+  userimg.src=`/databases/photos/${myuserimg}`;
   }
   userimgshow();

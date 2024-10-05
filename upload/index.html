@@ -47,7 +47,7 @@
                     <img src="" id="userimgshow" alt="" class="userimg">
                     <p><b> &nbsp;&nbsp;&nbsp;<span id="usernameshow"></span></b></p>
                 </div>
-                <form action="/server/upload/" method="post" enctype="multipart/form-data">
+                <form action="/databases/upload.php" method="post" enctype="multipart/form-data">
                     <label for="date"></label>
                     <input class="dateshow" name="date" id="dateshowboxUp" type="text"><br>
                     <label for="username">Account Info</label><br>
@@ -76,45 +76,9 @@
             </form>
         </div>
     </div>
-    </div>
+    
     <!-- =========================================================upload and the video =============== -->
-    <div id="showupvideo" class="maincontect vcc">
-        <div class="main">
-            <h1>
-                admin video upload
-            </h1>
-            <div class="photo">
-                <div class="user">
-                    <img src="/img/usericon.png" alt="" class="userimg">
-                    <p><b> &nbsp;&nbsp;&nbsp;<span id="usernameshow"></span></b></p>
-                </div>
-                <form action="/php/video.php" method="post" enctype="multipart/form-data">
-                    <label for="date">Date:</label>
-                    <input class="dateshow" name="date" id="updatemyxpz" type="text"><br>
-
-                    <label for="username">Account Info:</label><br>
-                    <div onclick="noteditmass()" class="infobox">
-                        <input id="nameuser1" type="text" class="acin" name="username" placeholder="Enter Username">
-                        <input id="imguser1" type="text" class="acin" name="userimg" placeholder="Enter User Image URL">
-                    </div><br><br>
-
-                    <label for="title">Title:</label>
-                    <textarea class="titlehere" name="title" placeholder="Title Here - HTML CODE"></textarea><br>
-
-                    <label for="video">Upload Video:</label>
-                    <input class="inputx" type="file" name="video" required accept="video/*"><br><br>
-
-                    <center>
-                        <button type="submit" id="uploadbtn" class="btn systembtn">
-                            <i class="bi bi-upload"></i> Upload Video
-                        </button>
-                    </center>
-                </form>
-
-
-            </div>
-        </div>
-    </div>
+    
     <br><br>
     <center>
         code By 🩵 <a href="https://github.com/nahidhk">anyface</a>
