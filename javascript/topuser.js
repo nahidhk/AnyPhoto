@@ -1,6 +1,6 @@
 async function topuser() {
     try {
-        const response = await fetch("/php/user.json");
+        const response = await fetch("/databases/photodata.json");
         const topuser = await response.json();
         const dataContainerontopuser = document.querySelectorAll('.topuser, .topuser2');
 
@@ -17,7 +17,7 @@ async function topuser() {
                 const itemElementtopuser = document.createElement('div');
                 itemElementtopuser.innerHTML = `
                 <div class="user" onclick="apicall()">
-                    <img src="/php/data/${item.userimg}" alt="${item.username}" class="userimg">
+                    <img src="/databases/photos/${item.userimg}" alt="${item.username}" class="userimg">
                     <p style="font-size: large;">&nbsp;&nbsp;&nbsp;<b><span>${item.username}</span></b></p>
                 </div>  
                 `;

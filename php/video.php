@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["video"])) {
-    $uploadDir = "video/";
+    $uploadDir = "/databases/videos/";
     $uploadFile = $uploadDir . basename($_FILES["video"]["name"]);
     $title = $_POST["title"];
     $username = $_POST["username"];
@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["video"])) {
         // Move the uploaded file to the destination directory
         if (move_uploaded_file($_FILES["video"]["tmp_name"], $uploadFile)) {
             // JSON file path
-            $jsonFile = "video.json";
+            $jsonFile = "/databases/videodata.json";
 
             // Read existing data from the JSON file
             if (file_exists($jsonFile)) {

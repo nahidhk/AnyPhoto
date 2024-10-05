@@ -12,7 +12,7 @@ if ( isset( $_GET[ 'username' ] ) && isset( $_GET[ 'userimg' ] ) ) {
 <head>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css'>
     <link rel='stylesheet' href='/style/style.main.css'>
-    <link rel='shortcut icon' href="/php/data/<?php echo $userimg?>" type='image/x-icon'>
+    <link rel='shortcut icon' href="//databases/photos//<?php echo $userimg?>" type='image/x-icon'>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title><?php echo $username ?></title>

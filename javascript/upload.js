@@ -75,6 +75,6 @@ function videpupsystem(){
 function userimgshow(){
   const userimg =document.getElementById("userimgshow");
   var myuserimg = localStorage.getItem("userimg");
-  userimg.src=`/php/data/${myuserimg}`;
+  userimg.src=`//databases/photos//${myuserimg}`;
   }
   userimgshow();

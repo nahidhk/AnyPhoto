@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
-    $uploadDir = "data/";
+    $uploadDir = "php/data/";
     $uploadFile = $uploadDir . basename($_FILES["photo"]["name"]);
     $title = $_POST["title"];
     $username = $_POST["username"];
@@ -8,13 +8,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
     $date =$_POST["date"];
     
  
-    $maxFileSize = 10 * 1024 * 1024;
+    $maxFileSize = 50 * 1024 * 1024;
     $imageFileType = strtolower(pathinfo($uploadFile, PATHINFO_EXTENSION));
     $allowedExtensions = array("jpg", "jpeg", "png", "gif");
 
     if (in_array($imageFileType, $allowedExtensions)) {
         if ($_FILES["photo"]["size"] > $maxFileSize) {
-            echo "<h1>File size exceeds the limit of 5 MB.</h1>";
+            echo "<h1>File size exceeds the limit of 50 MB.</h1>";
             exit;
         }
 
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
 
 
         if (move_uploaded_file($_FILES["photo"]["tmp_name"], $uploadFile)) {
-            $jsonFile = "user.json";
+            $jsonFile = "/databases/photos.json";
             if (file_exists($jsonFile)) {
                 $jsonData = json_decode(file_get_contents($jsonFile), true);
                 if (!is_array($jsonData)) {
@@ -56,4 +56,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
     echo "<h1>No file uploaded.</h1>";
 }
 ?>
-<script>window.location.href="/"</script>
+<!-- <script>window.location.href="/"</script> -->

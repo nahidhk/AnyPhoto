@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
-    $uploadDir = "data/";
+    $uploadDir = "php/data/";
     $uploadFile = $uploadDir . basename($_FILES["photo"]["name"]);
     
     $imageFileType = strtolower(pathinfo($uploadFile, PATHINFO_EXTENSION));
@@ -15,10 +15,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
             echo "<h1>Error moving the uploaded file.</h1>";
         }
     } else {
-        echo "<h1>Invalid file type. Only JPG, JPEG, PNG & GIF are allowed.</h1>";
+        echo "";
     }
 } else {
     echo "<h1>No file uploaded.</h1>";
 }
 ?>
-<script>window.location.href="/"</script>
+<!-- <script>window.location.href="/"</script> -->

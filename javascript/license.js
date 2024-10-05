@@ -1,6 +1,6 @@
 var userimg = localStorage.getItem("userimg");
 var showuserimg = document.getElementById("userimg");
-showuserimg.src = `/php/data/${userimg}`;
+showuserimg.src = `/databases/photos/${userimg}`;
 
 //  Edit profile photo
 

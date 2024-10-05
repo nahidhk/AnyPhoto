@@ -1,6 +1,6 @@
 async function videoshow() {
     try {
-        const response1 = await fetch("/php/video.json");
+        const response1 = await fetch("/databases/videodata.json");
         const data1 = await response1.json();
         const dataContainer1 = document.getElementById('videoapp');
 
@@ -14,7 +14,7 @@ async function videoshow() {
             itemElement1.innerHTML = `
          <div class="photo">
                     <div class="user">
-                        <img src="/php/data/${item.userimg}" alt="${item.username}" class="userimg">
+                        <img src="//databases/photos//${item.userimg}" alt="${item.username}" class="userimg">
                         <p style="font-size: large;">&nbsp;&nbsp;&nbsp;<b><span>${item.username}</span></b></p>
                     </div>
                     <blockquote>
