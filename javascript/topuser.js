@@ -18,7 +18,7 @@ async function topuser() {
                 itemElementtopuser.innerHTML = `
                 <div class="user" onclick="apicall()">
                     <img src="/databases/photos/${item.userimg}" alt="${item.username}" class="userimg">
-                    <p style="font-size: large;">&nbsp;&nbsp;&nbsp;<b><span>${item.username}</span></b></p>
+                    <p style="font-size: large;">&nbsp;&nbsp;&nbsp;<b><span>${item.username}</span></b> ${item.verifay}</p>
                 </div>  
                 `;
               

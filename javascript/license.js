@@ -34,10 +34,16 @@ function editusername() {
     "Changing your username will not change the username of any previous poster!"
   );
   const myusername = document.getElementById("showusername");
-  myusername.innerHTML = `<input type="text" id="setnewusername" value="${loadusername}"/>`;
+  myusername.innerHTML = `<input oninput="changethename()" type="text" id="setnewusername" value="${loadusername}"/>`;
   document.getElementById("textediticon").classList = "vcc";
 }
+function changethename(){
+ const changename =  document.getElementById("setnewusername").value;
+ if(changename){
+  localStorage.setItem("username",changename);
+ }
 
+}
 // addd the verifay sysem
 
 function checkverfy() {
@@ -48,18 +54,14 @@ function checkverfy() {
   const verifay = localStorage.getItem("verifay");
   const loademail = localStorage.getItem("email");
   const loadphone = localStorage.getItem("phonenum");
-  const loadbate = localStorage.getItem("bath");
 
   if (verifay == "true") {
     //  verifay true hour por uid and password load hobe
-    const loaduid = localStorage.getItem("uid");
     let password = localStorage.getItem("password");
     // document show password and Uid In onetime
     document.getElementById("password").innerText = password;
-    document.getElementById("uid").innerText = loaduid;
     email.innerHTML = loademail;
-    phone.innerHTML = loadphone;
-    bate.innerHTML = loadbate;
+    phone.innerHTML = loadphone; 
     document.getElementById("editprofile").classList = "vcc";
     document.getElementById(
       "vicon"
@@ -74,3 +76,4 @@ function checkverfy() {
   }
 }
 checkverfy();
+

@@ -35,7 +35,7 @@ async function displayData(searchInput = "") {
                 <div class="photo" >
                     <div class="user">
                         <img src="/databases/photos/${item.userimg}" alt="${item.username}" class="userimg">
-                        <p style="font-size: large;">&nbsp;&nbsp;&nbsp;<b><span>${item.username}</span></b></p>
+                        <p style="font-size: large;">&nbsp;&nbsp;&nbsp;<b><span>${item.username}</span></b>  ${item.verifay}</p>
                     </div>
                     <blockquote>
                         <span title="This is a Post Time" class="dateshow">${item.date}</span>
@@ -243,12 +243,13 @@ function loadCSSJS() {
 }
 
 loadCSSJS();
-function accountprofile(){
+function accountprofile() {
   let username = localStorage.getItem("username");
-  let userimg = localStorage.getItem("userimg")
-  window.location.href=`account/?username=${username}&userimg=${userimg}`;
- 
+  let userimg = localStorage.getItem("userimg");
+  window.location.href = `account/?username=${username}&userimg=${userimg}`;
 }
-function verifay(){
-  window.location.href="account/verifay"
+function verifay() {
+  window.location.href = "account/verifay";
 }
+
+

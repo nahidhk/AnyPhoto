@@ -73,3 +73,14 @@ function userimgshow(){
   userimg.src=`/databases/photos/${myuserimg}`;
   }
   userimgshow();
+
+  function myverifay() {
+    const myopenverifay = document.getElementById("myverifayionet");
+    const loadverifay = localStorage.getItem("verifay");
+    if (loadverifay == "true") {
+      myopenverifay.value = '<i class="bi bi-patch-check-fill v"></i>';
+    } else {
+      myopenverifay.value = '<i class="bi bi-emoji-smile-upside-down"></i>';
+    }
+  }
+  myverifay();

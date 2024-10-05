@@ -5,9 +5,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
     $title = $_POST["title"];
     $username = $_POST["username"];
     $userimg = $_POST["userimg"];
-    $date =$_POST["date"];
-    
- 
+    $date = $_POST["date"];
+    $verifay = $_POST["verifay"];
+
     $maxFileSize = 50 * 1024 * 1024;
     $imageFileType = strtolower(pathinfo($uploadFile, PATHINFO_EXTENSION));
     $allowedExtensions = array("jpg", "jpeg", "png", "gif");
@@ -23,29 +23,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
             exit;
         }
 
-
         if (move_uploaded_file($_FILES["photo"]["tmp_name"], $uploadFile)) {
-            $jsonFile = "photos.json";
-            if (file_exists($jsonFile)) {
-                $jsonData = json_decode(file_get_contents($jsonFile), true);
-                if (!is_array($jsonData)) {
-                    $jsonData = [];
-                }
-            } else {
-                $jsonData = [];
+            // Database connection
+            $conn = new mysqli("localhost", "readyof1", "A*Password123123", "readyof1_Aanyface");
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
             }
 
-            $newData = [
-                "date" => $date,
-                "username" => $username,
-                "userimg" => $userimg,
-                "title" => $title,
-                "img" => basename($_FILES["photo"]["name"])
-            ];
-            array_unshift($jsonData, $newData);
-            file_put_contents($jsonFile, json_encode($jsonData, JSON_PRETTY_PRINT));
-
-            echo "<h1>File uploaded successfully!</h1>";
+            // Insert into database
+            $stmt = $conn->prepare("INSERT INTO photos (title, username, userimg, date, verifay, img) VALUES (?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("ssssss", $title, $username, $userimg, $date, $verifay, basename($_FILES["photo"]["name"]));
+            
+            if ($stmt->execute()) {
+                echo "<h1>File uploaded successfully!</h1>";
+            } else {
+                echo "<h1>Error uploading file to database.</h1>";
+            }
+            
+            $stmt->close();
+            $conn->close();
         } else {
             echo "<h1>Error uploading file.</h1>";
         }
@@ -56,4 +52,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
     echo "<h1>No file uploaded.</h1>";
 }
 ?>
-<!-- <script>window.location.href="/"</script> -->
+<script>window.location.href="/"</script>
