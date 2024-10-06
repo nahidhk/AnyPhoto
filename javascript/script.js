@@ -34,7 +34,7 @@ async function displayData(searchInput = "") {
     filteredData.forEach((item) => {
       const itemElement = document.createElement("div");
       itemElement.innerHTML = `
-                <div class="photo" >
+                <div class="photo" id="${item.userimg}">
                     <div class="user">
                         <img src="/databases/photos/${item.userimg}" alt="${item.username}" class="userimg">
                         <p style="font-size: large;">&nbsp;&nbsp;&nbsp;<b><span>${item.username}</span></b>  ${item.verifay}</p>
@@ -81,13 +81,6 @@ async function displayData(searchInput = "") {
   }
 }
 
-
-
-
-
-
-
-
 function loadmyphoto(imgElement) {
   const loadingImage = imgElement.nextElementSibling;
   if (loadingImage && loadingImage.classList.contains("loadimg")) {
@@ -107,6 +100,7 @@ function searchData() {
   const searchInput1 = document.querySelector("#search1").value;
   const searchInput2 = document.querySelector("#search2").value;
   displayData(searchInput1 + searchInput2);
+  window.location.href ="#" + searchInput1 + searchInput2;
 }
 
 function requestNotification() {
