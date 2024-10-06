@@ -40,7 +40,7 @@ $conn->close();
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
-    $userEmail = $_POST["email"];
+    $userEmail = $_POST["useremail"];
     // Assuming you have a password stored securely, otherwise never send passwords via email
     
     // Send confirmation email
