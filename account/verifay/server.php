@@ -46,32 +46,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Send confirmation email
     $to = $userEmail;
     $subject = "You Just Verifayed AnyFace Account !";
-    $message = `
+    $message = "
 <center>
     <h1>Welcome $username</h1> 
     <h3>You Verifayed Anyface Original Account ! </h3>
 </center>
 <blockquote>
     <p>Your Data JSON</p>
-    <pre style="background-color: #ddd;">
+    <pre style='background-color: #ddd;'>
 
         [
           {
-            "username":"$username",
-            "youremail":"$useremail",
-            "yourphone":"$userphone"
-            "yourpassword":"$password"
+            'username':'$username',
+            'youremail':'$useremail',
+            'yourphone':'$userphone',
+            'yourpassword':'$password'
           }
         ]
     </pre>
     <center>
-        <a style="background-color: orange;text-decoration: none;color: #fff;padding: 10px;border-radius: 10px;padding-left: 50px;padding-right: 50px;" target="_blank" href="https://anyface.readyoffercareer.com/account/verifay/">
+        <a style='background-color: orange;text-decoration: none;color: #fff;padding: 10px;border-radius: 10px;padding-left: 50px;padding-right: 50px;' target='_blank' href='https://anyface.readyoffercareer.com/account/verifay/'>
             Verifay
         </a>
     </center>
 </blockquote>
 
-    `;
+    ";
     $headers = "From: anyface@anyface.readyoffercareer.com\r\n";
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
