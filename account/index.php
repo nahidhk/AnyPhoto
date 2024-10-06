@@ -22,7 +22,7 @@ if ( isset( $_GET[ 'username' ] ) && isset( $_GET[ 'userimg' ] ) ) {
     <section class="maincontect">
     <div id="listio" class='step'>
         <center>
-            <form id="myform" action='/php/account.php' method='POST' enctype='multipart/form-data'>
+            <form id="myform" action='/databases/account.php' method='POST' enctype='multipart/form-data'>
                 <input oninput='editimg()' type='file' class='myinput' name='photo' id='editprofile' accept="image/*" >
             </form>
             <span id="windto" class="vtext vcc">your Account Verifyed

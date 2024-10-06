@@ -4,8 +4,6 @@ function displydatalopmuo(){
     var username = localStorage.getItem("username");
     let nameuser = document.getElementById("nameuser");
     let imguser = document.getElementById("imguser");
-    let nameuser1 = document.getElementById("nameuser1");
-    let imguser1 = document.getElementById("imguser1");
     nameuser.value=username;
     imguser.value=userimg;
    document.getElementById("usernameshow").innerHTML=username;
