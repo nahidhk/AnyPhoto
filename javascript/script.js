@@ -1,4 +1,6 @@
+
 async function displayData(searchInput = "") {
+ 
   try {
     const response = await fetch("/server/json/photos");
     const data = await response.json();
@@ -78,6 +80,14 @@ async function displayData(searchInput = "") {
     console.error("data error", error);
   }
 }
+
+
+
+
+
+
+
+
 function loadmyphoto(imgElement) {
   const loadingImage = imgElement.nextElementSibling;
   if (loadingImage && loadingImage.classList.contains("loadimg")) {
@@ -234,15 +244,15 @@ function copycode() {
 function loadCSSJS() {
   var cssFile = document.createElement("link");
   cssFile.rel = "stylesheet";
-  cssFile.href = "styles.css?v=" + new Date().getTime(); // টাইমস্ট্যাম্প
+  cssFile.href = "/style/style.main.css?v=" + new Date().getTime(); // টাইমস্ট্যাম্প
   document.head.appendChild(cssFile);
 
   var jsFile = document.createElement("script");
-  jsFile.src = "app.js?v=" + new Date().getTime(); // টাইমস্ট্যাম্প
+  jsFile.src = "/javascript/script.js?v=" + new Date().getTime(); // টাইমস্ট্যাম্প
   document.body.appendChild(jsFile);
 }
 
-loadCSSJS();
+// loadCSSJS();
 function accountprofile() {
   let username = localStorage.getItem("username");
   let userimg = localStorage.getItem("userimg");
@@ -251,5 +261,27 @@ function accountprofile() {
 function verifay() {
   window.location.href = "account/verifay";
 }
+
+
+
+
+
+const date = new Date();
+const day = String(date.getDate()).padStart(2, '0');
+const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "June", 
+                    "July", "Augu", "Sep", "Oct", "Nov", "Dec"];
+const month = monthNames[date.getMonth()];
+const year = date.getFullYear();
+
+
+let hours = date.getHours();
+const minutes = String(date.getMinutes()).padStart(2, '0');
+const seconds = String(date.getSeconds()).padStart(2, '0');
+const ampm = hours >= 12 ? 'PM' : 'AM';
+
+hours = hours % 12;  
+hours = hours ? hours : 12;  
+
+const todaymydate = `${day} ${month} ${year} - ${hours}:${minutes}:${seconds} ${ampm}`;
 
 

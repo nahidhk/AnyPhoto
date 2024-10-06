@@ -28,6 +28,7 @@ function showimgfx(){
       alert("Please select an image.");
     }
 }
+
 function datenewappconvartapp() {
   const dateshowapps = document.getElementById("dateshowboxUp");
   const date = new Date();
@@ -48,8 +49,9 @@ function datenewappconvartapp() {
   hours = hours ? hours : 12;  
 
   dateshowapps.value = `${day} ${month} ${year} - ${hours}:${minutes}:${seconds} ${ampm}`;
+  const todaymydate = `${day} ${month} ${year} - ${hours}:${minutes}:${seconds} ${ampm}`;
+  return todaymydate;
 }
-
 datenewappconvartapp();
 
 

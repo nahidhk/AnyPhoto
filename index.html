@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-   
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -11,7 +10,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
-    <link rel="stylesheet" href="/style/style.main.css?v1.0.1" />
+    <link rel="stylesheet" href="/style/style.main.css?v=1.0.1" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AnyFace</title>
@@ -50,8 +49,8 @@
               id="showprofile"
               style="height: 100px; width: 100px; border-radius: 100px"
             />
-            <input 
-            class="atom"
+            <input
+              class="atom"
               oninput="upimg()"
               type="file"
               name="photo"
@@ -105,18 +104,40 @@
           class="systembtn navbtn mbicon"
         >
           <span class="mbicon">
-            <i class="bi bi-menu-button"></i>
+            <i class="bi bi-sliders2"></i>
           </span>
         </button>
       </div>
     </div>
     <div id="myappjstoopenuserlist" class="vcc">
-      <center>
-        <button onclick="colesthemenulist()" class="systembtn closebtn">
-          <i class="bi bi-x-circle"></i>
+        <button onclick="colesthemenulist()" class="closebtn">
+          <i class="bi bi-arrow-left"></i>
         </button>
-      </center>
-      <div class="topuser"></div>
+        <blockquote>
+          <h3>Setting</h3><hr>
+          <!-- Account Btn -->
+          <button onclick="accountprofile()" class="systembtn accbtn">
+            <i class="bi bi-person-circle"></i>
+            Account
+          </button>
+          <!-- verify Account -->
+          <button onclick="verifay()" class="systembtn accbtn">
+            <i class="bi bi-patch-check"></i>
+            Verify Account
+          </button>
+        </blockquote>
+ 
+      <div class="skty">
+      <blockquote>
+        <h3>Top User</h3><hr>
+        </blockquote>
+        </div>
+
+        <blockquote>
+      <div class="topuser">
+      </div>
+    </blockquote>
+    </div>
     </div>
     <br />
     <center>
@@ -131,18 +152,18 @@
     <section class="maincontect">
       <div class="sidemain left">
         <blockquote>
-            <h2>Setting</h2>
-            <hr>
-            <!-- Account Btn -->
+          <h2>Setting</h2>
+          <hr />
+          <!-- Account Btn -->
           <button onclick="accountprofile()" class="systembtn accbtn">
             <i class="bi bi-person-circle"></i>
             Account
-        </button>
-        <!-- verify Account -->
-        <button onclick="verifay()" class="systembtn accbtn">
+          </button>
+          <!-- verify Account -->
+          <button onclick="verifay()" class="systembtn accbtn">
             <i class="bi bi-patch-check"></i>
-           Verify Account
-        </button>        
+            Verify Account
+          </button>
         </blockquote>
       </div>
       <div class="main">

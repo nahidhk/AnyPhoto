@@ -402,17 +402,29 @@ input {
     display: none;
   }
   .mbtopuser {
+    top: 0;
     display: block;
-    width: 80%;
+    width: 100%;
     background-color: #fff;
-    padding: 20px;
-    margin: 20px;
-    height: 80vh;
+    height: 100vh;
     overflow: scroll;
+    position: fixed;
+    z-index: 100;
   }
   .closebtn {
-    background-color: red;
-    color: #fff;
-    width: 50px;
+   background-color: #f0f0f0;
+   color: #000;
+   border: none;
+   font-size: 20pt;
+   margin: 10px;
+   cursor: pointer;
+   position: sticky;
+   top: 0;
+  }
+  .skty{
+    position: sticky;
+    top: 0;
+    overflow: scroll;
+    background-color: #fff;
   }
 }

@@ -1,6 +1,6 @@
 async function videoshow() {
     try {
-        const response1 = await fetch("/databases/videodata.json");
+        const response1 = await fetch("");
         const data1 = await response1.json();
         const dataContainer1 = document.getElementById('videoapp');
 
@@ -32,4 +32,4 @@ async function videoshow() {
         console.error('data error', error);
     }
 }
-videoshow();
+// videoshow();
