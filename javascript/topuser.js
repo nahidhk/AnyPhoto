@@ -1,6 +1,6 @@
 async function topuser() {
     try {
-        const response = await fetch("/databases/photos.json");
+        const response = await fetch("/server/json/photos");
         const topuser = await response.json();
         const dataContainerontopuser = document.querySelectorAll('.topuser, .topuser2');
 

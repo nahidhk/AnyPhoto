@@ -1,6 +1,6 @@
 async function displayData(searchInput = "") {
   try {
-    const response = await fetch("/databases/photos.json");
+    const response = await fetch("/server/json/photos");
     const data = await response.json();
     const dataContainer = document.getElementById("app");
 
