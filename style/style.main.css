@@ -2,7 +2,9 @@
   font-family: juthi;
   src: url("/font/Abel-Regular.ttf");
 }
-
+html {
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
   background-color: rgb(237, 237, 237);
