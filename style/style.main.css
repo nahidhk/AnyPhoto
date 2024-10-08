@@ -30,7 +30,7 @@ body {
   border: 0px none #ffffff;
 }
 
-#nav {
+.nav {
   height: 65px;
   width: 100%;
   background-color: #c4c4c469;
@@ -420,5 +420,19 @@ input {
     top: 0;
     overflow: scroll;
     background-color: #fff;
+  }
+  .nav {
+    height: 65px;
+    width: 100%;
+    background-color: #c4c4c469;
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .naver{
+    height: 65px;
+    width: 1000%;
+    background-color: #ffffffdd;
   }
 }

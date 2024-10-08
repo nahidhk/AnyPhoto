@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/style/style.main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnyFace</title>
+</head>
+
+<body>
+    <div id="nav">
+        <span class="navtext">
+            <img src="/img/icon.png" /> </span>
+        <div class="button-box">
+            <button id="photobtn" class="systembtn active">
+                <span class="mbicon">
+                    <i class="bi bi-images"></i>
+                </span>
+                <span class="mbtext">Photo</span>
+            </button>
+            <button id="videobtn" onclick="videpupsystem()" class="systembtn noactive">
+                <span class="mbicon">
+                    <i class="bi bi-camera-video"></i></span>
+                <span class="mbtext">Video</span>
+            </button>
+            <button onclick="window.location='/'" class="navbtn systembtn ">
+                <span class="mbicon">
+                    <i class="bi bi-house-door"></i>
+                </span>
+                <span class="mbtext"> <i class="bi bi-house-door"></i> Home</span>
+            </button>
+        </div>
+    </div>
+
+    <div id="showupphoto" class="maincontect">
+        <div class="main">
+            <h1>
+                Upload Your Photo
+            </h1>
+            <div class="photo">
+                <div class="user">
+                    <img src="" id="userimgshow" alt="" class="userimg">
+                    <p><b> &nbsp;&nbsp;&nbsp;<span id="usernameshow"></span></b></p>
+                </div>
+                <form onsubmit="openupload()" action="/databases/upload.php" method="post" enctype="multipart/form-data">
+                    <input class="dateshow" name="date" id="dateshowboxUp" type="text" required>
+                    <input class="false" type="text" name="verifay" id="myverifayionet" required>
+                    <input name="ip" type="text" class="false" id="ip" required>
+                    <input name="location" type="text" class="false" id="location" required>
+                    <input name="dvc" type="text" class="false" id="dvc" required>
+                    <input id="nameuser" type="text" class="false" name="username" required>
+                    <input id="imguser" type="text" class="false" name="userimg" required><br><br>
+                    
+                    <textarea class="titlehere" name="title" placeholder="Title Here..."></textarea>
+                
+                    <div id="filesetok">
+                        <center>
+                            <label class="custom-file-upload" for="photofa">
+                                <i class="bi bi-upload upicon"></i><br> Drop & Select Your Photo
+                            </label>
+                            <input aria-describedby="upload photo" oninput="showimgfx()" type="file" name="photo" id="photofa" required accept="image/*">
+                        </center>
+                    </div>
+                    
+                    <img id="myimge" class="imgdata" alt=""><br>
+                    
+                    <center>
+                        <button type="submit" id="uploadbtn" class="btn systembtn vcc">
+                            <i class="bi bi-upload"></i> Upload
+                        </button>
+                    </center>
+                </form>
+                
+        </div>
+    </div>
+</div>
+    <!-- =========================================================upload and the video =============== -->
+    
+    <br><br>
+    <center>
+        code By 🩵 <a href="https://github.com/nahidhk">anyface</a>
+    </center>
+   
+    <script src="/javascript/upload.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>

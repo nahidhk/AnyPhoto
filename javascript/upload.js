@@ -61,7 +61,9 @@ function datenewappconvartapp() {
 }
 datenewappconvartapp();
 
-function videpupsystem() {}
+function videpupsystem() {
+  window.location="video.html"
+}
 
 // show user account img
 function userimgshow() {
