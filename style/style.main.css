@@ -176,9 +176,9 @@ body {
   font-family: monospace;
 }
 .button-box {
+  width: 100%;
   position: absolute;
   padding: 10px;
-  right: 0;
   display: flex;
   justify-content: center;
 }
@@ -192,7 +192,7 @@ input {
   padding: 10px;
   font-size: large;
   cursor: pointer;
-  width: 150px;
+  width: 170px;
   margin-left: 13px;
 }
 .active {
@@ -369,6 +369,15 @@ input {
   background-color: #fff;
   color: #fff; 
 }
+.iconmain{
+  font-size: 13pt;
+}
+.proicon{
+  font-size: 4.5rem;
+}
+#cverifay{
+  text-align: center;
+}
 @media (max-width: 768px) {
   .search {
     width: 90%;
@@ -432,7 +441,7 @@ input {
   }
   .naver{
     height: 65px;
-    width: 1000%;
+    width: 100%;
     background-color: #ffffffdd;
   }
 }

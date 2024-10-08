@@ -79,21 +79,20 @@
       <div class="button-box">
         <button
           id="photobtn"
-          onclick="openthephotobox()"
+          onclick="openthephotobox(); linkclick()"
           class="systembtn active"
         >
-          <span class="mbicon">
-            <i class="bi bi-images"></i>
-          </span>
-          <span class="mbtext">Photo</span>
+     <span class="mbicon"><i id="photoicon1" class="fa-fade fa-images fa-regular"></i></span>
+      <span class="mbtext"> <i id="photoicon2" class="fa-regular fa-images fa-fade"></i>  Photo</span>
         </button>
+
         <button
           id="videobtn"
-          onclick="openthevideobox()"
+          onclick="openthevideobox(); linkclick()"
           class="systembtn noactive"
         >
-          <span class="mbicon"> <i class="bi bi-camera-video"></i></span>
-          <span class="mbtext">Video</span>
+        <span class="mbicon"><i id="videoicon1" class="fa-solid fa-video"></i></span>
+           <span class="mbtext"> <i id="videoicon2" class="fa-solid fa-video"></i> Video</span>
         </button>
         <button onclick="systemserch()" class="systembtn navbtn mbicon">
           <span class="mbicon">
@@ -205,5 +204,6 @@
     <script src="javascript/script.js?v=1.0.1"></script>
     <script src="javascript/video.js?v=1.0.1"></script>
     <script src="javascript/topuser.js?v=1.0.1"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </body>
 </html>

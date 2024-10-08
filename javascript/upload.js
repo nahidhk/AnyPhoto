@@ -61,8 +61,11 @@ function datenewappconvartapp() {
 }
 datenewappconvartapp();
 
-function videpupsystem() {
-  window.location="video.html"
+function videofolder() {
+  window.location="/upload/video/"
+}
+function photofolder(){
+  window.location="/upload/photo/"
 }
 
 // show user account img
@@ -83,7 +86,9 @@ function myverifay() {
   }
 }
 myverifay();
-
+function homeapp(){
+  window.location="/";
+}
 //  js device check
 function checkdevice() {
   const userdevice = navigator.userAgent.toLowerCase();

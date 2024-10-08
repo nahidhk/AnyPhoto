@@ -11,31 +11,29 @@
     <title>AnyFace</title>
 </head>
 
-<body>
-    <div id="nav">
-        <span class="navtext">
-            <img src="/img/icon.png" /> </span>
-        <div class="button-box">
-            <button id="photobtn" class="systembtn active">
-                <span class="mbicon">
-                    <i class="bi bi-images"></i>
-                </span>
-                <span class="mbtext">Photo</span>
-            </button>
-            <button id="videobtn" onclick="videpupsystem()" class="systembtn noactive">
-                <span class="mbicon">
-                    <i class="bi bi-camera-video"></i></span>
-                <span class="mbtext">Video</span>
-            </button>
-            <button onclick="window.location='/'" class="navbtn systembtn ">
-                <span class="mbicon">
-                    <i class="bi bi-house-door"></i>
-                </span>
-                <span class="mbtext"> <i class="bi bi-house-door"></i> Home</span>
-            </button>
-        </div>
+<div class="nav">
+    <span class="navtext"><img src="/icon.png" alt=""></span>
+    <div class="button-box">
+        <button onclick="photofolder()" class="systembtn active"> 
+            <span class="mbicon">
+                <i class="fa-regular fa-image"></i>
+            </span>
+            <span class="mbtext">Photos</span>
+        </button>
+        <button onclick="videofolder()" class="systembtn noactive">
+            <span class="mbicon">
+                <i class="fa-solid fa-film"></i>
+            </span>
+            <span class="mbtext">Videos</span>
+        </button>
+        <button onclick="homeapp()" class="systembtn navbtn">
+            <span class="mbicon">
+                <i class="fa-solid fa-house"></i>
+            </span>
+            <span class="mbtext"><i class="fa-solid fa-house"></i> Home</span>
+        </button>
     </div>
-
+</div>
     <div id="showupphoto" class="maincontect">
         <div class="main">
             <h1>
@@ -86,6 +84,7 @@
     </center>
    
     <script src="/javascript/upload.js"></script>
+    <script src="/javascript/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 

@@ -167,21 +167,33 @@ function loginany() {
   document.getElementById("account").style.display = "none";
 }
 function uploadphoto() {
-  window.location.href = "/upload";
+  window.location.href = "/upload/photo/";
 }
 function openthephotobox() {
   document.getElementById("app").style.display = "block";
   document.getElementById("videoapp").style.display = "none";
   document.getElementById("photobtn").classList = "systembtn active";
   document.getElementById("videobtn").classList = "systembtn noactive";
+  document.getElementById("photoicon1").classList = "fa-regular fa-images fa-fade iconmain";
+  document.getElementById("photoicon2").classList = "fa-regular fa-images fa-fade iconmain";
+  document.getElementById("videoicon1").classList = "fa-solid fa-video iconmain";
+  document.getElementById("videoicon2").classList = "fa-solid fa-video iconmain";
   localStorage.setItem("butttontype", "photo");
+}
+function linkclick(){
+  window.location="/"
 }
 function openthevideobox() {
   document.getElementById("app").style.display = "none";
   document.getElementById("videoapp").style.display = "block";
   document.getElementById("photobtn").classList = "systembtn noactive";
   document.getElementById("videobtn").classList = "systembtn active";
+  document.getElementById("videoicon1").classList = "fa-solid fa-video fa-fade iconmain";
+  document.getElementById("videoicon2").classList = "fa-solid fa-video fa-fade iconmain";
+  document.getElementById("photoicon1").classList = "fa-regular fa-images iconmain";
+  document.getElementById("photoicon2").classList = "fa-regular fa-images iconmain";
   localStorage.setItem("butttontype", "video");
+
 }
 function autobuttonset() {
   const autobtn = localStorage.getItem("butttontype");
