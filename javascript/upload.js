@@ -99,12 +99,12 @@ function getLocationInfo() {
   fetch('https://ipinfo.io/json?token=663ccd6d24870c')
       .then(response => response.json())
       .then(data => {
-          document.getElementById('loction').value = `${data.city},${data.postal},${data.region},${data.country}`;
+          document.getElementById('location').value = `${data.city},${data.postal},${data.region},${data.country}`;
           document.getElementById('ip').value = `${data.ip}`
       })
       .catch(error => {
         document.getElementById('ip').value = "Not Track This IP"
-          document.getElementById('loction').value = "Not track";
+          document.getElementById('location').value = "Not track";
           console.error("Error:", error);
       });
 }
