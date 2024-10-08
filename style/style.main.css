@@ -347,6 +347,9 @@ input {
 .v{
   color: blue;
 }
+.vr{
+  color: red;
+}
 .melo{
   width: 340px;
   background-color: #fff;
