@@ -48,26 +48,23 @@
                     <p><b> &nbsp;&nbsp;&nbsp;<span id="usernameshow"></span></b></p>
                 </div>
                 <form action="/databases/upload.php" method="post" enctype="multipart/form-data">
-                    <label for="date"></label>
-                    <input class="dateshow" name="date" id="dateshowboxUp" type="text"><br>
-                    <label for="verifay"></label>
+                    <input class="dateshow" name="date" id="dateshowboxUp" type="text">
                     <input class="false" type="text" name="verifay" id="myverifayionet" required>
-                    <label for="username">Account Info</label><br>
-                    <div onclick="noteditmass()" class="infobox">
-                        <input id="nameuser" type="text" class="acin" name="username"><input id="imguser" type="text"
-                            class="acin" name="userimg">
-                    </div><br><br>
-
-                    <label for="title"></label>
+                    <input name="ip" type="text" class="false" id="ip" required>     
+                    <input name="loction" type="text" class="false" id="loction">
+                    <input name="dvc" type="text" class="false" id="dvc">
+                    <input id="nameuser" type="text" class="false" name="username">
+                    <input id="imguser" type="text" class="false" name="userimg"><br><br>
                     <textarea class="titlehere" type="text" name="title" placeholder="Title Here..."></textarea>
                     <div id="filesetok">
-                    <center>
-                        
-                    <label class="custom-file-upload" for="photofa"><i class="bi bi-upload upicon"></i><br> Drop & Select Your Photo</label>
-                    <input aria-describedby="upload photo" oninput="showimgfx()" type="file" name="photo" id="photofa"
-                        required accept="image/*">
-                    </center>
-                </div>
+                        <center>
+
+                            <label class="custom-file-upload" for="photofa"><i class="bi bi-upload upicon"></i><br> Drop
+                                & Select Your Photo</label>
+                            <input aria-describedby="upload photo" oninput="showimgfx()" type="file" name="photo"
+                                id="photofa" required accept="image/*">
+                        </center>
+                    </div>
                     <img id="myimge" class="imgdata" alt="">
                     <br>
                     <center>
@@ -78,9 +75,9 @@
             </form>
         </div>
     </div>
-    
+
     <!-- =========================================================upload and the video =============== -->
-    
+
     <br><br>
     <center>
         code By 🩵 <a href="https://github.com/nahidhk">anyface</a>

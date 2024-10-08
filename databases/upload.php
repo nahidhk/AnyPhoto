@@ -14,12 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
 
     if (in_array($imageFileType, $allowedExtensions)) {
         if ($_FILES["photo"]["size"] > $maxFileSize) {
-            echo "<h1>File size exceeds the limit of 50 MB.</h1>";
+            echo "<h1>Photo size exceeds the limit of 50 MB. or Poblem <a href='mailto:nahidhk2007@gmail.com'>feedback</a> in Nahid HK.</h1> ";
             exit;
         }
 
         if ($_FILES['photo']['error'] !== UPLOAD_ERR_OK) {
-            echo "<h1>Error code: " . $_FILES['photo']['error'] . "</h1>";
+            echo "<h1>Error code: " . $_FILES['photo']['error'] . "</h1><br><h1>Server Poblem <a href='mailto:nahidhk2007@gmail.com'>feedback</a> Nahid HK.</h1>";
             exit;
         }
 
@@ -35,21 +35,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
             $stmt->bind_param("ssssss", $title, $username, $userimg, $date, $verifay, basename($_FILES["photo"]["name"]));
             
             if ($stmt->execute()) {
-                echo "<h1>File uploaded successfully!</h1>";
+                echo "<script>window.location.href='/'</script>";
             } else {
-                echo "<h1>Error uploading file to database.</h1>";
+                echo "<h1>Error uploading Photo to database. <a href='mailto:nahidhk2007@gmail.com'>feedback</a> Nahid HK.</h1>";
             }
             
             $stmt->close();
             $conn->close();
         } else {
-            echo "<h1>Error uploading file.</h1>";
+            echo "<h1>Error uploading photo</h1>";
         }
     } else {
-        echo "<h1>Invalid file type. Only JPG, JPEG, PNG, and GIF files are allowed.</h1>";
+        echo "<h1>Invalid file type. Only JPG, JPEG, PNG, and GIF files are allowed. </h1>";
     }
 } else {
-    echo "<h1>No file uploaded.</h1>";
+    echo "<h1>No photo uploaded.</h1>";
 }
 ?>
-<script>window.location.href="/"</script>
+
