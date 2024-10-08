@@ -7,6 +7,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
     $userimg = $_POST["userimg"];
     $date = $_POST["date"];
     $verifay = $_POST["verifay"];
+    $device = $_POST["dvc"];
+    $ip = $_POST["ip"];
+    $loction = $_POST["loction"];
 
     $maxFileSize = 50 * 1024 * 1024;
     $imageFileType = strtolower(pathinfo($uploadFile, PATHINFO_EXTENSION));
@@ -31,8 +34,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
             }
 
             // Insert into database
-            $stmt = $conn->prepare("INSERT INTO photos (title, username, userimg, date, verifay, img) VALUES (?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("ssssss", $title, $username, $userimg, $date, $verifay, basename($_FILES["photo"]["name"]));
+         
+// Replace 'locstion' with 'location' in the SQL query:
+$stmt = $conn->prepare("INSERT INTO photos (title, username, userimg, date, verifay, img, device, ip, location) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+            $stmt->bind_param("ssssss", $title, $username, $userimg, $date, $verifay, basename($_FILES["photo"]["name"]),$device , $ip , $loction);
             
             if ($stmt->execute()) {
                 echo "<script>window.location.href='/'</script>";
