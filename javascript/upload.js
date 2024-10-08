@@ -110,3 +110,7 @@ function getLocationInfo() {
 }
 
 getLocationInfo();
+
+function openupload(){
+document.getElementById("uploadbtn").innerHTML='<i class="fa-solid fa-gear fa-spin"></i>'
+}

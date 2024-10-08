@@ -359,13 +359,12 @@ input {
   margin-bottom: 20px;
 }
 .false{
-  height: 30px;
-  /* border-radius: 100px;
+   border-radius: 100px;
   height: 2px;
   width: 2px;
   border: none;
   background-color: #fff;
-  color: #fff; */
+  color: #fff; 
 }
 @media (max-width: 768px) {
   .search {
