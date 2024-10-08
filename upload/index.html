@@ -47,14 +47,14 @@
                     <img src="" id="userimgshow" alt="" class="userimg">
                     <p><b> &nbsp;&nbsp;&nbsp;<span id="usernameshow"></span></b></p>
                 </div>
-                <form action="upload.php" method="post" enctype="multipart/form-data">
-                    <input class="dateshow" name="date" id="dateshowboxUp" type="text">
+                <form action="/databases/upload.php" method="post" enctype="multipart/form-data">
+                    <input class="dateshow" name="date" id="dateshowboxUp" type="text" required>
                     <input class="false" type="text" name="verifay" id="myverifayionet" required>
                     <input name="ip" type="text" class="false" id="ip" required>
-                    <input name="location" type="text" class="false" id="location">
-                    <input name="dvc" type="text" class="false" id="dvc">
-                    <input id="nameuser" type="text" class="false" name="username">
-                    <input id="imguser" type="text" class="false" name="userimg"><br><br>
+                    <input name="location" type="text" class="false" id="location" required>
+                    <input name="dvc" type="text" class="false" id="dvc" required>
+                    <input id="nameuser" type="text" class="false" name="username" required>
+                    <input id="imguser" type="text" class="false" name="userimg" required><br><br>
                     
                     <textarea class="titlehere" name="title" placeholder="Title Here..."></textarea>
                 
