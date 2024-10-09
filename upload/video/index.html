@@ -49,14 +49,15 @@
  <div id="showupphoto" class="maincontect">
     <div class="main">
         <h1>
-            Upload Your Photo
+            Upload Your Video
         </h1>
         <div class="photo">
             <div class="user">
                 <img src="" id="userimgshow" alt="" class="userimg">
                 <p><b> &nbsp;&nbsp;&nbsp;<span id="usernameshow"></span></b></p>
             </div>
-            <form onsubmit="openupload()" action="/databases/upload.php" method="post" enctype="multipart/form-data">
+            <form onsubmit="openupload()" action="/databases/video.php" method="post" enctype="multipart/form-data">
+                <!-- user Data -->
                 <input class="dateshow" name="date" id="dateshowboxUp" type="text" required>
                 <input class="false" type="text" name="verifay" id="myverifayionet" required>
                 <input name="ip" type="text" class="false" id="ip" required>
@@ -64,7 +65,7 @@
                 <input name="dvc" type="text" class="false" id="dvc" required>
                 <input id="nameuser" type="text" class="false" name="username" required>
                 <input id="imguser" type="text" class="false" name="userimg" required><br><br>
-                
+                <!-- user data end -->
                 <textarea class="titlehere" name="title" placeholder="Title Here..."></textarea>
             
                 <div id="filesetok">
@@ -72,14 +73,14 @@
                         <label class="custom-file-upload" for="photofa">
                             <i class="bi bi-upload upicon"></i><br> Drop & Select Your Photo
                         </label>
-                        <input aria-describedby="upload photo" oninput="showimgfx()" type="file" name="photo" id="photofa" required accept="image/*">
+                        <input aria-describedby="upload photo" oninput="videofx()" type="file" name="video" id="videofa" required accept="video/*">
                     </center>
                 </div>
                 
-                <img id="myimge" class="imgdata" alt=""><br>
+              
                 
                 <center>
-                    <button type="submit" id="uploadbtn" class="btn systembtn vcc">
+                    <button type="submit" id="uploadbtn" class="btn systembtn">
                         <i class="bi bi-upload"></i> Upload
                     </button>
                 </center>
