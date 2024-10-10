@@ -14,8 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (isset($_POST['check_username'])) {
-        // Checking username availability
-        $username = mysqli_real_escape_string($conn, $_POST['username']);
+        $username = $_POST['username']; // Direct assignment
         $sql = "SELECT * FROM verifay_user WHERE username='$username'";
         $result = $conn->query($sql);
         
@@ -25,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<span style=\"color: green;\"><i class=\"fa-regular fa-circle-check\"></i>This Username is Available!</span>";
         }
     } elseif (isset($_POST['check_email'])) {
-        $email = mysqli_real_escape_string($conn, $_POST['email']);
+        $email = $_POST['email']; // Direct assignment
         $sql = "SELECT * FROM verifay_user WHERE useremail='$email'";
         $result = $conn->query($sql);
         
@@ -35,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<span style=\"color: green;\"><i class=\"fa-regular fa-circle-check\"></i>This Email is Available!</span>";
         }
     } elseif (isset($_POST['check_phone'])) {
-        $phone = mysqli_real_escape_string($conn, $_POST['phone']);
+        $phone = $_POST['phone']; // Direct assignment
         $sql = "SELECT * FROM verifay_user WHERE userphone='$phone'";
         $result = $conn->query($sql);
         
@@ -45,18 +44,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<span style=\"color: green;\"><i class=\"fa-regular fa-circle-check\"></i>This Number is Available!</span>";
         }
     } elseif (isset($_POST['signup'])) {
-        $username = mysqli_real_escape_string($conn, $_POST['username']);
-        $phone = mysqli_real_escape_string($conn, $_POST['phone']);
-        $email = mysqli_real_escape_string($conn, $_POST['email']);
-        $bathdate = mysqli_real_escape_string($conn, $_POST['bath']);
-        $password = mysqli_real_escape_string($conn, $_POST['password']);
+        $username = $_POST['username']; // Direct assignment
+        $phone = $_POST['phone']; // Direct assignment
+        $email = $_POST['email']; // Direct assignment
+        $bathdate = $_POST['bath']; // Direct assignment
+        $password = $_POST['password']; // Direct assignment
+
+        // Password hashing
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+        // Insert into database
         $sql = "INSERT INTO verifay_user (username, useremail, userphone, bath, password) 
-                VALUES ('$username', '$email', '$phone', '$bathdate', '$password')";
+                VALUES ('$username', '$email', '$phone', '$bathdate', '$hashed_password')";
+
+        // Debugging output
+        echo "Executing SQL: $sql<br>"; // Show the query being executed
 
         if ($conn->query($sql) === TRUE) {
             echo "<script>window.location.href='/'</script>";
         } else {
-            echo "ত্রুটি: " . $sql . "<br>" . $conn->error;
+            echo "ত্রুটি: " . $sql . "<br>" . $conn->error; // Error message
         }
     }
 
