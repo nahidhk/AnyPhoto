@@ -31,11 +31,62 @@ if ($conn->query($sql) === TRUE) {
 
 $conn->close();
 ?>
-<script>
-    window.location.href='/'
-</script>
 
 
+<?php 
+
+// POST রিকোয়েস্ট চেক
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // ইউজারনেম চেক
+    if (isset($_POST['check_username'])) {
+        $username = $_POST['username']; // ডাটা সরাসরি নেওয়া
+        $stmt = $conn->prepare("SELECT * FROM verifay_user WHERE username=?");
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            echo "<span style=\"color: red;\"><i class=\"fa-regular fa-circle-xmark fa-shake\"></i> This Username Not Available!</span>";
+        } else {
+            echo "<span style=\"color: green;\"><i class=\"fa-regular fa-circle-check\"></i>This Username is Available!</span>";
+        }
+        $stmt->close();
+    }
+
+    // ইমেইল চেক
+    elseif (isset($_POST['check_email'])) {
+        $email = $_POST['email']; // ডাটা সরাসরি নেওয়া
+        $stmt = $conn->prepare("SELECT * FROM verifay_user WHERE useremail=?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            echo "<span style=\"color: red;\"><i class=\"fa-regular fa-circle-xmark fa-shake\"></i> This Email Already registered!</span>";
+        } else {
+            echo "<span style=\"color: green;\"><i class=\"fa-regular fa-circle-check\"></i>This Email is Available!</span>";
+        }
+        $stmt->close();
+    }
+
+    // ফোন নম্বর চেক
+    elseif (isset($_POST['check_phone'])) {
+        $phone = $_POST['phone']; // ডাটা সরাসরি নেওয়া
+        $stmt = $conn->prepare("SELECT * FROM verifay_user WHERE userphone=?");
+        $stmt->bind_param("s", $phone);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            echo "<span style=\"color: red;\"><i class=\"fa-regular fa-circle-xmark fa-shake\"></i> This number Already registered!</span>";
+        } else {
+            echo "<span style=\"color: green;\"><i class=\"fa-regular fa-circle-check\"></i>This Number is Available!</span>";
+        }
+        $stmt->close();
+    }
+
+
+?>
 
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
