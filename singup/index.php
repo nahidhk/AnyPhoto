@@ -1,39 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="shortcut icon" href="/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="/style/style.main.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
+    <script src="/javascript/jquery-3.6.0.min.js"></script>
 </head>
-<body>
-    <section>
-        <form action="" method="POST" id="signup-form">
-            <label for="email">Email</label>
-            <input name="email" type="email" id="email" required>
-            <span id="email-check"></span><br>
-            
-            <label for="phone">Phone</label>
-            <input type="number" name="phone" id="phone" required>
-            <span id="phone-check"></span><br>
 
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username" required>
-            <span id="username-check"></span><br>
+<body style="background-color: aquamarine;">
+    <section class="maincontect">
+        <div class="melo">
+            <form action="" method="POST" id="signup-form">
+                <h2>
+                    <center>Create Account</center>
+                </h2>
+                <blockquote>
+                    <label for="email">Email</label>
+                    <input name="email" type="email" id="email" required placeholder="youremail@exampule.com">
+                    <span id="email-check"></span><br>
 
-            <label for="bath">Date of Birth</label>
-            <input type="date" name="bath" required><br>
-            
-            <label for="password">Password</label>
-            <input type="password" name="password" required><br>
-            
-            <input type="submit" value="Sign Up">
-        </form>
+                    <label for="phone">Phone</label>
+                    <input type="number" name="phone" id="phone" required placeholder="+880 18000000">
+                    <span id="phone-check"></span><br>
+
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" required placeholder="input username">
+                    <span id="username-check"></span><br>
+
+                    <label for="bath">Date of Birth</label>
+                    <input type="date" name="bath" required><br>
+
+                    <label for="password">Password</label>
+                    <input id="newpass" type="password" required placeholder="Type a Password"><br>
+
+                    <label for="password"> Conform Password</label>
+                    <input oninput="singupmod()" id="conpass" type="password" name="password" required placeholder="Re type Password">
+                    <span id="passck"></span>
+
+                    <button id="singbtn" type="submit">Sing Up</button>
+            </form>
+            </blockquote>
+        </div>
     </section>
+<script src="/javascript/login.js"></script>
 
-    <script src="/javascript/jquery-3.7.1.main.js"></script>
-    <script src="/javascript/login.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#username").on("blur", function () {
+                var username = $(this).val();
+                $.ajax({
+                    url: '', // Same file
+                    type: 'POST',
+                    data: { check_username: true, username: username },
+                    success: function (response) {
+                        $("#username-check").html(response);
+                    }
+                });
+            });
+
+            $("#email").on("blur", function () {
+                var email = $(this).val();
+                $.ajax({
+                    url: '', // Same file
+                    type: 'POST',
+                    data: { check_email: true, email: email },
+                    success: function (response) {
+                        $("#email-check").html(response);
+                    }
+                });
+            });
+
+            $("#phone").on("blur", function () {
+                var phone = $(this).val();
+                $.ajax({
+                    url: '', // Same file
+                    type: 'POST',
+                    data: { check_phone: true, phone: phone },
+                    success: function (response) {
+                        $("#phone-check").html(response);
+                    }
+                });
+            });
+        });
+    </script>
 
     <?php 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -57,9 +111,9 @@
             $result = $conn->query($sql);
             
             if ($result->num_rows > 0) {
-                echo "<script>document.getElementById('username-check').innerHTML = '<span style=\"color: red;\">এই ব্যবহারকারীর নামটি ব্যবহার করা হয়েছে।</span>';</script>";
+                echo "<script>document.getElementById('username-check').innerHTML = '<span style=\"color: red;\"><i class=\"fa-regular fa-circle-xmark fa-shake\"></i> This Username Not Available!</span>'; nonebtn();</script>";
             } else {
-                echo "<script>document.getElementById('username-check').innerHTML = '<span style=\"color: green;\">এই ব্যবহারকারীর নামটি উপলব্ধ।</span>';</script>";
+                echo "<script>document.getElementById('username-check').innerHTML = '<span style=\"color: green;\"><i class=\"fa-regular fa-circle-check\"></i>This Username is Available!</span>';blockbtn();</script>";
             }
         } elseif (isset($_POST['check_email'])) {
             // Checking email availability
@@ -68,9 +122,9 @@
             $result = $conn->query($sql);
             
             if ($result->num_rows > 0) {
-                echo "<script>document.getElementById('email-check').innerHTML = '<span style=\"color: red;\">এই ইমেইলটি ব্যবহার করা হয়েছে।</span>';</script>";
+                echo "<script>document.getElementById('email-check').innerHTML = '<span style=\"color: red;\"><i class=\"fa-regular fa-circle-xmark fa-shake\"></i> This Email Already registered!</span>'; nonebtn();</script>";
             } else {
-                echo "<script>document.getElementById('email-check').innerHTML = '<span style=\"color: green;\">এই ইমেইলটি উপলব্ধ।</span>';</script>";
+                echo "<script>document.getElementById('email-check').innerHTML = '<span style=\"color: green;\"><i class=\"fa-regular fa-circle-check\"></i>This Eamil is Available!</span>';blockbtn();</script>";
             }
         } elseif (isset($_POST['check_phone'])) {
             // Checking phone availability
@@ -79,9 +133,9 @@
             $result = $conn->query($sql);
             
             if ($result->num_rows > 0) {
-                echo "<script>document.getElementById('phone-check').innerHTML = '<span style=\"color: red;\">এই ফোন নম্বরটি ব্যবহার করা হয়েছে।</span>';</script>";
+                echo "<script>document.getElementById('phone-check').innerHTML = '<span style=\"color: red;\"><i class=\"fa-regular fa-circle-xmark fa-shake\"></i> This number Already registered!</span>'; nonebtn();</script>";
             } else {
-                echo "<script>document.getElementById('phone-check').innerHTML = '<span style=\"color: green;\">এই ফোন নম্বরটি উপলব্ধ।</span>';</script>";
+                echo "<script>document.getElementById('phone-check').innerHTML = '<span style=\"color: green;\"><i class=\"fa-regular fa-circle-check\"></i>This Number is Available!</span>';blockbtn();</script>";
             }
         } else {
             // Register user
@@ -106,4 +160,5 @@
     }
     ?>
 </body>
+
 </html>
