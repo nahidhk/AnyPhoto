@@ -268,10 +268,6 @@ function verifay() {
   window.location.href = "account/verifay";
 }
 
-
-
-
-
 const date = new Date();
 const day = String(date.getDate()).padStart(2, '0');
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "June", 
@@ -289,5 +285,4 @@ hours = hours % 12;
 hours = hours ? hours : 12;  
 
 const todaymydate = `${day} ${month} ${year} - ${hours}:${minutes}:${seconds} ${ampm}`;
-
 
