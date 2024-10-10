@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/style/style.main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <script src="/javascript/login.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body style="background-color: aquamarine;">
+    <section class="maincontect">
+        <div class="melo">
+            <form action="data.php" method="POST" id="signup-form">
+                <h2>
+                    <center>Create Account</center>
+                </h2>
+                <blockquote>
+                    <label for="email">Email</label>
+                    <input name="email" type="email" id="email" required placeholder="youremail@exampule.com">
+                    <span id="email-check"></span><br>
+
+                    <label for="phone">Phone</label>
+                    <input type="number" name="phone" id="phone" required placeholder="+880 18000000">
+                    <span id="phone-check"></span><br>
+
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" required placeholder="input username">
+                    <span id="username-check"></span><br>
+
+                    <label for="bath">Date of Birth</label>
+                    <input type="date" name="bath" required><br>
+
+                    <label for="password">Password</label>
+                    <input id="newpass" type="password" required placeholder="Type a Password"><br>
+
+                    <label for="password"> Conform Password</label>
+                    <input oninput="singupmod()" id="conpass" type="password" name="password" required placeholder="Re type Password">
+                    <span id="passck"></span>
+
+                    <button id="singbtn" type="submit">Sing Up</button>
+                </blockquote>
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>
