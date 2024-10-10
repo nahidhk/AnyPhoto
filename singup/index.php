@@ -33,6 +33,7 @@
     </section>
 
     <script src="/javascript/jquery-3.7.1.main.js"></script>
+    <script src="/javascript/login.js"></script>
 
     <?php 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {

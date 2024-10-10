@@ -7,7 +7,7 @@ function loginchick(){
       window.location.href="/login";
     }
   }
-  loginchick();
+
 
   $(document).ready(function() {
     $("#username").on("blur", function() {
