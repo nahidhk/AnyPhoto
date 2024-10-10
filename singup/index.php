@@ -37,7 +37,8 @@
                     <input id="newpass" type="password" required placeholder="Type a Password"><br>
 
                     <label for="password"> Conform Password</label>
-                    <input oninput="singupmod()" id="conpass" type="password" name="password" required placeholder="Re type Password">
+                    <input oninput="singupmod()" id="conpass" type="password" name="password" required
+                        placeholder="Re type Password">
                     <span id="passck"></span>
 
                     <button id="singbtn" type="submit">Sing Up</button>
@@ -45,49 +46,73 @@
             </blockquote>
         </div>
     </section>
-<script src="/javascript/login.js"></script>
+    <script src="/javascript/login.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js"
+        integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
-        $(document).ready(function () {
-            $("#username").on("blur", function () {
-                var username = $(this).val();
-                $.ajax({
-                    url: '', // Same file
-                    type: 'POST',
-                    data: { check_username: true, username: username },
-                    success: function (response) {
-                        $("#username-check").html(response);
-                    }
-                });
-            });
+    function singupmod() {
+        const newpass = document.getElementById('newpass').value;
+        const conpass = document.getElementById('conpass').value;
+        if (newpass == conpass) {
+            blockbtn();
+            document.getElementById('newpass').style.border = "2px solid green";
+            document.getElementById('conpass').style.border = "2px solid green";
+            document.getElementById('passck').style.display = "none";
+        } else {
+            nonebtn();
+            document.getElementById('newpass').style.border = "2px solid red";
+            document.getElementById('conpass').style.border = "2px solid red";
+            document.getElementById('passck').innerHTML = "Password Don't mach"
+        }
 
-            $("#email").on("blur", function () {
-                var email = $(this).val();
-                $.ajax({
-                    url: '', // Same file
-                    type: 'POST',
-                    data: { check_email: true, email: email },
-                    success: function (response) {
-                        $("#email-check").html(response);
-                    }
-                });
-            });
+    }
 
-            $("#phone").on("blur", function () {
-                var phone = $(this).val();
-                $.ajax({
-                    url: '', // Same file
-                    type: 'POST',
-                    data: { check_phone: true, phone: phone },
-                    success: function (response) {
-                        $("#phone-check").html(response);
-                    }
-                });
-            });
-        });
+    function blockbtn() {
+        document.getElementById("singbtn").style.display = "block";
+    }
+
+    function nonebtn() {
+        document.getElementById("singbtn").style.display = "none";
+    }
     </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const usernameInput = document.getElementById("username");
+        const emailInput = document.getElementById("email");
+        const phoneInput = document.getElementById("phone");
+
+        usernameInput.addEventListener("blur", function() {
+            const username = usernameInput.value;
+            checkAvailability('username', username, 'username-check');
+        });
+
+        emailInput.addEventListener("blur", function() {
+            const email = emailInput.value;
+            checkAvailability('email', email, 'email-check');
+        });
+
+        phoneInput.addEventListener("blur", function() {
+            const phone = phoneInput.value;
+            checkAvailability('phone', phone, 'phone-check');
+        });
+
+        function checkAvailability(type, value, elementId) {
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "", true); // Same file
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById(elementId).innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send(`${type}=true&${type}=${value}`);
+        }
+    });
+    </script>
+
 
     <?php 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -116,7 +141,6 @@
                 echo "<script>document.getElementById('username-check').innerHTML = '<span style=\"color: green;\"><i class=\"fa-regular fa-circle-check\"></i>This Username is Available!</span>';blockbtn();</script>";
             }
         } elseif (isset($_POST['check_email'])) {
-            // Checking email availability
             $email = mysqli_real_escape_string($conn, $_POST['email']);
             $sql = "SELECT * FROM verifay_user WHERE useremail='$email'";
             $result = $conn->query($sql);
@@ -127,7 +151,6 @@
                 echo "<script>document.getElementById('email-check').innerHTML = '<span style=\"color: green;\"><i class=\"fa-regular fa-circle-check\"></i>This Eamil is Available!</span>';blockbtn();</script>";
             }
         } elseif (isset($_POST['check_phone'])) {
-            // Checking phone availability
             $phone = mysqli_real_escape_string($conn, $_POST['phone']);
             $sql = "SELECT * FROM verifay_user WHERE userphone='$phone'";
             $result = $conn->query($sql);
@@ -138,19 +161,16 @@
                 echo "<script>document.getElementById('phone-check').innerHTML = '<span style=\"color: green;\"><i class=\"fa-regular fa-circle-check\"></i>This Number is Available!</span>';blockbtn();</script>";
             }
         } else {
-            // Register user
             $username = mysqli_real_escape_string($conn, $_POST['username']);
             $phone = mysqli_real_escape_string($conn, $_POST['phone']);
             $email = mysqli_real_escape_string($conn, $_POST['email']);
             $bathdate = mysqli_real_escape_string($conn, $_POST['bath']);
             $password = mysqli_real_escape_string($conn, $_POST['password']);
-
-            // SQL query
             $sql = "INSERT INTO verifay_user (username, useremail, userphone, bath, password) 
                     VALUES ('$username', '$email', '$phone', '$bathdate', '$password')";
 
             if ($conn->query($sql) === TRUE) {
-                echo "নতুন রেকর্ড সফলভাবে যোগ হয়েছে";
+                echo "<script>window.location.href='/'</script>";
             } else {
                 echo "ত্রুটি: " . $sql . "<br>" . $conn->error;
             }
