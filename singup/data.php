@@ -1,4 +1,4 @@
-<?php 
+<?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $servername = "localhost";
     $db_username = "readyof1";
@@ -13,16 +13,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Checking username availability
     if (isset($_POST['check_username'])) {
+        // Checking username availability
         $username = mysqli_real_escape_string($conn, $_POST['username']);
         $sql = "SELECT * FROM verifay_user WHERE username='$username'";
         $result = $conn->query($sql);
         
         if ($result->num_rows > 0) {
-            echo "<span style='color: red;'><i class='fa-regular fa-circle-xmark fa-shake'></i> This Username Not Available!</span>";
+            echo "<span style=\"color: red;\"><i class=\"fa-regular fa-circle-xmark fa-shake\"></i> This Username Not Available!</span>";
         } else {
-            echo "<span style='color: green;'><i class='fa-regular fa-circle-check'></i> This Username is Available!</span>";
+            echo "<span style=\"color: green;\"><i class=\"fa-regular fa-circle-check\"></i>This Username is Available!</span>";
         }
     } elseif (isset($_POST['check_email'])) {
         $email = mysqli_real_escape_string($conn, $_POST['email']);
@@ -30,9 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = $conn->query($sql);
         
         if ($result->num_rows > 0) {
-            echo "<span style='color: red;'><i class='fa-regular fa-circle-xmark fa-shake'></i> This Email Already registered!</span>";
+            echo "<span style=\"color: red;\"><i class=\"fa-regular fa-circle-xmark fa-shake\"></i> This Email Already registered!</span>";
         } else {
-            echo "<span style='color: green;'><i class='fa-regular fa-circle-check'></i> This Email is Available!</span>";
+            echo "<span style=\"color: green;\"><i class=\"fa-regular fa-circle-check\"></i>This Email is Available!</span>";
         }
     } elseif (isset($_POST['check_phone'])) {
         $phone = mysqli_real_escape_string($conn, $_POST['phone']);
@@ -40,18 +40,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = $conn->query($sql);
         
         if ($result->num_rows > 0) {
-            echo "<span style='color: red;'><i class='fa-regular fa-circle-xmark fa-shake'></i> This number Already registered!</span>";
+            echo "<span style=\"color: red;\"><i class=\"fa-regular fa-circle-xmark fa-shake\"></i> This number Already registered!</span>";
         } else {
-            echo "<span style='color: green;'><i class='fa-regular fa-circle-check'></i> This Number is Available!</span>";
+            echo "<span style=\"color: green;\"><i class=\"fa-regular fa-circle-check\"></i>This Number is Available!</span>";
         }
-    } else {
-        // Insert new user
+    } elseif (isset($_POST['signup'])) {
         $username = mysqli_real_escape_string($conn, $_POST['username']);
         $phone = mysqli_real_escape_string($conn, $_POST['phone']);
         $email = mysqli_real_escape_string($conn, $_POST['email']);
         $bathdate = mysqli_real_escape_string($conn, $_POST['bath']);
-        $password = password_hash(mysqli_real_escape_string($conn, $_POST['password']), PASSWORD_DEFAULT); // Encrypt password
-
+        $password = mysqli_real_escape_string($conn, $_POST['password']);
         $sql = "INSERT INTO verifay_user (username, useremail, userphone, bath, password) 
                 VALUES ('$username', '$email', '$phone', '$bathdate', '$password')";
 
