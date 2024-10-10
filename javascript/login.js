@@ -7,7 +7,7 @@ function loginchick(){
       window.location.href="/login";
     }
   }
-
+console.log("javascript check");
 
   document.addEventListener("DOMContentLoaded", function () {
     // Username availability check
