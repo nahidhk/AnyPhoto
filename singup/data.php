@@ -17,9 +17,10 @@ $bath = $_POST['bath'];
 $useremail = $_POST['email'];
 $userphone = $_POST['phone'];
 $password = $_POST['password'];
+$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
 $sql = "INSERT INTO verifay_user (username, bath, useremail, userphone, password)
-VALUES ('$username', '$bath', '$useremail', '$userphone',  '$password')";
+VALUES ('$username', '$bath', '$useremail', '$userphone',  '$hashedPassword')";
 
 
 if ($conn->query($sql) === TRUE) {
@@ -31,3 +32,4 @@ if ($conn->query($sql) === TRUE) {
 
 $conn->close();
 ?>
+<script>window.location.href="/"</script>

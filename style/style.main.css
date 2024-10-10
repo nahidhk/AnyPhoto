@@ -333,6 +333,13 @@ input {
  border: 1px solid #4680ff;
  border-radius: 100px;
 }
+
+.myimgproo1{
+  height: 100px;
+  width: 100px;
+  border-radius: 100px;
+  border: 1px solid #4680ff;
+}
 .myinput{
  left: 165px;
  top: 145px;
@@ -378,6 +385,7 @@ input {
 #cverifay{
   text-align: center;
 }
+
 @media (max-width: 768px) {
   .search {
     width: 90%;

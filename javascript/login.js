@@ -36,4 +36,12 @@ function nonebtn() {
 }
 
 
+function showpass() {
+    const fields = ['passcode', 'newpass', 'conpass'];
+    
+    fields.forEach(field => {
+        const input = document.getElementById(field);
+        input.type = input.type === "password" ? "text" : "password";
+    });
+}
 
