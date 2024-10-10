@@ -8,67 +8,39 @@ function loginchick(){
     }
   }
 console.log("javascript check");
-
-document.addEventListener("DOMContentLoaded", function () {
+$(document).ready(function () {
     // Check username availability
-    document.getElementById("username").addEventListener("blur", function () {
-        var username = this.value;
-        checkAvailability("username", username);
+    $("#username").on("blur", function () {
+        var username = $(this).val();
+        checkAvailability('username', username);
     });
 
     // Check email availability
-    document.getElementById("email").addEventListener("blur", function () {
-        var email = this.value;
-        checkAvailability("email", email);
+    $("#email").on("blur", function () {
+        var email = $(this).val();
+        checkAvailability('email', email);
     });
 
     // Check phone availability
-    document.getElementById("phone").addEventListener("blur", function () {
-        var phone = this.value;
-        checkAvailability("phone", phone);
+    $("#phone").on("blur", function () {
+        var phone = $(this).val();
+        checkAvailability('phone', phone);
     });
 
     function checkAvailability(type, value) {
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "data.php", true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                if (type === "username") {
-                    document.getElementById('username-check').innerHTML = xhr.responseText;
-                } else if (type === "email") {
-                    document.getElementById('email-check').innerHTML = xhr.responseText;
-                } else if (type === "phone") {
-                    document.getElementById('phone-check').innerHTML = xhr.responseText;
+        $.ajax({
+            url: 'data.php', // PHP file to handle the request
+            type: 'POST',
+            data: { [type]: value }, // Sending data
+            success: function (response) {
+                if (type === 'username') {
+                    $("#username-check").html(response);
+                } else if (type === 'email') {
+                    $("#email-check").html(response);
+                } else if (type === 'phone') {
+                    $("#phone-check").html(response);
                 }
             }
-        };
-        xhr.send(type + '=true&' + type + '=' + encodeURIComponent(value));
+        });
     }
 });
-
-
-
-function singupmod() {
-    const newpass = document.getElementById('newpass').value;
-    const conpass = document.getElementById('conpass').value;
-    if (newpass == conpass) {
-        blockbtn();
-        document.getElementById('newpass').style.border = "2px solid green";
-        document.getElementById('conpass').style.border = "2px solid green";
-        document.getElementById('passck').style.display = "none";
-    } else {
-        nonebtn();
-        document.getElementById('newpass').style.border = "2px solid red";
-        document.getElementById('conpass').style.border = "2px solid red";
-        document.getElementById('passck').innerHTML = "Password Don't match";
-    }
-}
-
-function blockbtn() {
-    document.getElementById("singbtn").style.display = "block";
-}
-
-function nonebtn() {
-    document.getElementById("singbtn").style.display = "none";
-}
