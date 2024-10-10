@@ -8,43 +8,45 @@ function loginchick(){
     }
   }
 console.log("javascript check");
+
+
 $(document).ready(function () {
-    // Check username availability
     $("#username").on("blur", function () {
         var username = $(this).val();
-        checkAvailability('username', username);
-    });
-
-    // Check email availability
-    $("#email").on("blur", function () {
-        var email = $(this).val();
-        checkAvailability('email', email);
-    });
-
-    // Check phone availability
-    $("#phone").on("blur", function () {
-        var phone = $(this).val();
-        checkAvailability('phone', phone);
-    });
-
-    function checkAvailability(type, value) {
         $.ajax({
-            url: 'data.php', // PHP file to handle the request
+            url: 'data.php', // Same file
             type: 'POST',
-            data: { [type]: value }, // Sending data
+            data: { check_username: true, username: username },
             success: function (response) {
-                if (type === 'username') {
-                    $("#username-check").html(response);
-                } else if (type === 'email') {
-                    $("#email-check").html(response);
-                } else if (type === 'phone') {
-                    $("#phone-check").html(response);
-                }
+                $("#username-check").html(response);
             }
         });
-    }
-});
+    });
 
+    $("#email").on("blur", function () {
+        var email = $(this).val();
+        $.ajax({
+            url: 'data.php', // Same file
+            type: 'POST',
+            data: { check_email: true, email: email },
+            success: function (response) {
+                $("#email-check").html(response);
+            }
+        });
+    });
+
+    $("#phone").on("blur", function () {
+        var phone = $(this).val();
+        $.ajax({
+            url: 'data.php', // Same file
+            type: 'POST',
+            data: { check_phone: true, phone: phone },
+            success: function (response) {
+                $("#phone-check").html(response);
+            }
+        });
+    });
+});
 
 function singupmod() {
     const newpass = document.getElementById('newpass').value;
