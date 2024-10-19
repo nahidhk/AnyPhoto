@@ -15,60 +15,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AnyFace</title>
   </head>
-
   <body onscroll="closepopup()">
-    <div id="account" class="account">
-      <div id="step1" class="step">
-        <center>
-          <input
-            id="username"
-            title="input Your Name"
-            type="text"
-            name="username"
-            placeholder="Input Your Name"
-            required
-          />
-          <br />
-          <button onclick="loginnext()">
-            Next <i class="bi bi-arrow-right-circle"></i>
-          </button>
-        </center>
-      </div>
-      <div id="step2" class="step vcc">
-        <center>
-          <form
-            onsubmit="loginany()"
-            action="/databases/account.php"
-            method="POST"
-            enctype="multipart/form-data"
-          >
-            <label>Upload Profile Photo</label><br />
-
-            <img
-              src="img/usericon.png"
-              id="showprofile"
-              style="height: 100px; width: 100px; border-radius: 100px"
-            />
-            <input
-              class="atom"
-              oninput="upimg()"
-              type="file"
-              name="photo"
-              id="photo"
-              accept="image/*"
-              required
-            /><br />
-
-            <button>Login</button>
-          </form>
-        </center>
-      </div>
-      <!-- end Account manag Ment System -->
-    </div>
-<!-- nav system  -->
  <!-- mobile app -->
   <div class="naver">
-    <span class="navtext mbicon"> <img src="img/icon.png" /> </span> 
+    <span class="navtext mbicon"><img src="img/icon.png" /></span> 
   </div>
     <div class="animate__slideInDown animate__animated nav" >
       <!-- nav photo -->
@@ -85,7 +35,6 @@
      <span class="mbicon"><i id="photoicon1" class="fa-fade fa-images fa-regular"></i></span>
       <span class="mbtext"> <i id="photoicon2" class="fa-regular fa-images fa-fade"></i>  Photo</span>
         </button>
-
         <button
           id="videobtn"
           onclick="openthevideobox(); linkclick()"
@@ -130,13 +79,11 @@
             Verify Account
           </button>
         </blockquote>
- 
       <div class="skty">
       <blockquote>
         <h3>Top User</h3><hr>
         </blockquote>
         </div>
-
         <blockquote>
       <div class="topuser">
       </div>
@@ -201,9 +148,9 @@
       </div>
     </section>
     <script src="javascript/login.js"></script>
-    <script src="javascript/script.js?v=1.0.1"></script>
-    <script src="javascript/video.js?v=1.0.1"></script>
-    <script src="javascript/topuser.js?v=1.0.1"></script>
+    <script src="javascript/script.js"></script>
+    <script src="javascript/video.js"></script>
+    <script src="javascript/topuser.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </body>
 </html>

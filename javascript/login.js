@@ -1,16 +1,4 @@
 
-function loginchick(){
-    const verifay = localStorage.getItem("verifay");
-    if (verifay == "true") {
-     window.location.href="/";
-    } else {
-      window.location.href="/login";
-    }
-  }
-console.log("javascript check");
-
-
-
 function singupmod() {
     const newpass = document.getElementById('newpass').value;
     const conpass = document.getElementById('conpass').value;
@@ -37,11 +25,11 @@ function nonebtn() {
 
 
 function showpass() {
-    const fields = ['passcode', 'newpass', 'conpass'];
-    
-    fields.forEach(field => {
-        const input = document.getElementById(field);
-        input.type = input.type === "password" ? "text" : "password";
-    });
+    const newpass = document.getElementById('pass');
+    if (newpass.type == "password") {
+        newpass.type="text";
+    } else {
+        newpass.type="password"; 
+    }
 }
 

@@ -1,7 +1,19 @@
-var userimg = localStorage.getItem("userimg");
-var showuserimg = document.getElementById("userimg");
-showuserimg.src = `/databases/photos/${userimg}`;
 
+var data = localStorage.getItem("user");
+var userData = JSON.parse(data);
+
+
+
+function ckpprofilepic(){
+ 
+  var showuserimg = document.getElementById("userimg");
+  if (userData.photo == '') {
+    showuserimg.src ='/img/usericon.png'
+  } else {
+     showuserimg.src = `/databases/photos/${data.photo}`;
+  }
+}
+ckpprofilepic();
 //  Edit profile photo
 
 function editimg() {
@@ -22,10 +34,10 @@ function editimg() {
   }
 }
 
-var loadusername = localStorage.getItem("username");
+
 function showusernameadta() {
   const myusername = document.getElementById("showusername");
-  myusername.innerText = loadusername;
+  myusername.innerText = userData.username;
 }
 showusernameadta();
 
@@ -34,14 +46,12 @@ function editusername() {
     "Changing your username will not change the username of any previous poster!"
   );
   const myusername = document.getElementById("showusername");
-  myusername.innerHTML = `<input oninput="changethename()" type="text" id="setnewusername" value="${loadusername}"/>`;
+  myusername.innerHTML = `<input oninput="changethename()" type="text" id="setnewusername" value="${userData.username}"/>`;
   document.getElementById("textediticon").classList = "vcc";
 }
 function changethename(){
  const changename =  document.getElementById("setnewusername").value;
- if(changename){
-  localStorage.setItem("username",changename);
- }
+
 
 }
 // addd the verifay sysem
@@ -77,3 +87,4 @@ function checkverfy() {
 }
 checkverfy();
 
+ 

@@ -1,31 +1,35 @@
 <?php
-                // Database connection details
-                $servername = "localhost"; // Your server (usually 'localhost')
-                $usernameDB = "readyof1"; // Your MySQL database username
-                $passwordDB = "A*Password123123"; // Your MySQL database password
-                $dbname = "readyof1_Aanyface"; // Your MySQL database name
+ require_once('../php/configer.php');
+   $conn = new mysqli($servername, $username, $password, $dbname);
 
-                // Create a connection
-                $conn = new mysqli($servername, $usernameDB, $passwordDB, $dbname);
 
-              if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get user input
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = mysqli_real_escape_string($conn, trim($_POST['username']));
     $password = mysqli_real_escape_string($conn, trim($_POST['password']));
-
-    // Query to check if user exists
-    $sql = "SELECT * FROM verifay_user WHERE username='$username' OR useremail='$username' OR userphone='$username'";
+    $sql = "SELECT * FROM users WHERE username='$username' OR email='$username' OR phone='$username'";
     $result = $conn->query($sql);
-
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        
-        // Debugging output
-        echo "Hashed password from DB: " . $row['password'] . "<br>"; // Check the stored hashed password
-
-        // Verify the password
+        echo "Hashed password from DB: " . $row['password'] . "<br>";
         if (password_verify($password, $row['password'])) {
-            echo "<p style='color:green;'>Login successful! Welcome, " . htmlspecialchars($row['username']) . "</p>";
+            echo "<script>
+    localStorage.setItem('usertype', true);
+    const userdata = {
+        id: " . json_encode(htmlspecialchars($row['id'])) . ",
+        password: " . json_encode(htmlspecialchars($row['password'])) . ",
+        photo: " . json_encode(htmlspecialchars($row['photo'])) . ",
+        username: " . json_encode(htmlspecialchars($row['username'])) . ",
+        email: " . json_encode(htmlspecialchars($row['email'])) . ",
+        phone: " . json_encode(htmlspecialchars($row['phone'])) . ",
+        bath: " . json_encode(htmlspecialchars($row['bath'])) . ",
+        verifay: " . json_encode(htmlspecialchars($row['verifay'])) . ",
+        create_at: " . json_encode(htmlspecialchars($row['created_at'])) . "
+    };
+    const userstring = JSON.stringify(userdata);
+    localStorage.setItem('user', userstring);
+    window.location.href='/';
+</script>";
+
         } else {
             echo "<p style='color:red;'>Invalid password!</p>";
         }
@@ -33,8 +37,5 @@
         echo "<p style='color:red;'>User not found!</p>";
     }
 }
-
-
-                // Close connection
-                $conn->close();
-                ?>
+$conn->close();
+  ?>

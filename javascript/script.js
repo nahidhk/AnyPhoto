@@ -132,16 +132,6 @@ function opencopycodebox() {
   document.getElementById("codecopybox").classList = "codecopybox";
 }
 
-function loginnext() {
-  const username = document.getElementById("username").value;
-  if (username) {
-    localStorage.setItem("username", username);
-    document.getElementById("step1").style.display = "none";
-    document.getElementById("step2").style.display = "block";
-  } else {
-    alert("You Have Not Input User name.");
-  }
-}
 
 function upimg() {
   const photo = document.getElementById("photo").files[0];
@@ -160,12 +150,6 @@ function upimg() {
   }
 }
 
-var loadadatadispaly = localStorage.getItem("loginpage");
-document.getElementById("account").style.display = loadadatadispaly;
-function loginany() {
-  localStorage.setItem("loginpage", "none");
-  document.getElementById("account").style.display = "none";
-}
 function uploadphoto() {
   window.location.href = "/upload/photo/";
 }
@@ -286,3 +270,12 @@ hours = hours ? hours : 12;
 
 const todaymydate = `${day} ${month} ${year} - ${hours}:${minutes}:${seconds} ${ampm}`;
 
+function loginchick(){
+  const userlogin = localStorage.getItem("usertype");
+  if (userlogin == "true") {
+  
+  }else{
+    window.location.href="/login"
+  }
+}
+loginchick()
