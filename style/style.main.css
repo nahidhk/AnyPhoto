@@ -39,11 +39,12 @@ body {
   top: 0;
 }
 
-.navtext img {
+.navtext, .navtext img {
   height: 40px;
   position: absolute;
   top: 15px;
   left: 20px;
+  font-size: 20pt;
 }
 
 .navbtn {
@@ -70,13 +71,11 @@ body {
   margin: 10px;
   background-color: #fff;
 }
-
 .photo .imgdata {
   width: 100%;
   height: auto;
   border-radius: 10px;
 }
-
 .user {
   padding: 10px;
   background-color: rgb(245, 240, 240);
@@ -90,16 +89,7 @@ body {
   border-radius: 100px;
   border: 1px solid #6f6f6f;
 }
-.step {
-  padding: 20px;
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
-  border-radius: 10px;
-}
-.step input,.melo input {
+.input {
   height: 30px;
   width: 90%;
   background-color: #6f6f6f00;
@@ -119,27 +109,22 @@ input[type="checkbox"]{
   border-radius: 4px;
   transition: all 0.3s;
 }
-.step input:focus  , .melo input:focus {
+
+ .input:focus {
   box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
 }
-.step input[type="file"]::file-selector-button {
-  border: none;
-  background-color: #00000000;
-  content: "upload photo";
-  cursor: pointer;
-  color: #00000000;
+.penin{
+color: #989898;
 }
-.step input[type="file"],
-.setup input[type="file"]::file-selector-button {
-  border-radius: 100px;
-  height: 10px;
-  width: 10px;
-  position: absolute;
+.penin::file-selector-button {
+background-image: url("/img/pen.png");
+  height: 30px;
+  width: 30px;
   background-color: #626262;
-  border: 2px solid #fff;
-  background-image: url("/img/pen.png");
+  border: 2px solid #0091ff;
   background-size: cover;
-  color: #fff;
+  color: #ffffff00;
+  cursor: pointer;
 }
 .atom{
   left: 160px;
@@ -206,6 +191,9 @@ input {
 .right {
   right: 0;
 }
+.center{
+  right: 60px;
+}
 .sidemain {
   position: fixed;
   background-color: rgb(255, 255, 255);
@@ -237,14 +225,17 @@ input {
   width: 100%;
   padding: 10px;
   border-radius: 100px;
-  -webkit-border-radius: 100px;
-  -moz-border-radius: 100px;
-  -ms-border-radius: 100px;
-  -o-border-radius: 100px;
   outline: none;
   font-size: large;
 }
-
+.mybtn{
+  position: absolute;
+  border: none;
+  padding: 13px;
+  margin: 8px;
+  font-size: 15pt;
+  cursor: pointer;
+}
 .sherarsystem {
   background-color: rgb(233, 233, 233);
   padding: 10px;

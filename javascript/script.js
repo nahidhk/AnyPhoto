@@ -234,19 +234,19 @@ function copycode() {
 function loadCSSJS() {
   var cssFile = document.createElement("link");
   cssFile.rel = "stylesheet";
-  cssFile.href = "/style/style.main.css?v=" + new Date().getTime(); // টাইমস্ট্যাম্প
+  cssFile.href = "/style/style.main.css?v=" + new Date().getTime(); 
   document.head.appendChild(cssFile);
 
   var jsFile = document.createElement("script");
-  jsFile.src = "/javascript/script.js?v=" + new Date().getTime(); // টাইমস্ট্যাম্প
+  jsFile.src = "/javascript/script.js?v=" + new Date().getTime(); 
   document.body.appendChild(jsFile);
 }
 
 // loadCSSJS();
 function accountprofile() {
-  let username = localStorage.getItem("username");
-  let userimg = localStorage.getItem("userimg");
-  window.location.href = `account/?username=${username}&userimg=${userimg}`;
+  var data = localStorage.getItem("user");
+var userData = JSON.parse(data);
+  window.location.href = `account/?id=${userData.id}`;
 }
 function verifay() {
   window.location.href = "account/verifay";

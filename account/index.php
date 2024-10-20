@@ -1,9 +1,21 @@
 <?php
-if ( isset( $_GET[ 'username' ] ) && isset( $_GET[ 'userimg' ] ) ) {
-    $username = $_GET[ 'username' ];
-    $userimg = $_GET[ 'userimg' ];
+if ( isset( $_GET[ 'id' ] ) ) {
+    $id = $_GET[ 'id' ];
+} 
+
+require_once('../php/configer.php');
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+$sql = "SELECT * FROM users WHERE id = $id";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc(); 
 } else {
-    echo 'Username or User Image not provided.';
+    echo "<center><p style='background-color: red;color: #fff;padding: 13px;width: 300px;position: fixed; top: 10px;box-shadow: 0 0 20px 0 red; font-size: 15pt; border-radius: 5px;right: 20px;'>User Not Found!</p><br><br><br><br><h1><a href='/singup'>Sing Up</a></h1></center>";
+    exit;
 }
 ?>
 <!DOCTYPE html>
@@ -15,36 +27,54 @@ if ( isset( $_GET[ 'username' ] ) && isset( $_GET[ 'userimg' ] ) ) {
     <link rel='shortcut icon' href="//databases/photos//<?php echo $userimg?>" type='image/x-icon'>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title><?php echo $username ?></title>
+    <title><?php echo $row["username"] ?> - Anyface</title>
 </head>
 
 <body>
+    <div class="nav">
+        <span class="navtext"><?php echo $row["username"] ?> - Anyface</span>
+        <button onclick="home()" title="Logout" class="navbtn mybtn center"><i class="fa-solid fa-house"></i></button>
+        <button onclick="logout()" title="Logout" class="navbtn mybtn right"><i class="fa-solid fa-right-from-bracket"></i></button>
+        
+    </div>
     <section class="maincontect">
-    <div id="listio" class='step'>
+    <div id="listio" class='melo'>
         <center>
-            <form id="myform" action='/databases/account.php' method='POST' enctype='multipart/form-data'>
-                <input oninput='editimg()' type='file' class='myinput' name='photo' id='editprofile' accept="image/*" >
-            </form>
-            <span id="windto" class="vtext vcc">your Account Verifyed
-            </span>
-            <img class='myimgproo' id='userimg'>
-            <h1><span id='showusername'></span>&nbsp;
-             <span id="vicon">   <i onclick='editusername()' id='textediticon' title='Edit Your Name' class='bi bi-pencil-square'></i>
-             <span>
-            </h1>
-           
-            <p><span><b>Email : </b><span id='email'></span></p>
-            <p><span><b>Phone : </b><span id='phone'></span></p>
-            <div class="vcc" id="normalbox">
-                <h3>UID : [SERVER NOT ALLOWED]<span id="uid"></span> </h3>
-                <span class="notviy">Password in one time View</span>
-                <p><b>Password :</b> <span id="password"></span></p>
+           <br><br>
+           <div class="ablot">
+            <img class='myimgproo' src="/databases/photos/<?php echo $row['photo']; ?>">
+            <form id="myform" action="/databases/account.php?id=<?php echo $row['id']; ?>" method="post" enctype="multipart/form-data">
+    <input id="penin" oninput="editimg()" class="penin vcc" name="photo" type="file" accept="image/*">
+</form>
+
             </div>
+            <h1><span><?php echo $row["username"] ?></span>&nbsp;</h1>
+            <p class="vcc" id="email"><span><b>Email : </b><?php echo $row["email"] ?></p>
+            <p class="vcc" id="phone"><span><b>Phone : </b><?php echo $row["phone"] ?></p>
+            <p><span><b>Bath of Date : </b><?php echo $row["bath"] ?></p>
+            <p><span><b>joined : </b><?php echo $row["created_at"] ?></p>
+            <div id="normalbox">
+                <h3>UID : [<?php echo $row["id"] ?>] </h3>
+                <p class="vcc" id="password"><b>Password :</b> <a href="#"> Chenge Password</a></p>
+            </div>
+            <br><br>
         </center>
     </div>
 
     </section>
     <script src='/javascript/license.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+
+const user = {
+  username : "<?php echo $row['username'] ?>",
+  email : "<?php echo $row['email'] ?>",
+  id : "<?php echo $row['id'] ?>",
+  phone : "<?php echo $row['phone'] ?>",
+}
+const userstring = JSON.stringify(user);
+    sessionStorage.setItem('user', userstring);
+  </script>
 </body>
 
 </html>

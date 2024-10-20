@@ -10,7 +10,7 @@
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        echo "Hashed password from DB: " . $row['password'] . "<br>";
+       
         if (password_verify($password, $row['password'])) {
             echo "<script>
     localStorage.setItem('usertype', true);
@@ -27,14 +27,14 @@
     };
     const userstring = JSON.stringify(userdata);
     localStorage.setItem('user', userstring);
-    window.location.href='/';
+    window.location.href='/account/?id=".$row['id']."';
 </script>";
 
         } else {
-            echo "<p style='color:red;'>Invalid password!</p>";
+            echo "<center><p style='background-color: red;color: #fff;padding: 13px;width: 300px;position: fixed; top: 10px;box-shadow: 0 0 20px 0 red; font-size: 15pt; border-radius: 5px;right: 20px;'>Invalid password!</p><br><br><br><br><h1><a href='/login'>Go Back</a></h1></center>";
         }
     } else {
-        echo "<p style='color:red;'>User not found!</p>";
+        echo "<center><p style='background-color: red;color: #fff;padding: 13px;width: 300px;position: fixed; top: 10px;box-shadow: 0 0 20px 0 red; font-size: 15pt; border-radius: 5px;right: 20px;'>User Not Found!</p><br><br><br><br><h1><a href='/singup'>Sing Up</a></h1></center>";
     }
 }
 $conn->close();

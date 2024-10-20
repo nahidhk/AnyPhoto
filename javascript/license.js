@@ -2,44 +2,35 @@
 var data = localStorage.getItem("user");
 var userData = JSON.parse(data);
 
-
-
-function ckpprofilepic(){
- 
-  var showuserimg = document.getElementById("userimg");
-  if (userData.photo == '') {
-    showuserimg.src ='/img/usericon.png'
+function checkdata(){
+  var data1 = sessionStorage.getItem("user");
+var cData = JSON.parse(data1);
+  const email = document.getElementById("email");
+  const phone = document.getElementById("phone");
+  const password = document.getElementById("password");
+  const penin = document.getElementById("penin");
+  if (userData.email == cData.email && userData.phone == cData.phone && userData.id == cData.id ) {
+   email.style.display="block";
+   phone.style.display="block";
+   password.style.display="block";
+   penin.style.display="block";
   } else {
-     showuserimg.src = `/databases/photos/${data.photo}`;
+    email.style.display="none";
+    phone.style.display="none";
+    password.style.display="none";
+    penin.style.display="none"; 
   }
 }
-ckpprofilepic();
-//  Edit profile photo
+checkdata();
 
+
+//  Edit profile photo
 function editimg() {
   var form = document.getElementById("myform");
-  const chosephoto = document.getElementById("editprofile").files[0];
-  if (chosephoto) {
-    var reader = new FileReader();
-    reader.onload = function (e) {
-      document.getElementById("userimg").src = e.target.result;
-    };
-    reader.readAsDataURL(chosephoto);
-
-    const filePath = chosephoto.name;
-    localStorage.setItem("userimg", filePath);
     form.submit();
-  } else {
-    alert("Please select an image.");
-  }
 }
 
 
-function showusernameadta() {
-  const myusername = document.getElementById("showusername");
-  myusername.innerText = userData.username;
-}
-showusernameadta();
 
 function editusername() {
   alert(
@@ -49,11 +40,7 @@ function editusername() {
   myusername.innerHTML = `<input oninput="changethename()" type="text" id="setnewusername" value="${userData.username}"/>`;
   document.getElementById("textediticon").classList = "vcc";
 }
-function changethename(){
- const changename =  document.getElementById("setnewusername").value;
 
-
-}
 // addd the verifay sysem
 
 function checkverfy() {
@@ -66,9 +53,9 @@ function checkverfy() {
   const loadphone = localStorage.getItem("phonenum");
 
   if (verifay == "true") {
-    //  verifay true hour por uid and password load hobe
+   
     let password = localStorage.getItem("password");
-    // document show password and Uid In onetime
+  
     document.getElementById("password").innerText = password;
     email.innerHTML = loademail;
     phone.innerHTML = loadphone; 
@@ -85,6 +72,28 @@ function checkverfy() {
     bate.innerHTML = notverifay;
   }
 }
-checkverfy();
+
 
  
+function logout(){
+  localStorage.clear();
+  sessionStorage.clear();
+  window.location.href="/login/"
+}
+
+//  auto reload
+function autoreload(){
+ const urlParams = new URLSearchParams(window.location.search);
+ const currentId = urlParams.get('id');
+ const previousId = sessionStorage.getItem('lastId');
+ if (currentId !== previousId) {
+   sessionStorage.setItem('lastId', currentId); 
+   setTimeout(function() {
+     location.reload(); 
+   }, 100); 
+ }
+}
+autoreload();
+function home(){
+  window.location="/"
+}

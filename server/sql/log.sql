@@ -14,3 +14,8 @@ htmlspecialchars($row['email'])
     phone VARCHAR(13) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+-- profile photo chenge html 
+ <form id="myform" action='/databases/account.php' method='POST' enctype='multipart/form-data'>
+                <input oninput='editimg()' type='file' class='myinput' name='photo' id='editprofile' accept="image/*" >
+            </form>

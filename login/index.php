@@ -21,9 +21,9 @@
             <blockquote>
                 <form action="/login/login.php" method="post">
                     <label for="username"></label>
-                    <input name="username" type="text" placeholder="username, phone or email" required><br><br>
+                    <input class="input" name="username" type="text" placeholder="username, phone or email" required><br><br>
                     <label for="password"></label>
-                    <input name="password" type="password" placeholder="password" id="pass" required>
+                    <input class="input" name="password" type="password" placeholder="password" id="pass" required>
                     <input onclick="showpass()" class="ck" type="checkbox" id="chck">Show Password<br><br>
                     <button type="submit">Login</button>
                 </form>
