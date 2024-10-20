@@ -28,7 +28,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
                 $sql = "UPDATE users SET photo='$savesql' WHERE id=$id";
                 
                 if ($conn->query($sql) === TRUE) {
-                    echo "<script>window.location.href = `/account/?id=$id`;</script>";
+                    echo "<script>const storedData = localStorage.getItem('user');
+if (storedData) {
+  const parsedData = JSON.parse(storedData);
+  parsedData.photo = '$savesql';  
+  localStorage.setItem('user', JSON.stringify(parsedData));
+  console.log('Updated Data:', parsedData);  
+} else {
+  console.log('No data found in localStorage');
+}
+  window.location.href = `/account/?id=$id`;
+  </script>";
                 } else {
                     echo "Error updating record: " . $conn->error;
                 }

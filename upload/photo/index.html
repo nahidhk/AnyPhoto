@@ -41,7 +41,7 @@
             </h1>
             <div class="photo">
                 <div class="user">
-                    <img src="" id="userimgshow" alt="" class="userimg">
+                    <img id="showmyimg" class="userimg">
                     <p><b> &nbsp;&nbsp;&nbsp;<span id="usernameshow"></span></b></p>
                 </div>
                 <form onsubmit="openupload()" action="/databases/upload.php" method="post" enctype="multipart/form-data">
@@ -50,8 +50,8 @@
                     <input name="ip" type="text" class="false" id="ip" required>
                     <input name="location" type="text" class="false" id="location" required>
                     <input name="dvc" type="text" class="false" id="dvc" required>
-                    <input id="nameuser" type="text" class="false" name="username" required>
-                    <input id="imguser" type="text" class="false" name="userimg" required><br><br>
+                    <input id="nameuser" type="text" class="false" name="userid" required>
+                    <br><br>
                     
                     <textarea class="titlehere" name="title" placeholder="Title Here..."></textarea>
                 

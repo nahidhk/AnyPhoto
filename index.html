@@ -39,7 +39,7 @@
           id="videobtn"
           onclick="openthevideobox(); linkclick()"
           class="systembtn noactive"
-        >
+        > 
         <span class="mbicon"><i id="videoicon1" class="fa-solid fa-video"></i></span>
            <span class="mbtext"> <i id="videoicon2" class="fa-solid fa-video"></i> Video</span>
         </button>
@@ -119,6 +119,18 @@
       </div>
       <div class="main">
         <!-- the load js -->
+         <div class="photo">
+          <div onclick="accountprofile()" class="user">
+            <img id="userimgtop" class="userimg">
+            <p class="username">&nbsp;&nbsp;&nbsp;<b><span id="showthemyname"></span></b></p>
+          </div>
+          <center>
+          <div class="aptmain"> 
+            <a class="a" href="/upload/photo/"><i class="fa-regular fa-image"></i></a>
+            <a class="a" href="/upload/video/"><i class="fa-solid fa-video"></i></a>
+          </div>
+        </center>
+         </div>
         <div id="app"></div>
         <div id="videoapp"></div>
       </div>

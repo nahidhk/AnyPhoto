@@ -30,17 +30,6 @@ function editimg() {
     form.submit();
 }
 
-
-
-function editusername() {
-  alert(
-    "Changing your username will not change the username of any previous poster!"
-  );
-  const myusername = document.getElementById("showusername");
-  myusername.innerHTML = `<input oninput="changethename()" type="text" id="setnewusername" value="${userData.username}"/>`;
-  document.getElementById("textediticon").classList = "vcc";
-}
-
 // addd the verifay sysem
 
 function checkverfy() {
@@ -82,18 +71,25 @@ function logout(){
 }
 
 //  auto reload
-function autoreload(){
- const urlParams = new URLSearchParams(window.location.search);
- const currentId = urlParams.get('id');
- const previousId = sessionStorage.getItem('lastId');
- if (currentId !== previousId) {
-   sessionStorage.setItem('lastId', currentId); 
-   setTimeout(function() {
-     location.reload(); 
-   }, 100); 
- }
+function autoreload() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const reloaded = urlParams.get('reloaded');  // URL e 'reloaded' parameter check korche
+
+  if (!reloaded) {
+    // Jodi 'reloaded' parameter na thake, tahole page ekbar reload hobe
+    setTimeout(function() {
+      // Check if 'id' already exists, use '&' instead of '?'
+      const newUrl = window.location.href.includes('?') 
+        ? window.location.href + '&reloaded=true' 
+        : window.location.href + '?reloaded=true';
+      
+      window.location.href = newUrl;  // URL e 'reloaded=true' add kore reload korbe
+    }, 200);  // 5000ms mane 5 second pore reload hobe
+  }
 }
+
 autoreload();
+
 function home(){
   window.location="/"
 }

@@ -3,54 +3,57 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
     $uploadDir = "photos/";
     $uploadFile = $uploadDir . basename($_FILES["photo"]["name"]);
     $title = $_POST["title"];
-    $username = $_POST["username"];
-    $userimg = $_POST["userimg"];
     $date = $_POST["date"];
-    $verifay = $_POST["verifay"];
     $device = $_POST["dvc"];
     $ip = $_POST["ip"];
     $location = $_POST["location"];
+    $userid = $_POST["userid"];
 
-    $maxFileSize = 50 * 1024 * 1024;  // 50MB
+    $maxFileSize = 50 * 1024 * 1024;  
     $imageFileType = strtolower(pathinfo($uploadFile, PATHINFO_EXTENSION));
     $allowedExtensions = array("jpg", "jpeg", "png", "gif");
 
-    // Check if file type is allowed
+   
     if (in_array($imageFileType, $allowedExtensions)) {
-        // Check if file size exceeds limit
+
         if ($_FILES["photo"]["size"] > $maxFileSize) {
             echo "<h1>Photo size exceeds the limit of 50 MB. <a href='mailto:nahidhk2007@gmail.com'>feedback</a> Nahid HK.</h1>";
             exit;
         }
 
-        // Check for upload errors
+ 
         if ($_FILES['photo']['error'] !== UPLOAD_ERR_OK) {
             echo "<h1>Error code: " . $_FILES['photo']['error'] . "</h1><br><h1>Server problem <a href='mailto:nahidhk2007@gmail.com'>feedback</a> Nahid HK.</h1>";
             exit;
         }
 
-        // Move uploaded file
+      
         if (move_uploaded_file($_FILES["photo"]["tmp_name"], $uploadFile)) {
-            // Database connection
-            $conn = new mysqli("localhost", "readyof1", "A*Password123123", "readyof1_Aanyface");
-
-            // Check connection
+      
+            require_once('../php/configer.php');
+            $conn = new mysqli($servername, $username, $password, $dbname);
+        
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
             }
-
-            // Prepare and bind SQL statement
-            $stmt = $conn->prepare("INSERT INTO photos (title, username, userimg, date, verifay, img, device, ip, location) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssssssss", $title, $username, $userimg, $date, $verifay, basename($_FILES["photo"]["name"]), $device, $ip, $location);
+            $sql = "SELECT * FROM users WHERE id = $userid";
+            $result = $conn->query($sql);
             
-            // Execute statement and check success
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc(); 
+            }
+         
+            $stmt = $conn->prepare("INSERT INTO photos (title, username, userimg, mydate, photo, device, ip, location , userid , verifay) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ? , ?)");
+            $stmt->bind_param("ssssssssss", $title, $row['username'], $row['photo'], $date, basename($_FILES["photo"]["name"]), $device,  $ip, $location , $row['id'] , $row['verifay']);
+            
+           
             if ($stmt->execute()) {
                 echo "<script>window.location.href='/';</script>";
             } else {
                 echo "<h1>Error uploading photo to database. <a href='mailto:nahidhk2007@gmail.com'>feedback</a> Nahid HK.</h1>";
             }
             
-            // Close the statement and connection
+           
             $stmt->close();
             $conn->close();
         } else {

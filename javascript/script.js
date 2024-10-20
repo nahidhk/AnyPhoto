@@ -32,45 +32,29 @@ async function displayData(searchInput = "") {
     });
 
     filteredData.forEach((item) => {
+
       const itemElement = document.createElement("div");
       itemElement.innerHTML = `
                 <div class="photo" id="${item.userimg}">
-                    <div class="user">
+                    <div onclick="window.location.href='/account?id=${item.userid}'" class="user">
                         <img src="/databases/photos/${item.userimg}" alt="${item.username}" class="userimg">
-                        <p style="font-size: large;">&nbsp;&nbsp;&nbsp;<b><span>${item.username}</span></b>  ${item.verifay}</p>
+                        <p class="username">&nbsp;&nbsp;&nbsp;<b><span>${item.username}</span></b>  ${item.verifay}</p>
                     </div>
                     <blockquote>
-                        <span title="This is a Post Time" class="dateshow">${item.date}</span>
+                        <span title="This is a Post Time" class="dateshow">${item.mydate}</span>
                     </blockquote>
                     <blockquote>
                         ${item.title}
                     </blockquote>
                     
-                    <img onload="loadmyphoto(this)" onerror="loadError(this)" src="/databases/photos/${item.img}" alt="${item.username}" class="imgdata">
+                    <img onload="loadmyphoto(this)" onerror="loadError(this)" src="/databases/photos/${item.photo}" alt="${item.username}" class="imgdata">
                     <img src="/img/load.gif" class="loadimg"  />
                     <div class="sherarsystem">              
                         <div class="aptmain">
-                            <a onclick="opencopycodebox()" class="shearicon"><i class="bi bi-braces-asterisk"></i></a>
-                            <a href="//databases/photos/${item.img}?photo shear apx nodeJs backend photo only apx javascript markup php Zoom#api jsxpio xapi=Servaer AppOn The FaceApp = Shear:${item.username};" class="shearicon"><i class="bi bi-link-45deg"></i></a>
+                            <a onclick="opencopycodebox()" class="shearicon"><i class="fa-regular fa-heart"></i></a>
+                            <a href="//databases/photos/${item.photo}?photo shear apx nodeJs backend photo only apx javascript markup php Zoom#api jsxpio xapi=Servaer AppOn The FaceApp = Shear:${item.username};" class="shearicon"><i class="bi bi-link-45deg"></i></a>
                         </div>
-                        <div id="codecopybox" class="vcc">
-                            <textarea id="mycode">  
-                                <div id="showimg"></div>
-                                <script>
-                                    const showimg = document.querySelector("#showimg");
-                                    const apiimgid = document.createElement("img");
-                                    let webserver = "https://anyface.readyoffercareer.com"
-                                    let api = "/databases/photos/";
-                                    let photoid = "${item.img}";
-                                    apiimgid.src = webserver + api + photoid;
-                                    showimg.appendChild(apiimgid);
-                                </script>
-                            </textarea>
-                            <center><br>
-                                <button onclick="copycode()" id="copybtn" class="systembtn">copy</button>
-                            </center>
                         </div>
-                    </div>
                 </div>
             `;
 
@@ -279,3 +263,14 @@ function loginchick(){
   }
 }
 loginchick()
+
+function showtopuserthevideo(){
+  var data = localStorage.getItem("user");
+var userData = JSON.parse(data);
+const myimg = document.getElementById("userimgtop");
+const myname = document.getElementById("showthemyname");
+myname.innerHTML=userData.username;
+myimg.src=`/databases/photos/${userData.photo}`;
+
+}
+showtopuserthevideo();

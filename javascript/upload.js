@@ -1,13 +1,23 @@
 function displydatalopmuo() {
-  var userimg = localStorage.getItem("userimg");
-  var username = localStorage.getItem("username");
+  var data = localStorage.getItem("user");
+  var userData = JSON.parse(data);
+
   let nameuser = document.getElementById("nameuser");
-  let imguser = document.getElementById("imguser");
-  nameuser.value = username;
-  imguser.value = userimg;
-  document.getElementById("usernameshow").innerHTML = username;
+  let userImgShow = document.getElementById("showmyimg");
+  let userNameShow = document.getElementById("usernameshow");
+
+  if (userData) {
+    const photoPath = userData.photo ? "/databases/photos/" + userData.photo : "/path/to/default/image.jpg";
+    userImgShow.src = photoPath;  // Set photo path
+    nameuser.value = userData.id;  // Set username
+    userNameShow.innerHTML = userData.username;  // Show username
+  } else {
+    console.log("No user data found in localStorage");
+  }
 }
+
 displydatalopmuo();
+
 function showimgfx() {
   var input = document.getElementById("photofa");
   var file = input.files[0];
@@ -68,13 +78,7 @@ function photofolder(){
   window.location="/upload/photo/"
 }
 
-// show user account img
-function userimgshow() {
-  const userimg = document.getElementById("userimgshow");
-  var myuserimg = localStorage.getItem("userimg");
-  userimg.src = `/databases/photos/${myuserimg}`;
-}
-userimgshow();
+
 
 function myverifay() {
   const myopenverifay = document.getElementById("myverifayionet");
