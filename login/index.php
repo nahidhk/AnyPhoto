@@ -3,12 +3,16 @@
 <head>
     <link rel="stylesheet" href="/style/style.main.css">
     <meta charset="UTF-8">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 </head>
 <body>
     <section class="maincontect">
-        <div class="melo">
+        <div class="melo animate__slideInDown animate__animated">
             <center>
                 <br><br>
                 <div>

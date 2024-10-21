@@ -1,12 +1,20 @@
+
 <?php
+if ( isset( $_GET[ 'id' ] ) ) {
+    $id = $_GET[ 'id' ];
+} 
 require_once('./php/configer.php');
-
-// MySQL-এ কানেকশন তৈরি করা
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-// কানেকশন চেক করা
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
-echo "Connected successfully";
+$sql = "SELECT * FROM photos WHERE userid = $id";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $photos[] = $row; 
+    }  
+}
+
 ?>
+<?php echo json_encode($photos)?>

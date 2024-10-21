@@ -345,6 +345,15 @@ input {
 .vr{
   color: red;
 }
+.rr{
+  font-size: 16pt;
+  color: #ffffff;
+  background-color: #ff0000;
+  padding: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 5px;
+}
 .melo{
   width: 340px;
   background-color: #fff;
@@ -356,7 +365,7 @@ input {
   padding: 8px;
   margin-bottom: 20px;
 }
-false{
+.false{
    border-radius: 100px;
   height: 2px;
   width: 2px;
