@@ -1,0 +1,21 @@
+[
+    {
+        "hadersLink":[
+            "link1","link2","link3"
+        ],
+        "main":{
+            "link1":{
+            "title":"hello im link 1",
+            "htmlcode":"<p>this is link one</p>"
+            },
+            "link2":{
+            "title":"hello im link 2",
+            "htmlcode":"<p>this is link tow</p>"
+            },
+            "link3":{
+            "title":"hello im link 3",
+            "htmlcode":"<p>this is link three</p>"
+            }
+        }
+    }
+]

@@ -27,12 +27,31 @@ function nonebtn() {
 function showpass() {
     const newpass = document.getElementById('pass');
     if (newpass.type == "password") {
-        newpass.type="text";
+        newpass.type = "text";
     } else {
-        newpass.type="password"; 
+        newpass.type = "password";
     }
 }
 
-function exetio(){
-    document.getElementById("darkside").style.display="none";
-  }
+function exetio() {
+    document.getElementById("darkside").style.display = "none";
+}
+function helllo() {
+    document.getElementById("one").style.display = "none";
+    document.getElementById("tow").style.display = "block";
+}
+function hello() {
+    var form = document.getElementById("tow");
+    document.getElementById("one").style.display = "none";
+    form.style.display = "none";
+    document.getElementById("three").style.display = "block";
+    const myid = sessionStorage.getItem("restuserid");
+    form.action = `/login/setpass.php?id=${myid}`;
+    form.submit()
+}
+function three(){
+    window.location.href="/";
+}
+function fore(){
+document.getElementById("darkside").style.display="block";
+}

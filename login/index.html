@@ -14,20 +14,31 @@
     <title>Login</title>
 </head>
 <body>
-    <section id="darkside" class="darkside">
+    <section id="darkside" class="darkside vcc">
        
         <div class="popup">
             <a onclick="exetio()" class="rr"><i class="fa-solid fa-xmark"></i></a>
             <blockquote>
                 <h3>Forget Password</h3>
                 <hr>
-                <form action="" method="post">
+                
+                <form id="one" onsubmit="helllo()" action="/login/rest.php" method="post">
                     <label for="email">Email:</label>
-                    <input type="email" class="input" placeholder="Input The Email" name="email"><br>
+                    <input type="email" class="input" placeholder="Input The Email" name="email" required><br>
                     <label for="email">Phone:</label>
-                    <input type="text" class="input" placeholder="Input The phone" name="phone"><br><br>
+                    <input type="text" class="input" placeholder="Input The phone" name="phone" required><br><br>
                <button class="systembtn">Rest Password</button>
                 </form>
+                <!-- password set  -->
+                <form class="" id="tow" onsubmit="hello()"  method="post">
+                    <label for="email">New Password:</label>
+                    <input id="newpass" type="password" class="input" placeholder="Input The Email"  required><br>
+                    <label for="password">Conform Password:</label>
+                    <input oninput="singupmod()" id="conpass" type="password" class="input" placeholder="Input The phone" name="password" required><br><br>
+               <button id="singbtn" class="systembtn">Set Password</button>
+               <span id="passck"></span>
+                </form>
+                <button onclick="three()" class="systembtn v vcc" id="three">Login again</button>
             </blockquote>
         </div>
     </section>
@@ -51,7 +62,7 @@
                     <input onclick="showpass()" class="ck" type="checkbox" id="chck">Show Password<br><br>
                     <button type="submit">Login</button>
                 </form>
-                <br><a href="#">Forget Password</a> & <a href="/singup">Singup</a>
+                <br><a onclick="fore()" href="#">Forget Password</a> & <a href="/singup">Singup</a>
             </blockquote>
         </div>
     </section>

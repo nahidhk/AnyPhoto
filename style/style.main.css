@@ -402,6 +402,17 @@ input {
   position: fixed;
   top: 0;
   z-index: 301;
+  animation: popup 0.4s;
+}
+@keyframes popup {
+  0%{
+    height: 0px;
+    width: 0px;
+  }
+  100%{
+    height: 100vh;
+    width: 100%;
+  }
 }
 .popup{
   position: absolute;
