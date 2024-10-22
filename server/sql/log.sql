@@ -37,3 +37,10 @@ CREATE TABLE photos (
     userimg VARCHAR(200) NOT NULL,
     uploaded TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+-- saved the Delete photo
+CREATE TABLE delete (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    userid VARCHAR(10) NOT NULL,
+   uploaded TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
+);

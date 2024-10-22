@@ -23,7 +23,7 @@ if ($result->num_rows > 0) {
 <head>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css'>
     <link rel='stylesheet' href='/style/style.main.css'>
-    <link rel='shortcut icon' href="//databases/photos//<?php echo $userimg?>" type='image/x-icon'>
+    <link rel='shortcut icon' href="/databases/photos/<?php echo $row['photo']?>" type='image/x-icon'>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Photos - Anyface</title>
@@ -55,29 +55,28 @@ if ($result->num_rows > 0) {
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        function showtopuserthevideo(){
-  var data = localStorage.getItem("user");
-var userData = JSON.parse(data);
-const myimg = document.getElementById("userimgtop");
-const myname = document.getElementById("showthemyname");
-myname.innerHTML=userData.username;
-myimg.src=`/databases/photos/${userData.photo}`;
-
-}
-showtopuserthevideo();
         function back(){
         window.history.back();
         }
+
         const photos = <?php echo json_encode($photos); ?>;
-
         function displayData() {
+            var data = localStorage.getItem("user");
+            var userData = JSON.parse(data);
+            const myimg = document.getElementById("userimgtop");
+            const myname = document.getElementById("showthemyname");
+            myname.innerHTML=userData.username;
+            myimg.src=`/databases/photos/${userData.photo}`;
+            if (userData.id == "<?php echo $id ?>") {
+                var dis = "flex";
+            } else { 
+                var dis = "none"; 
+             }
             const dataContainer = document.getElementById("app");
-
             if (!dataContainer) {
                 console.error("Element with id 'app' not found.");
                 return;
             }
-
             dataContainer.innerHTML = "";
             photos.forEach((item) => {
                 const itemElement = document.createElement("div");
@@ -95,11 +94,11 @@ showtopuserthevideo();
                         </blockquote>
                         
                         <img  src="/databases/photos/${item.photo}" alt="${item.username}" class="imgdata">
-         <div class="aptmain"> 
+         <div style="display: ${dis};" class="aptmain"> 
             <a class="a" href="/upload/photo/"><i class="fa-solid fa-pen"></i></a>
             <a class="rr"onclick="myfun()" href="/account/photos/drop/?id=${item.id}" ><i class="fa-solid fa-trash-can"></i></a>
           </div>
-                        </div>                  
+                      
                     </div>
                 `;
 
@@ -108,8 +107,6 @@ showtopuserthevideo();
         }
 
         displayData();
-
-
 function myfun() {   
 document.getElementById("model").innerHTML=`<p class="animate__animated animate__bounceIn" style='background-color: green;color: #fff;padding: 13px;width: 300px;position: fixed; top: 10px;box-shadow: 0 0 20px 0 green; font-size: 15pt; border-radius: 5px;right: 20px;z-index:300;'>Deleted Successfully!</p>`;
     setTimeout(stim, 1000); 

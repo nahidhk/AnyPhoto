@@ -33,3 +33,6 @@ function showpass() {
     }
 }
 
+function exetio(){
+    document.getElementById("darkside").style.display="none";
+  }

@@ -5,7 +5,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$id = $_GET['id']; // URL থেকে id নেওয়া হচ্ছে
+$id = $_GET['id']; 
 echo "connected and url id = $id<br>";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
@@ -13,18 +13,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
     $uploadDir = 'photos/';
     $uploadFile = $uploadDir . basename($_FILES["photo"]["name"]);
     $savesql = basename($_FILES["photo"]["name"]);
-    
-    // ফাইলের এক্সটেনশন চেক করা
     $imageFileType = strtolower(pathinfo($uploadFile, PATHINFO_EXTENSION));
     $allowedExtensions = array("jpg", "jpeg", "png", "gif");
 
     if (in_array($imageFileType, $allowedExtensions)) {
-        // ফোল্ডারের রাইটিং পারমিশন চেক করার জন্য
         if (is_writable($uploadDir)) {
             if (move_uploaded_file($_FILES["photo"]["tmp_name"], $uploadFile)) {
                 echo "File upload successful<br>";
                 
-                // সঠিক SQL কুয়েরি
                 $sql = "UPDATE users SET photo='$savesql' WHERE id=$id";
                 
                 if ($conn->query($sql) === TRUE) {

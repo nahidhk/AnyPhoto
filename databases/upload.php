@@ -1,7 +1,8 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
     $uploadDir = "photos/";
-    $uploadFile = $uploadDir . basename($_FILES["photo"]["name"]);
+    $uniqueName = uniqid() . '.' . strtolower(pathinfo($_FILES["photo"]["name"], PATHINFO_EXTENSION));
+    $uploadFile = $uploadDir . $uniqueName;
     $title = $_POST["title"];
     $date = $_POST["date"];
     $device = $_POST["dvc"];
@@ -13,7 +14,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
     $imageFileType = strtolower(pathinfo($uploadFile, PATHINFO_EXTENSION));
     $allowedExtensions = array("jpg", "jpeg", "png", "gif");
 
-   
     if (in_array($imageFileType, $allowedExtensions)) {
 
         if ($_FILES["photo"]["size"] > $maxFileSize) {
@@ -21,15 +21,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
             exit;
         }
 
- 
         if ($_FILES['photo']['error'] !== UPLOAD_ERR_OK) {
             echo "<h1>Error code: " . $_FILES['photo']['error'] . "</h1><br><h1>Server problem <a href='mailto:nahidhk2007@gmail.com'>feedback</a> Nahid HK.</h1>";
             exit;
         }
 
-      
         if (move_uploaded_file($_FILES["photo"]["tmp_name"], $uploadFile)) {
-      
             require_once('../php/configer.php');
             $conn = new mysqli($servername, $username, $password, $dbname);
         
@@ -44,16 +41,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
             }
          
             $stmt = $conn->prepare("INSERT INTO photos (title, username, userimg, mydate, photo, device, ip, location , userid , verifay) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ? , ?)");
-            $stmt->bind_param("ssssssssss", $title, $row['username'], $row['photo'], $date, basename($_FILES["photo"]["name"]), $device,  $ip, $location , $row['id'] , $row['verifay']);
+            $stmt->bind_param("ssssssssss", $title, $row['username'], $row['photo'], $date, $uniqueName, $device,  $ip, $location , $row['id'] , $row['verifay']);
             
-           
             if ($stmt->execute()) {
                 echo "<script>window.location.href='/';</script>";
             } else {
                 echo "<h1>Error uploading photo to database. <a href='mailto:nahidhk2007@gmail.com'>feedback</a> Nahid HK.</h1>";
             }
-            
-           
+
             $stmt->close();
             $conn->close();
         } else {
@@ -65,4 +60,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
 } else {
     echo "<h1>No photo uploaded.</h1>";
 }
+
 ?>

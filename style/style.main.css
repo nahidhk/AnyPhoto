@@ -110,7 +110,7 @@ input[type="checkbox"]{
   transition: all 0.3s;
 }
 
- .input:focus {
+.input:focus {
   box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
 }
 .penin{
@@ -353,6 +353,7 @@ input {
   padding-left: 20px;
   padding-right: 20px;
   border-radius: 5px;
+  border: none;
 }
 .melo{
   width: 340px;
@@ -393,6 +394,23 @@ input {
   padding-left: 20px;
   padding-right: 20px;
   border-radius: 5px;
+}
+.darkside{
+  background-color: #00000092;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 301;
+}
+.popup{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
 }
 @media (max-width: 768px) {
   .search {
