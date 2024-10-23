@@ -1,33 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <link rel="stylesheet" href="/style/style.main.css">
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Show All JSON Data</title>
+    <title>Documents - AnyFace</title>
 </head>
-
 <body>
-
-    <ul id="headerLinks"></ul>
-    <div id="mainContent"></div> 
-
-    <script>
-        fetch('api.php')
-            .then(response => response.json())
-            .then(data => {
-                const headerLinksContainer = document.getElementById('headerLinks');
-                const mainContentContainer = document.getElementById('mainContent');
-                data[0].hadersLink.forEach(link => {
-                    const listItem = document.createElement('li');
-                    listItem.textContent = link;
-                    headerLinksContainer.appendChild(listItem);
-                    const content = data[0].main[link];
-                    mainContentContainer.innerHTML += `<h2>${content.title}</h2>${content.htmlcode}`;
-                });
-            });
-    </script>
-
+    <div class="nav animate__slideInDown animate__animated">
+        <span class="navtext">Documents - Anyface</span>
+        <button onclick="gobackio()" title="Go Back" class="navbtn mybtn center"><i class="fa-solid fa-house"></i></button>     
+    </div>
+    <script src="/docs/docs.js"></script> 
 </body>
-
 </html>

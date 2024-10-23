@@ -1,13 +1,21 @@
 let userData = [];
-fetch("modelapi.php")
+fetch("/singup/modelapi.php")
   .then((response) => response.json())
   .then((data) => {
     userData = data;
+    document.getElementById("email").disabled = false;
+    document.getElementById("phone").disabled = false;
+    document.getElementById("username").disabled = false;
   })
   .catch((error) => {
     console.error("Error fetching data:", error);
   });
+
 function emailck() {
+  if (userData.length === 0) {
+    console.log("Data not yet loaded");
+    return;
+  }
   const myemail = document.getElementById("email").value;
   const userExists = userData.some((user) => user.email === myemail);
 
@@ -23,7 +31,12 @@ function emailck() {
     blockbtn();
   }
 }
+
 function phoneck() {
+  if (userData.length === 0) {
+    console.log("Data not yet loaded");
+    return;
+  }
   const myphone = document.getElementById("phone").value;
   const userExists = userData.some((user) => user.phone === myphone);
 
@@ -39,7 +52,12 @@ function phoneck() {
     blockbtn();
   }
 }
+
 function usernameck() {
+  if (userData.length === 0) {
+    console.log("Data not yet loaded");
+    return;
+  }
   const myusername = document.getElementById("username").value;
   const userExists = userData.some((user) => user.username === myusername);
 
@@ -63,4 +81,3 @@ function blockbtn() {
 function nonebtn() {
   document.getElementById("singbtn").style.display = "none";
 }
-console.log("api test ok");

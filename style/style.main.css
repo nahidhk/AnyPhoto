@@ -209,7 +209,7 @@ input {
 .userlist {
   background-color: #ffffff;
   overflow: scroll;
-  height: 400px;
+  height: 600px;
 }
 .searchbox {
   margin: 20px;
