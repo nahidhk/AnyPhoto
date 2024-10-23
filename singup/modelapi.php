@@ -1,11 +1,11 @@
 <?php
 header('Content-Type: application/json');
-require_once('../../../php/configer.php');
+require_once('../php/configer.php');
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die(json_encode(['error' => 'Connection failed: ' . $conn->connect_error]));
 }
-$sql = "SELECT * FROM `photos`"; 
+$sql = "SELECT * FROM `users`"; 
 $result = $conn->query($sql);
 
 $data = [];

@@ -22,15 +22,15 @@
                 </h2>
                 <blockquote>
                     <label for="email">Email</label>
-                    <input class="input" name="email" type="email" id="email" required placeholder="youremail@exampule.com">
+                    <input oninput="emailck()" class="input" name="email" type="email" id="email" required placeholder="youremail@exampule.com">
                     <span id="email-check"></span><br>
 
                     <label for="phone">Phone</label>
-                    <input class="input" type="number" name="phone" id="phone" required placeholder="+880 18000000">
+                    <input oninput="phoneck()" class="input" type="number" name="phone" id="phone" required placeholder="+880 18000000">
                     <span id="phone-check"></span><br>
 
                     <label for="username">Username</label>
-                    <input class="input" type="text" name="username" id="username" required placeholder="input username">
+                    <input oninput="usernameck()" class="input" type="text" name="username" id="username" required placeholder="input username">
                     <span id="username-check"></span><br>
 
                     <label for="bath">Date of Birth</label>
@@ -48,6 +48,8 @@
         </div>
     </section>
     <script src="/javascript/login.js"></script>
+    <script src="/javascript//components/api.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
 </body>
 
