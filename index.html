@@ -65,22 +65,14 @@
         </button>
       </div>
     </div>
+    <!-- menu system mobile -->
     <div id="myappjstoopenuserlist" class="vcc">
         <button onclick="colesthemenulist()" class="closebtn">
           <i class="bi bi-arrow-left"></i>
         </button>
         <blockquote>
           <h3>Setting</h3><hr>
-          <!-- Account Btn -->
-          <button onclick="accountprofile()" class="systembtn accbtn">
-            <i class="bi bi-person-circle"></i>
-            Account
-          </button>
-          <!-- verify Account -->
-          <button onclick="verifay()" class="systembtn accbtn">
-            <i class="bi bi-patch-check"></i>
-            Verify Account
-          </button>
+          <div id="menushow1"></div>
         </blockquote>
       <div class="skty">
       <blockquote>
@@ -103,23 +95,15 @@
         placeholder="Search by Your Name"
       />
     </center>
-    <section class="maincontect">
+    
       <div class="sidemain left">
         <blockquote>
           <h2>Setting</h2>
           <hr />
-          <!-- Account Btn -->
-          <button onclick="accountprofile()" class="systembtn accbtn">
-            <i class="bi bi-person-circle"></i>
-            Account
-          </button>
-          <!-- verify Account -->
-          <button onclick="verifay()" class="systembtn accbtn">
-            <i class="bi bi-patch-check"></i>
-            Verify Account
-          </button>
+            <div id="menushow2"></div>
         </blockquote>
       </div>
+      <section class="maincontect">
       <div class="main">
         <!-- the load js -->
          <div class="photo">
@@ -137,7 +121,8 @@
         <div id="app"></div>
         <div id="videoapp"></div>
       </div>
-      <div class="sidemain right">
+    </section>
+      <div class="sidemain bright">
         <div class="searchbox">
           <h2>Search By Profile name</h2>
           <input
@@ -161,7 +146,7 @@
           </div>
         </blockquote>
       </div>
-    </section>
+   
     <script src="javascript/login.js"></script>
     <script src="javascript/script.js"></script>
     <script src="javascript/video.js"></script>

@@ -275,3 +275,26 @@ myimg.src=`/databases/photos/${userData.photo}`;
 }
 showtopuserthevideo();
 
+
+
+
+function runthemenu(){
+  const code = `
+          <button onclick="accountprofile()" class="systembtn accbtn">
+            <i class="bi bi-person-circle"></i> &nbsp; 
+             Account
+          </button>
+          <!-- Documents Btn -->
+          <button onclick="documentopen()" class="systembtn accbtn">
+            <i class="fa-solid fa-circle-question"></i>
+              &nbsp; Documents 
+          </button>  
+  `
+ document.getElementById("menushow1").innerHTML=code;
+ document.getElementById("menushow2").innerHTML=code;
+ 
+}
+runthemenu();
+function documentopen(){
+  window.location.href="/docs/"
+}

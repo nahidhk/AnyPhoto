@@ -190,6 +190,11 @@ input {
 }
 .right {
   right: 0;
+ 
+}
+.bright {
+  right: 0;
+  top: 100px;
 }
 .center{
   right: 60px;

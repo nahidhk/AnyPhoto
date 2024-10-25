@@ -52,3 +52,16 @@ $username = "sql10740079";
 $password = "ck5NEBGAUC";            
 $dbname = "sql10740079"; 
 ?>
+
+
+-- save the oracel app 
+ <!-- Account Btn -->
+          <button onclick="accountprofile()" class="systembtn accbtn">
+            <i class="bi bi-person-circle"></i> &nbsp; 
+             Account
+          </button>
+          <!-- Documents Btn -->
+          <button onclick="" class="systembtn accbtn">
+            <i class="fa-solid fa-file-invoice"></i>
+              &nbsp; Documents 
+          </button>
