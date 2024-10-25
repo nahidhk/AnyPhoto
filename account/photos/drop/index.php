@@ -21,7 +21,7 @@ if ($result->num_rows > 0) {
     } else {
         echo "Error inserting into delete_photo.";
     }
-    $sql = "DELETE FROM photos WHERE id = $id";
+    $sql = "DELETE FROM photos WHERE id = $id;";
     if ($conn->query($sql) === TRUE) {
         echo "<script> window.history.back();</script>";
     } else {

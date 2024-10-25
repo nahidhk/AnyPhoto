@@ -5,10 +5,7 @@
 html {
   scroll-behavior: smooth;
 }
-.vip{
-  background-image: url(/data/sso-f17v2-bgimg.jpg);
-  background-position: fixed;
-}
+
 body {
   margin: 0;
   background-color: rgb(237, 237, 237);

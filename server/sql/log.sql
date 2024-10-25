@@ -1,5 +1,6 @@
 -- atom the set all file  
- require_once('./php/configer.php');
+ require_once('../php/configer.php');
+$conn = new mysqli($servername, $username, $password, $dbname);
 --  save the data local point 
 htmlspecialchars($row['email'])
 -- create a tabel user 

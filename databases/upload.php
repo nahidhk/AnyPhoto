@@ -1,21 +1,21 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
     $uploadDir = "photos/";
-    $uniqueName = uniqid() . '.' . strtolower(pathinfo($_FILES["photo"]["name"], PATHINFO_EXTENSION));
+    $photoid = uniqid();
+    $uniqueName = $photoid . '.' . strtolower(pathinfo($_FILES["photo"]["name"], PATHINFO_EXTENSION));
     $uploadFile = $uploadDir . $uniqueName;
     $title = $_POST["title"];
     $date = $_POST["date"];
     $device = $_POST["dvc"];
     $ip = $_POST["ip"];
     $location = $_POST["location"];
-    $userid = $_POST["userid"];
+    $userid = intval($_POST["userid"]);  // Make sure userid is an integer
 
     $maxFileSize = 50 * 1024 * 1024;  
     $imageFileType = strtolower(pathinfo($uploadFile, PATHINFO_EXTENSION));
     $allowedExtensions = array("jpg", "jpeg", "png", "gif");
 
     if (in_array($imageFileType, $allowedExtensions)) {
-
         if ($_FILES["photo"]["size"] > $maxFileSize) {
             echo "<h1>Photo size exceeds the limit of 50 MB. <a href='mailto:nahidhk2007@gmail.com'>feedback</a> Nahid HK.</h1>";
             exit;
@@ -33,6 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
             }
+            
             $sql = "SELECT * FROM users WHERE id = $userid";
             $result = $conn->query($sql);
             
@@ -40,11 +41,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
                 $row = $result->fetch_assoc(); 
             }
          
-            $stmt = $conn->prepare("INSERT INTO photos (title, username, userimg, mydate, photo, device, ip, location , userid , verifay) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ? , ?)");
-            $stmt->bind_param("ssssssssss", $title, $row['username'], $row['photo'], $date, $uniqueName, $device,  $ip, $location , $row['id'] , $row['verifay']);
+            $stmt = $conn->prepare("INSERT INTO photos (title, username, userimg, mydate, photo, device, ip, location, userid, verifay, photoid) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("sssssssssss", $title, $row['username'], $row['photo'], $date, $uniqueName, $device, $ip, $location, $row['id'], $row['verifay'], $photoid);
             
             if ($stmt->execute()) {
-                echo "<script>window.location.href='/';</script>";
+                // Create a new table for comments and likes specific to this photo
+                $createTableSql = "CREATE TABLE $photoid  (
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    userid INT NOT NULL,
+                    comment TEXT NOT NULL,
+                    `like` VARCHAR(20) NOT NULL,
+                    post TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                )";
+                
+                if ($conn->query($createTableSql) === TRUE) {
+                    echo "<script>window.location.href='/';</script>";
+                    echo $photoid;
+                } else {
+                    echo "<h1>Error creating comment table for photo.</h1>";
+                }
             } else {
                 echo "<h1>Error uploading photo to database. <a href='mailto:nahidhk2007@gmail.com'>feedback</a> Nahid HK.</h1>";
             }
@@ -60,5 +75,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
 } else {
     echo "<h1>No photo uploaded.</h1>";
 }
-
 ?>

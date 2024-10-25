@@ -35,7 +35,7 @@ async function displayData(searchInput = "") {
 
       const itemElement = document.createElement("div");
       itemElement.innerHTML = `
-                <div class="photo" id="${item.userimg}">
+                <div class="photo" id="${item.username}">
                     <div onclick="window.location.href='/account?id=${item.userid}'" class="user">
                         <img src="/databases/photos/${item.userimg}" alt="${item.username}" class="userimg">
                         <p class="username">&nbsp;&nbsp;&nbsp;<b><span>${item.username}</span></b>  ${item.verifay}</p>
@@ -51,8 +51,9 @@ async function displayData(searchInput = "") {
                     <img src="/img/load.gif" class="loadimg"  />
                     <div class="sherarsystem">              
                         <div class="aptmain">
-                            <a onclick="opencopycodebox()" class="shearicon"><i class="fa-regular fa-heart"></i></a>
-                            <a href="//databases/photos/${item.photo}?photo shear apx nodeJs backend photo only apx javascript markup php Zoom#api jsxpio xapi=Servaer AppOn The FaceApp = Shear:${item.username};" class="shearicon"><i class="bi bi-link-45deg"></i></a>
+                            <a href="/comment/?id=${item.id}&userid=${item.userid}" class="shearicon"><i class="fa-regular fa-heart"></i></a>
+                            <a href="/comment/?id=${item.id}&userid=${item.userid}" class="shearicon"><i class="fa-solid fa-comments"></i></a>
+                            <a href="/databases/photos/${item.photo}?photo shear apx nodeJs backend photo only apx javascript markup php Zoom#api jsxpio xapi=Servaer AppOn The FaceApp = Shear:${item.username};" class="shearicon"><i class="fa-regular fa-share-from-square"></i></a>
                         </div>
                         </div>
                 </div>

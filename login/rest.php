@@ -2,7 +2,6 @@
 require_once('../php/configer.php');
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// সংযোগ চেক করা হচ্ছে
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
