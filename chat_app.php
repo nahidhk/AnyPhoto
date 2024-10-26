@@ -60,7 +60,7 @@ $messages = $conn->query("SELECT * FROM messages ORDER BY created_at DESC LIMIT 
     </form>
     
     <script>
-        const chatForm = document.getElementById("chatForm");
+        
         const chatBox = document.getElementById("chatBox");
 
         // Automatically fetch new messages

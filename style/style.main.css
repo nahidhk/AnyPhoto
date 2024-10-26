@@ -5,7 +5,6 @@
 html {
   scroll-behavior: smooth;
 }
-
 body {
   margin: 0;
   background-color: rgb(237, 237, 237);
@@ -15,7 +14,6 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  
 }
 /* ===== Scrollbar CSS ===== */
 * {
@@ -423,6 +421,19 @@ input {
   z-index: 301;
   animation: popup 0.4s;
 }
+.messege{
+  height: auto;
+  width: 100%;
+  border-radius: 7px;
+}
+.chatuser{
+  margin: 8px;
+  background-color: #e9e6e6;
+  width: 70%;
+  float: right;
+  border-radius: 8px;
+}
+
 @keyframes popup {
   0%{
     height: 0px;
@@ -442,7 +453,72 @@ input {
   padding: 10px;
   border-radius: 10px;
 }
+.sendbox{
+  height: 70px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+}
+.sendfile{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: rgba(255, 0, 0, 0.316);
+  backdrop-filter: blur(10px);
+  width: 38%;
+  height: 70px;
+}
+.sendin{
+  height: 30px;
+  padding: 10px;
+  border-radius: 100px;
+  outline: none;
+  border: none;
+  background-color: #fff;
+  width: 95%;
+}
+.div1{
+  width: 10%;
+}
+.div2{
+  width: 80%;
+}
+.div3{
+  width: 10%;
+}
+.sendbtn{
+  height: 40px;
+  font-size: 26px;
+  border-radius: 100px;
+  height: 50px;
+  width: 50px;
+  border: none;
+  cursor: pointer;
+}
+.sendbtn:hover{
+  color: #353535;
+}
 @media (max-width: 768px) {
+  .sendfile{
+    width: 100%;
+  }
+  .div1{
+    width: 15%;
+  }
+  .div2{
+    width: 65%;
+  }
+  .div3{
+    width: 12%;
+  }
+  .chatuser{
+    margin: 8px;
+    background-color: #ffffff;
+    width: 100%;
+    border-radius: 8px;
+  }
   .search {
     width: 90%;
   }

@@ -1,4 +1,5 @@
 console.log("Hello Word!")
+function loadmyapp(){
 fetch('docs.json')
     .then(response => response.json())
     .then(data => {
@@ -13,6 +14,9 @@ fetch('docs.json')
         });
     })
     .catch(error => console.error("Error fetching data:", error));
+}
 function gobackio(){
     window.history.back();
 }
+
+

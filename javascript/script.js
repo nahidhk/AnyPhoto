@@ -51,8 +51,8 @@ async function displayData(searchInput = "") {
                     <img src="/img/load.gif" class="loadimg"  />
                     <div class="sherarsystem">              
                         <div class="aptmain">
-                            <a href="/comment/?id=${item.id}&userid=${item.userid}" class="shearicon"><i class="fa-regular fa-heart"></i></a>
-                            <a href="/comment/?id=${item.id}&userid=${item.userid}" class="shearicon"><i class="fa-solid fa-comments"></i></a>
+                            <a href="/comment/?id=${item.id}&userid=${item.userid}#true_data" class="shearicon"><i class="fa-regular fa-heart"></i></a>
+                            <a href="/comment/?id=${item.id}&userid=${item.userid}#true_data" class="shearicon"><i class="fa-solid fa-comments"></i></a>
                             <a href="/databases/photos/${item.photo}?photo shear apx nodeJs backend photo only apx javascript markup php Zoom#api jsxpio xapi=Servaer AppOn The FaceApp = Shear:${item.username};" class="shearicon"><i class="fa-regular fa-share-from-square"></i></a>
                         </div>
                         </div>

@@ -12,8 +12,8 @@ async function topuser() {
 
         topuser.forEach(item => {
 
-            if (!shownUsers.includes(item.username)) {
-                shownUsers.push(item.username);
+            if (!shownUsers.includes(item.id)) {
+                shownUsers.push(item.id);
                 const itemElementtopuser = document.createElement('div');
                 itemElementtopuser.innerHTML = `
                 <div onclick="window.location.href='/account?id=${item.userid}'" class="user" onclick="apicall()">
@@ -46,3 +46,6 @@ function colesthemenulist() {
 function apicall() {
     alert("Please search this name. And see all photos and videos of this profile.")
 }
+
+
+

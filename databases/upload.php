@@ -49,6 +49,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
                 $createTableSql = "CREATE TABLE $photoid  (
                     id INT AUTO_INCREMENT PRIMARY KEY,
                     userid INT NOT NULL,
+                    username VARCHAR(30),
+                    userimg VARCHAR(100),
                     comment TEXT NOT NULL,
                     `like` VARCHAR(20) NOT NULL,
                     post TIMESTAMP DEFAULT CURRENT_TIMESTAMP
