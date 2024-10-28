@@ -34,7 +34,7 @@
             echo "<center><p style='background-color: red;color: #fff;padding: 13px;width: 300px;position: fixed; top: 10px;box-shadow: 0 0 20px 0 red; font-size: 15pt; border-radius: 5px;right: 20px;'>Invalid password!</p><br><br><br><br><h1><a href='/login'>Go Back</a></h1></center>";
         }
     } else {
-        echo "<center><p style='background-color: red;color: #fff;padding: 13px;width: 300px;position: fixed; top: 10px;box-shadow: 0 0 20px 0 red; font-size: 15pt; border-radius: 5px;right: 20px;'>User Not Found!</p><br><br><br><br><h1><a href='/singup'>Sing Up</a></h1></center>";
+        echo "<script>window.location.href='/error/?code=101';</script>";
     }
 }
 $conn->close();

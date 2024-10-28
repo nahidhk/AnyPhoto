@@ -167,12 +167,12 @@ background-image: url("/img/pen.png");
   background-color: #4680ff;
   color: #fff;
   border: none;
-  font-family: monospace;
+  font-family: juthi;
 }
 .button-box {
   width: 100%;
   position: absolute;
-  padding: 10px;
+  top: 10px;
   display: flex;
   justify-content: center;
 }
@@ -249,7 +249,7 @@ input {
   position: absolute;
   border: none;
   padding: 13px;
-  /* margin: 8px; */
+  top: 7px;
   font-size: 15pt;
   cursor: pointer;
 }
@@ -500,6 +500,18 @@ input {
 .sendbtn:hover{
   color: #353535;
 }
+.lx{
+  font-size: large;
+}
+.errornow{
+  height: 100vh;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  background-color: #f4f4f694;
+}
 @media (max-width: 768px) {
   .sendfile{
     width: 100%;
@@ -515,7 +527,7 @@ input {
   }
   .chatuser{
     margin: 8px;
-    background-color: #ffffff;
+    background-color: #e9e6e6;
     width: 100%;
     border-radius: 8px;
   }
@@ -583,5 +595,6 @@ input {
     height: 65px;
     width: 100%;
     background-color: #c1c0c08c;
+    
   }
 }

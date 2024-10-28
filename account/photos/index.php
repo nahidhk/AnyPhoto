@@ -39,6 +39,8 @@ if ($result->num_rows > 0) {
         <span class="navtext">Photos - Anyface</span>
         <button onclick="back()" title="Go back" class="navbtn mybtn center"><i class="fa fa-long-arrow-left"></i></button>
     </div>
+    <section class="maincontect">
+        <div class="main">
     <div class="photo">
           <div onclick="accountprofile()" class="user">
             <img id="userimgtop" class="userimg">
@@ -51,7 +53,10 @@ if ($result->num_rows > 0) {
           </div>
         </center>
          </div>
-    <div id="app"></div>
+    
+            <div id="app"></div>
+        </div>
+    </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
@@ -95,7 +100,7 @@ if ($result->num_rows > 0) {
                         
                         <img  src="/databases/photos/${item.photo}" alt="${item.username}" class="imgdata">
          <div style="display: ${dis};" class="aptmain"> 
-            <a class="a" href="/upload/photo/"><i class="fa-solid fa-pen"></i></a>
+            <a class="a" href="/comment/?id=${item.id}&userid=<?php echo $id ?>#${item.photoid}"><i class="fa-solid fa-comments"></i></a>
             <a class="rr"onclick="myfun()" href="/account/photos/drop/?id=${item.id}" ><i class="fa-solid fa-trash-can"></i></a>
           </div>
                       

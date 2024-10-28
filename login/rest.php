@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         
-        if ($phone == $row['phone']) {
+        if ($phone == $row['phone'] && $email == $row['email']) {
             echo "<script>
             window.history.back();
             sessionStorage.setItem('restuserid', '" . $row['id'] . "');
@@ -24,10 +24,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
           
         } else {
-            echo "<center><p style='background-color: red;color: #fff;padding: 13px;width: 300px;position: fixed; top: 10px;box-shadow: 0 0 20px 0 red; font-size: 15pt; border-radius: 5px;right: 20px;'>Phone number does not match!</p><br><br><br><br><h1><a href='/login'>Go Back</a></h1></center>";
+            echo "<script>window.location.href='/error/?code=102';</script>";
         }
     } else {
-        echo "<center><p style='background-color: red;color: #fff;padding: 13px;width: 300px;position: fixed; top: 10px;box-shadow: 0 0 20px 0 red; font-size: 15pt; border-radius: 5px;right: 20px;'>User Not Found!</p><br><br><br><br><h1><a href='/signup'>Sign Up</a></h1></center>";
+        echo "<script>window.location.href='/error/?code=101';</script>";
     }
 }
 $conn->close();

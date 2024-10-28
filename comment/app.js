@@ -1,12 +1,19 @@
 
-const chatForm = document.getElementById("sendnet");
-chatForm.onsubmit = async (e) => {
-    e.preventDefault();
-    const formData = new FormData(chatForm);
-    const thisLink = window.location.href;
-    await fetch(thisLink, {
-        method: "POST",
-        body: formData
-    });
-    chatForm.reset();
-};
+console.log("Hello Word!") ;
+
+
+function exaitmyapp(){
+    window.history.back();
+}
+
+
+function callthewindow1() {
+    const target = window.location.href;
+    window.location.href = target;
+}
+function callthewindow() {
+     setTimeout(callthewindow1, 100);
+    const target = window.location.href;
+    window.location.href = target;
+}
+setTimeout(callthewindow1, 500);

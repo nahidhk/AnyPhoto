@@ -9,11 +9,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
     $device = $_POST["dvc"];
     $ip = $_POST["ip"];
     $location = $_POST["location"];
-    $userid = intval($_POST["userid"]);  // Make sure userid is an integer
+    $userid = intval($_POST["userid"]); 
 
     $maxFileSize = 50 * 1024 * 1024;  
     $imageFileType = strtolower(pathinfo($uploadFile, PATHINFO_EXTENSION));
-    $allowedExtensions = array("jpg", "jpeg", "png", "gif");
+    $allowedExtensions = array("jpg", "jpeg", "png", "gif", "bmp", "webp", "svg", "tiff","avif");
 
     if (in_array($imageFileType, $allowedExtensions)) {
         if ($_FILES["photo"]["size"] > $maxFileSize) {
@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
             
             if ($stmt->execute()) {
                 // Create a new table for comments and likes specific to this photo
-                $createTableSql = "CREATE TABLE $photoid  (
+                $createTableSql = "CREATE TABLE `$photoid` (
                     id INT AUTO_INCREMENT PRIMARY KEY,
                     userid INT NOT NULL,
                     username VARCHAR(30),
@@ -55,6 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["photo"])) {
                     `like` VARCHAR(20) NOT NULL,
                     post TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                 )";
+                
                 
                 if ($conn->query($createTableSql) === TRUE) {
                     echo "<script>window.location.href='/';</script>";

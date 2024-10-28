@@ -5,7 +5,6 @@ async function displayData(searchInput = "") {
     const response = await fetch("/server/json/photos");
     const data = await response.json();
     const dataContainer = document.getElementById("app");
-
     if (!dataContainer) {
       throw new Error("Element with id 'app' not found.");
     }
@@ -30,9 +29,11 @@ async function displayData(searchInput = "") {
     newEntries.forEach((item) => {
       showNotification(item.username);
     });
-
+    var myusrdata = localStorage.getItem("user");
+    var thsiidData = JSON.parse(myusrdata);
+  
     filteredData.forEach((item) => {
-
+      
       const itemElement = document.createElement("div");
       itemElement.innerHTML = `
                 <div class="photo" id="${item.username}">
@@ -51,8 +52,8 @@ async function displayData(searchInput = "") {
                     <img src="/img/load.gif" class="loadimg"  />
                     <div class="sherarsystem">              
                         <div class="aptmain">
-                            <a href="/comment/?id=${item.id}&userid=${item.userid}#true_data" class="shearicon"><i class="fa-regular fa-heart"></i></a>
-                            <a href="/comment/?id=${item.id}&userid=${item.userid}#true_data" class="shearicon"><i class="fa-solid fa-comments"></i></a>
+                            <a href="/comment/?id=${item.id}&userid=${thsiidData.id}#${item.photoid}" class="shearicon"><i class="fa-regular fa-heart"></i></a>
+                            <a href="/comment/?id=${item.id}&userid=${thsiidData.id}#${item.photoid}" class="shearicon"><i class="fa-solid fa-comments"></i></a>
                             <a href="/databases/photos/${item.photo}?photo shear apx nodeJs backend photo only apx javascript markup php Zoom#api jsxpio xapi=Servaer AppOn The FaceApp = Shear:${item.username};" class="shearicon"><i class="fa-regular fa-share-from-square"></i></a>
                         </div>
                         </div>
@@ -299,3 +300,4 @@ runthemenu();
 function documentopen(){
   window.location.href="/docs/"
 }
+

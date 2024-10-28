@@ -74,13 +74,8 @@ $messages = $conn->query("SELECT * FROM messages ORDER BY created_at DESC LIMIT 
             chatForm.reset();
             loadMessages();
         };
+  
 
-        async function loadMessages() {
-            const response = await fetch("chat_app.php");
-            const text = await response.text();
-            chatBox.innerHTML = new DOMParser().parseFromString(text, "text/html").querySelector("#chatBox").innerHTML;
-            chatBox.scrollTop = chatBox.scrollHeight;
-        }
     </script>
 </body>
 </html>

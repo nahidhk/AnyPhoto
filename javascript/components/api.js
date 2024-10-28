@@ -1,5 +1,5 @@
 let userData = [];
-fetch("/singup/modelapi.php")
+fetch("/signup/modelapi.php")
   .then((response) => response.json())
   .then((data) => {
     userData = data;

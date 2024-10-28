@@ -14,8 +14,8 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();  
-    $stmt = $conn->prepare("INSERT INTO delete_photo (userid, file) VALUES (?, ?)");
-    $stmt->bind_param("ss", $row['userid'], $row['photo']);
+    $stmt = $conn->prepare("INSERT INTO delete_photo (userid, file , photoid) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $row['userid'], $row['photo'], $row['photoid']);
     if ($stmt->execute()) {
         echo "ok";
     } else {
