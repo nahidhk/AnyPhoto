@@ -319,6 +319,9 @@ input {
 #photofa {
   display: none;
 }
+#videofa {
+  display: none;
+}
 .upicon {
   font-size: 60px;
 }

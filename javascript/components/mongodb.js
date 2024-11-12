@@ -73,3 +73,5 @@ window.addEventListener('beforeinstallprompt', (e) => {
         });
     });
 });
+
+

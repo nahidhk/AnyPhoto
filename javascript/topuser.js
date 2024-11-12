@@ -11,9 +11,10 @@ async function topuser() {
         let shownUsers = [];
 
         topuser.forEach(item => {
+            // Check if this user ID is already shown
+            if (!shownUsers.includes(item.userid)) {
+                shownUsers.push(item.userid);  // Add the user ID to shownUsers
 
-            if (!shownUsers.includes(item.id)) {
-                shownUsers.push(item.id);
                 const itemElementtopuser = document.createElement('div');
                 itemElementtopuser.innerHTML = `
                 <div onclick="window.location.href='/account?id=${item.userid}'" class="user" onclick="apicall()">
@@ -30,10 +31,10 @@ async function topuser() {
     } catch (error) {
         console.error('data error', error);
     }
-
 }
 
 topuser();
+
 function userlistopensystemtop() {
     var menuappshowdiv = document.getElementById("myappjstoopenuserlist");
     menuappshowdiv.classList = "mbtopuser animate__jackInTheBox animate__animated";

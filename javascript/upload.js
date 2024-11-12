@@ -34,6 +34,23 @@ function showimgfx() {
     alert("Please select an image.");
   }
 }
+function showvideofx() {
+  var input = document.getElementById("videofa");
+  var file = input.files[0];
+  if (file) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      document.getElementById("filesetok").style.display = "none";
+      document.getElementById("myimge").src = e.target.result;
+      document.getElementById("uploadbtn").classList =
+        " animate__bounceInDown animate__animated btn systembtn";
+    };
+    reader.readAsDataURL(file);
+  } else {
+    alert("Please select an image.");
+  }
+}
+
 
 function datenewappconvartapp() {
   const dateshowapps = document.getElementById("dateshowboxUp");

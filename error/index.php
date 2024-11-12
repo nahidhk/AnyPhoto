@@ -87,6 +87,9 @@ button:active {
     <center>
         <img style="height: 200px" src="/data/error_img/<?php echo htmlspecialchars($user['img']); ?>" alt="">
         <br>
+        <h1 style="color:<?php echo $randomColor ?>">
+        <?php echo htmlspecialchars($user['code']); ?>
+        </h1>
         <h2 style="color:<?php echo $randomColor ?>">
         <?php echo htmlspecialchars($user['message']); ?>
         </h2>

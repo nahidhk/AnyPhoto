@@ -14,7 +14,7 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();  
-    $stmt = $conn->prepare("INSERT INTO delete_photo (userid, file , photoid) VALUES (?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO `delete` (userid, file , photoid) VALUES (?, ?, ?)");
     $stmt->bind_param("sss", $row['userid'], $row['photo'], $row['photoid']);
     if ($stmt->execute()) {
         echo "ok";
@@ -29,7 +29,7 @@ if ($result->num_rows > 0) {
     }
     $stmt->close();
 } else {
-    echo "No photo found with the provided ID.";
+    echo "<script>window.location.href='/error/?code=105';</script>";
 }
 $conn->close();
 ?>
